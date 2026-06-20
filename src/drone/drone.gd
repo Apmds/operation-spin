@@ -5,13 +5,11 @@ class_name Drone extends CharacterBody3D
 
 var wind_force = 1.01
 
-var tilt_basis: Basis
-
-var body_direction: Vector3 = Vector3.UP:
+var body_direction: Basis:
 	get: return body_direction
 	set(value):
 		body_direction = value
-		mesh.rotation = body_direction
+		mesh.rotation = body_direction.get_euler()
 
 var max_tilt: float = deg_to_rad(15)
 
@@ -29,19 +27,12 @@ func _input(event: InputEvent) -> void:
 		reverse_fans()
 
 func _physics_process(delta: float) -> void:
-	
-	#print("v1")
-	#print(velocity)
-	
 	# Add wind force
 	if fans_on:
-		var wind_vector = tilt_basis.y
+		var wind_vector = body_direction.y
 		wind_vector = Vector3(wind_vector.x, 0, wind_vector.z)
 		
 		velocity += wind_vector * 5 * delta
-	
-	#print("v2")
-	#print(velocity)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,6 +41,8 @@ func _physics_process(delta: float) -> void:
 	
 	var pitch = input_dir.y * max_tilt
 	var roll = -input_dir.x * max_tilt
+	
+	var tilt_basis: Basis
 	
 	if (camera):
 		direction = direction.rotated(Vector3.UP, camera.get_camera_object().global_rotation.y)
@@ -61,6 +54,6 @@ func _physics_process(delta: float) -> void:
 	
 	tilt_basis = tilt_basis.rotated(tilt_basis.x, pitch)
 	tilt_basis = tilt_basis.rotated(tilt_basis.z, roll)
-	body_direction = body_direction.lerp(tilt_basis.get_euler(), delta * 5)
+	body_direction = body_direction.slerp(tilt_basis, delta * 5)
 	
 	move_and_slide()
