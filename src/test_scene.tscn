@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hrvlsw7wb3cj" path="res://src/drone/drone.tscn" id="1_sovdr"]
 [ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="2_dmphg"]
+[ext_resource type="PackedScene" uid="uid://cnxcttn0hupmn" path="res://src/drone/camera.tscn" id="3_l1obu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -32,7 +33,8 @@ ambient_light_sky_contribution = 0.55
 
 [node name="Node3D" type="Node3D" unique_id=1421437059]
 
-[node name="Drone" parent="." unique_id=652134360 instance=ExtResource("1_sovdr")]
+[node name="Drone" parent="." unique_id=652134360 node_paths=PackedStringArray("camera") instance=ExtResource("1_sovdr")]
+camera = NodePath("../Camera")
 
 [node name="Wall" type="StaticBody3D" parent="." unique_id=830914622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6872424, 0.29859257, 0)
@@ -66,3 +68,6 @@ shape = SubResource("ConcavePolygonShape3D_wtt4b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1130838937]
 environment = SubResource("Environment_sovdr")
+
+[node name="Camera" parent="." unique_id=1558356959 node_paths=PackedStringArray("followed_node") instance=ExtResource("3_l1obu")]
+followed_node = NodePath("../Drone")
