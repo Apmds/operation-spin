@@ -5,7 +5,6 @@
 
 [node name="Camera" type="Node3D" unique_id=1558356959]
 script = ExtResource("1_xfuf4")
-mouse_sens = 0.005
 
 [node name="Arm" type="SpringArm3D" parent="." unique_id=1130881809]
 spring_length = 6.0

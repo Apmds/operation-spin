@@ -3,10 +3,13 @@ class_name Drone extends CharacterBody3D
 @export var camera: CameraArm
 @onready var mesh: MeshInstance3D = $Mesh
 
+var wind_force = 1.01
+
+var tilt_basis: Basis
+
 var body_direction: Vector3 = Vector3.UP:
 	get: return body_direction
 	set(value):
-		print(value)
 		body_direction = value
 		mesh.rotation = body_direction
 
@@ -14,8 +17,6 @@ var max_tilt: float = deg_to_rad(15)
 
 var wind_direction: Vector3 = Vector3.UP
 var fans_on: bool = true
-
-const SPEED = 5.0
 
 func reverse_fans():
 	wind_direction = wind_direction.rotated(Vector3.FORWARD, PI)
@@ -28,20 +29,16 @@ func _input(event: InputEvent) -> void:
 		reverse_fans()
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 	
 	#print("v1")
 	#print(velocity)
 	
 	# Add wind force
 	if fans_on:
-		var grav_strength: float = get_gravity().length()
+		var wind_vector = tilt_basis.y
+		wind_vector = Vector3(wind_vector.x, 0, wind_vector.z)
 		
-		var wind_vector = body_direction
-		
-		velocity += wind_vector * grav_strength * delta
+		velocity += wind_vector * 5 * delta
 	
 	#print("v2")
 	#print(velocity)
@@ -53,7 +50,6 @@ func _physics_process(delta: float) -> void:
 	
 	var pitch = input_dir.y * max_tilt
 	var roll = -input_dir.x * max_tilt
-	var tilt_basis: Basis
 	
 	if (camera):
 		direction = direction.rotated(Vector3.UP, camera.get_camera_object().global_rotation.y)
@@ -65,14 +61,6 @@ func _physics_process(delta: float) -> void:
 	
 	tilt_basis = tilt_basis.rotated(tilt_basis.x, pitch)
 	tilt_basis = tilt_basis.rotated(tilt_basis.z, roll)
-	body_direction = body_direction.slerp(tilt_basis.get_euler(), delta * 5)
+	body_direction = body_direction.lerp(tilt_basis.get_euler(), delta * 5)
 	
-	
-	#if direction:
-	#	velocity.x = direction.x * SPEED
-	#	velocity.z = direction.z * SPEED
-	#else:
-	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-	#	velocity.z = move_toward(velocity.z, 0, SPEED)
-
 	move_and_slide()
