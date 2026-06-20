@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hrvlsw7wb3cj"]
+
+[ext_resource type="PackedScene" uid="uid://cnxcttn0hupmn" path="res://src/drone/camera.tscn" id="1_qgvmr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgvmr"]
+albedo_color = Color(0.2784314, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7okn"]
+material = SubResource("StandardMaterial3D_qgvmr")
+size = Vector3(1, 0.15, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgvmr"]
+size = Vector3(1, 0.15, 1)
+
+[node name="Drone" type="CharacterBody3D" unique_id=652134360]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=649001359]
+mesh = SubResource("BoxMesh_a7okn")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1614492886]
+shape = SubResource("BoxShape3D_qgvmr")
+
+[node name="Camera" parent="." unique_id=1558356959 instance=ExtResource("1_qgvmr")]

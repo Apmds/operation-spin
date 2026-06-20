@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cnxcttn0hupmn"]
+
+[ext_resource type="Script" uid="uid://bwci23apcg4nj" path="res://src/drone/camera_arm.gd" id="1_xfuf4"]
+[ext_resource type="Script" uid="uid://bwlg7ehtgyxia" path="res://src/drone/camera_follow.gd" id="2_gek6f"]
+
+[node name="Camera" type="Node3D" unique_id=1558356959]
+script = ExtResource("1_xfuf4")
+mouse_sens = 0.005
+
+[node name="Arm" type="SpringArm3D" parent="." unique_id=1130881809]
+spring_length = 6.0
+
+[node name="ArmPosition" type="Node3D" parent="Arm" unique_id=1820788887]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1230868022 node_paths=PackedStringArray("followed_node")]
+fov = 37.849285
+script = ExtResource("2_gek6f")
+followed_node = NodePath("../Arm/ArmPosition")
