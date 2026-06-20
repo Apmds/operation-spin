@@ -1,32 +1,18 @@
 [gd_scene format=3 uid="uid://hrvlsw7wb3cj"]
 
 [ext_resource type="Script" uid="uid://b2jammmvtq3cc" path="res://src/drone/drone.gd" id="1_1akv4"]
+[ext_resource type="ArrayMesh" uid="uid://7crp2qknson2" path="res://assets/models/drone_Mesh.res" id="2_1akv4"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qgvmr"]
-size = Vector3(1, 0.15, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgvmr"]
-albedo_color = Color(0.2784314, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_a7okn"]
-material = SubResource("StandardMaterial3D_qgvmr")
-size = Vector3(1, 0.15, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_qgvmr"]
-top_radius = 0.0
-bottom_radius = 0.2
-height = 1.115
-radial_segments = 8
+[sub_resource type="BoxShape3D" id="BoxShape3D_1akv4"]
+size = Vector3(510.636, 57.418686, 378.4331)
 
 [node name="Drone" type="CharacterBody3D" unique_id=652134360]
 script = ExtResource("1_1akv4")
 
-[node name="Collision" type="CollisionShape3D" parent="." unique_id=1614492886]
-shape = SubResource("BoxShape3D_qgvmr")
-
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=649001359]
-mesh = SubResource("BoxMesh_a7okn")
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0)
+mesh = ExtResource("2_1akv4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=325222597]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -1)
-mesh = SubResource("CylinderMesh_qgvmr")
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1560172385]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, -0.0069797365, 0.022662004, -0.051819827)
+shape = SubResource("BoxShape3D_1akv4")
