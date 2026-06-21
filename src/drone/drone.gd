@@ -16,8 +16,9 @@ var boost_multiplier = 1.5
 var wind_force = 5
 var vertical_acceleration = 1
 var vertical_decceleration = 1
+var decceleration = 0.5
 var max_vertical_speed = 3
-var max_velocity = 5
+var max_velocity = 3
 
 var mode: FlightMode = FlightMode.NORMAL
 
@@ -29,11 +30,11 @@ var body_direction: Basis:
 
 var max_tilt: float = deg_to_rad(15)
 
-var wind_direction: Vector3 = Vector3.UP
+var fans_reversed: bool = false
 var fans_on: bool = true
 
 func reverse_fans():
-	wind_direction = wind_direction.rotated(Vector3.FORWARD, PI)
+	fans_reversed = !fans_reversed
 
 func toggle_fans() -> void:
 	fans_on = !fans_on
@@ -72,9 +73,11 @@ func _physics_process(delta: float) -> void:
 	# Add wind force
 	if fans_on:
 		var wind_vector = body_direction.y
+		
 		if wind_vector.y > 0:
 			wind_vector.y = 0
-		
+		if fans_reversed:
+			wind_vector = -wind_vector
 		var vel_add = wind_vector * wind_force * delta
 		if is_boosted:
 			vel_add *= boost_multiplier
@@ -116,4 +119,9 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > max_velocity:
 		velocity = velocity.normalized()*max_velocity;
+	
+	# Small drag
+	velocity.x = lerp(velocity.x, 0.0, decceleration*delta)
+	velocity.z = lerp(velocity.z, 0.0, decceleration*delta)
+	
 	move_and_slide()
