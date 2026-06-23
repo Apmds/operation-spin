@@ -38,6 +38,7 @@ var fans_on: bool = true
 signal boost_changed(status: bool)
 signal fans_changed(status: bool)
 signal mode_changed(mode: FlightMode)
+signal died
 
 func reverse_fans():
 	fans_reversed = !fans_reversed

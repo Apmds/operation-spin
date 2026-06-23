@@ -41,13 +41,15 @@ func _on_drone_fans_changed(status: bool) -> void:
 func _on_drone_mode_changed(new_mode: Drone.FlightMode) -> void:
 	mode = new_mode
 
+func _on_drone_died() -> void:
+	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
+
+func _on_documents_grabbed() -> void:
+	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fans_on = true
 	boost_status = false
 	noise_level = 0
 	mode = Drone.FlightMode.NORMAL
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

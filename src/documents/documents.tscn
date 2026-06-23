@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dtdnybgp37kob"]
+
+[ext_resource type="Script" uid="uid://ccso401ic564t" path="res://src/documents/documents.gd" id="1_7inq7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfava"]
+size = Vector3(0.68, 0.26, 1.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7inq7"]
+size = Vector3(1.3, 1.5, 1.3)
+
+[node name="Documents" type="Area3D" unique_id=1461950653]
+collision_layer = 16
+script = ExtResource("1_7inq7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=944132055]
+mesh = SubResource("BoxMesh_nfava")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=88776590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7inq7")
+
+[node name="Tooltip" type="Label3D" parent="." unique_id=910673599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2965001, 0)
+billboard = 1
+no_depth_test = true
+text = "Press F to grab"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

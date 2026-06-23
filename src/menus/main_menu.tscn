@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ccm2faql2r0lk"]
+
+[ext_resource type="Script" uid="uid://dqv3dlv4qk15i" path="res://src/menus/main_menu.gd" id="1_jn3jh"]
+
+[node name="MainMenu" type="Control" unique_id=1293673213]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jn3jh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=971557786]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -81.5
+offset_right = 40.5
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 109
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1228033082]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Cool game"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=491096154]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "play"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_button_pressed"]
