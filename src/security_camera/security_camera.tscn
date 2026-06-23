@@ -10,11 +10,14 @@ data = PackedVector3Array(0, 2.4824998, 0.25, 0.0245, 2.4824998, 0.2488, 0, 1.48
 script = ExtResource("1_lt0ak")
 
 [node name="CameraMesh" parent="." unique_id=1073196409 instance=ExtResource("1_8vejq")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1793873460]
+[node name="DetectionArea" type="Area3D" parent="." unique_id=1793873460]
 collision_layer = 4
 
-[node name="Collision" type="CollisionShape3D" parent="Area3D" unique_id=1430276920]
-transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, -2.49)
+[node name="Collision" type="CollisionShape3D" parent="DetectionArea" unique_id=1430276920]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, -2.755)
 shape = SubResource("ConcavePolygonShape3D_4sji2")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

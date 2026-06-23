@@ -82,7 +82,7 @@ environment = SubResource("Environment_sovdr")
 followed_node = NodePath("../Drone")
 
 [node name="Security Camera" parent="." unique_id=1689932002 instance=ExtResource("5_wtt4b")]
-transform = Transform3D(-0.98768836, 0, -0.15643437, 0, 1, 0, 0.15643437, 0, -0.98768836, 1.81, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 2.105, 0.415)
 
 [node name="UI" type="Control" parent="." unique_id=1156965521]
 layout_mode = 3
