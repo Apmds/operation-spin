@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c62g2nguq6ncm" path="res://src/levels/level.gd" id="1_8c4ux"]
 [ext_resource type="PackedScene" uid="uid://hrvlsw7wb3cj" path="res://src/drone/drone.tscn" id="1_sovdr"]
-[ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="2_dmphg"]
 [ext_resource type="PackedScene" uid="uid://cnxcttn0hupmn" path="res://src/drone/camera.tscn" id="3_l1obu"]
 [ext_resource type="PackedScene" uid="uid://dtdnybgp37kob" path="res://src/documents/documents.tscn" id="3_pdsn1"]
 [ext_resource type="PackedScene" uid="uid://b7rwq7y2g12vp" path="res://src/security_camera/security_camera.tscn" id="5_wtt4b"]
+[ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="6_pdsn1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -23,7 +23,7 @@ data = PackedVector3Array(-3, 0.085, 2.9475, 3, 0.085, 2.9475, -3, -0.085, 2.947
 data = PackedVector3Array(-0.085, 1.5825, 2.9475, 0.085, 1.5825, 2.9475, -0.085, -1.5825, 2.9475, 0.085, 1.5825, 2.9475, 0.085, -1.5825, 2.9475, -0.085, -1.5825, 2.9475, 0.085, 1.5825, -2.9475, -0.085, 1.5825, -2.9475, 0.085, -1.5825, -2.9475, -0.085, 1.5825, -2.9475, -0.085, -1.5825, -2.9475, 0.085, -1.5825, -2.9475, 0.085, 1.5825, 2.9475, 0.085, 1.5825, -2.9475, 0.085, -1.5825, 2.9475, 0.085, 1.5825, -2.9475, 0.085, -1.5825, -2.9475, 0.085, -1.5825, 2.9475, -0.085, 1.5825, -2.9475, -0.085, 1.5825, 2.9475, -0.085, -1.5825, -2.9475, -0.085, 1.5825, 2.9475, -0.085, -1.5825, 2.9475, -0.085, -1.5825, -2.9475, 0.085, 1.5825, 2.9475, -0.085, 1.5825, 2.9475, 0.085, 1.5825, -2.9475, -0.085, 1.5825, 2.9475, -0.085, 1.5825, -2.9475, 0.085, 1.5825, -2.9475, -0.085, -1.5825, 2.9475, 0.085, -1.5825, 2.9475, -0.085, -1.5825, -2.9475, 0.085, -1.5825, 2.9475, 0.085, -1.5825, -2.9475, -0.085, -1.5825, -2.9475)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_l1obu"]
-panorama = ExtResource("2_dmphg")
+panorama = ExtResource("6_pdsn1")
 
 [sub_resource type="Sky" id="Sky_8c4ux"]
 sky_material = SubResource("PanoramaSkyMaterial_l1obu")
@@ -36,6 +36,12 @@ ambient_light_sky_contribution = 0.55
 
 [node name="Node3D" type="Node3D" unique_id=1421437059]
 script = ExtResource("1_8c4ux")
+
+[node name="Camera" parent="." unique_id=1558356959 node_paths=PackedStringArray("followed_node") instance=ExtResource("3_l1obu")]
+followed_node = NodePath("../Drone")
+
+[node name="Security Camera" parent="." unique_id=1689932002 instance=ExtResource("5_wtt4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.079929546, 2.1155818, 0.41375878)
 
 [node name="Drone" parent="." unique_id=652134360 node_paths=PackedStringArray("camera") instance=ExtResource("1_sovdr")]
 camera = NodePath("../Camera")
@@ -81,12 +87,6 @@ shape = SubResource("ConcavePolygonShape3D_wtt4b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1130838937]
 environment = SubResource("Environment_sovdr")
-
-[node name="Camera" parent="." unique_id=1558356959 node_paths=PackedStringArray("followed_node") instance=ExtResource("3_l1obu")]
-followed_node = NodePath("../Drone")
-
-[node name="Security Camera" parent="." unique_id=1689932002 instance=ExtResource("5_wtt4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 2.105, 0.415)
 
 [node name="UI" type="Control" parent="." unique_id=1156965521]
 layout_mode = 3
