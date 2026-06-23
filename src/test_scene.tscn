@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://hrvlsw7wb3cj" path="res://src/drone/drone.tscn" id="1_sovdr"]
 [ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="2_dmphg"]
 [ext_resource type="PackedScene" uid="uid://cnxcttn0hupmn" path="res://src/drone/camera.tscn" id="3_l1obu"]
+[ext_resource type="PackedScene" uid="uid://dtdnybgp37kob" path="res://src/documents/documents.tscn" id="3_pdsn1"]
 [ext_resource type="PackedScene" uid="uid://b7rwq7y2g12vp" path="res://src/security_camera/security_camera.tscn" id="5_wtt4b"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
@@ -38,6 +39,9 @@ script = ExtResource("1_8c4ux")
 
 [node name="Drone" parent="." unique_id=652134360 node_paths=PackedStringArray("camera") instance=ExtResource("1_sovdr")]
 camera = NodePath("../Camera")
+
+[node name="Documents" parent="." unique_id=1461950653 instance=ExtResource("3_pdsn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9567346, 0)
 
 [node name="Wall" type="StaticBody3D" parent="." unique_id=830914622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6872424, 0.29859257, 0)
@@ -123,5 +127,7 @@ offset_bottom = 166.0
 text = "Mode"
 
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
+[connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
+[connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
