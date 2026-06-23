@@ -16,7 +16,7 @@ var boost_multiplier = 1.5
 var wind_force = 5
 var vertical_acceleration = 1
 var vertical_decceleration = 1
-var decceleration = 0.5
+var decceleration = 0.2
 var max_vertical_speed = 3
 var max_velocity = 3
 
@@ -53,7 +53,7 @@ func cycle_flight_mode() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		reverse_fans()
+		toggle_fans()
 	
 	if event.is_action_pressed("switch_modes"):
 		cycle_flight_mode()

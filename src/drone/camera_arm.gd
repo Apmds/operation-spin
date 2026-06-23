@@ -29,5 +29,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	position = followed_node.position

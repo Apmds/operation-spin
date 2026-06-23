@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hrvlsw7wb3cj"]
 
 [ext_resource type="Script" uid="uid://b2jammmvtq3cc" path="res://src/drone/drone.gd" id="1_1akv4"]
-[ext_resource type="ArrayMesh" uid="uid://7crp2qknson2" path="res://assets/models/drone_Mesh.res" id="2_1akv4"]
+[ext_resource type="ArrayMesh" uid="uid://ben5pv5bagbaf" path="res://assets/models/drone_Mesh.res" id="2_1akv4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1akv4"]
 size = Vector3(510.636, 57.418686, 378.4331)
