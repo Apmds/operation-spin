@@ -7,6 +7,7 @@ enum FlightMode {
 
 @export var camera: CameraArm
 @onready var mesh: MeshInstance3D = $Mesh
+@onready var collision: CollisionShape3D = $Collision
 
 var position_rotation_step: float = deg_to_rad(15)
 
@@ -27,6 +28,7 @@ var body_direction: Basis:
 	set(value):
 		body_direction = value
 		mesh.rotation = body_direction.get_euler()
+		collision.rotation = body_direction.get_euler()
 
 var max_tilt: float = deg_to_rad(15)
 
