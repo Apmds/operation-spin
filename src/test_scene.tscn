@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dry5wl3agl5qs"]
 
+[ext_resource type="Script" uid="uid://c62g2nguq6ncm" path="res://src/levels/level.gd" id="1_8c4ux"]
 [ext_resource type="PackedScene" uid="uid://hrvlsw7wb3cj" path="res://src/drone/drone.tscn" id="1_sovdr"]
 [ext_resource type="Texture2D" uid="uid://b12m6y85qxt2s" path="res://icon.svg" id="2_dmphg"]
 [ext_resource type="PackedScene" uid="uid://cnxcttn0hupmn" path="res://src/drone/camera.tscn" id="3_l1obu"]
@@ -32,6 +33,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.55
 
 [node name="Node3D" type="Node3D" unique_id=1421437059]
+script = ExtResource("1_8c4ux")
 
 [node name="Drone" parent="." unique_id=652134360 node_paths=PackedStringArray("camera") instance=ExtResource("1_sovdr")]
 camera = NodePath("../Camera")
@@ -102,10 +104,14 @@ offset_right = 420.0
 offset_bottom = 326.0
 text = "noise"
 
-[node name="Sound status" type="Label" parent="UI" unique_id=1315023173]
+[node name="Mode status" type="Label" parent="UI" unique_id=453791101]
 layout_mode = 0
-offset_left = 977.0
-offset_top = 72.0
-offset_right = 1025.0
-offset_bottom = 95.0
-text = "sound"
+offset_left = 32.0
+offset_top = 143.0
+offset_right = 76.0
+offset_bottom = 166.0
+text = "Mode"
+
+[connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
+[connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
+[connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]

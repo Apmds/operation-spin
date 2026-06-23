@@ -33,11 +33,16 @@ var max_tilt: float = deg_to_rad(15)
 var fans_reversed: bool = false
 var fans_on: bool = true
 
+signal boost_changed(status: bool)
+signal fans_changed(status: bool)
+signal mode_changed(mode: FlightMode)
+
 func reverse_fans():
 	fans_reversed = !fans_reversed
 
 func toggle_fans() -> void:
 	fans_on = !fans_on
+	fans_changed.emit(fans_on)
 
 func cycle_flight_mode() -> void:
 	if (mode == FlightMode.NORMAL):
@@ -50,6 +55,8 @@ func cycle_flight_mode() -> void:
 	
 	elif (mode == FlightMode.POSITION):
 		mode = FlightMode.NORMAL
+	
+	mode_changed.emit(mode)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -68,7 +75,10 @@ func _input(event: InputEvent) -> void:
 		tilt_basis = tilt_basis.rotated(tilt_basis.z, roll)
 
 func _physics_process(delta: float) -> void:
-	is_boosted = Input.is_action_pressed("boost")
+	var new_is_boosted = Input.is_action_pressed("boost")
+	if new_is_boosted != is_boosted:
+		boost_changed.emit(new_is_boosted)
+	is_boosted = new_is_boosted
 	
 	# Add wind force
 	if fans_on:
