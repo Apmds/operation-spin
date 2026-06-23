@@ -3,6 +3,7 @@ class_name SecurityCamera extends Node3D
 @onready var camera_stand_mesh: MeshInstance3D = $CameraMesh/Stand
 @onready var camera_camera_mesh: MeshInstance3D = $CameraMesh/Camera
 @onready var detection_area: Area3D = $DetectionArea
+@onready var timer: Timer = $Timer
 
 var focused_object: Node3D
 var focus_rotation_speed = 3
@@ -27,6 +28,16 @@ func _physics_process(delta: float) -> void:
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	focused_object = body
+	timer.start()
 
 func _on_detection_area_body_exited(body: Node3D) -> void:
 	resume_default()
+	timer.stop()
+
+func _on_timer_timeout() -> void:
+	if focused_object is not Drone: # Probably will never run, but just to be good
+		pass
+	
+	var drone: Drone = focused_object
+	drone.died.emit()
+	
