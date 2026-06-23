@@ -12,7 +12,7 @@ config_version=5
 
 config/name="JuniperJam"
 run/main_scene="uid://ccm2faql2r0lk"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
