@@ -2,16 +2,20 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+const NOISE_THRESHOLD: float = 50
 var noise_speed: float = 3
 var denoise_speed: float = 1
-var noise: int = 0
-var focused_object: Node3D
+var noise: float = 0
+var focused_object: Drone
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
-	focused_object = body
+	print("AAAAA")
+	if focused_object is Drone:
+		focused_object = body
 
-func _on_detection_area_body_exited(_body: Node3D) -> void:
-	focused_object = null
+func _on_detection_area_body_exited(body: Node3D) -> void:
+	if body == focused_object:
+		focused_object = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,9 +24,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if focused_object:
-		if focused_object is Drone:
-			noise = lerp(noise, focused_object.noise, noise_speed*delta)
+		noise = lerp(noise, focused_object.noise, noise_speed*delta)
 	else:
-		noise = lerp(noise, 0, denoise_speed*delta)
+		noise = lerp(noise, 0.0, denoise_speed*delta)
 	
-	
+	#print(noise)
+	if noise >= NOISE_THRESHOLD:
+		focused_object.died.emit()
+		
