@@ -3,16 +3,19 @@ class_name Level extends Node3D
 @onready var UI: Control = $UI
 @onready var ui_boost_status: Label = $"UI/Boost status"
 @onready var ui_fans_status: Label = $"UI/Fans status"
-@onready var ui_noise_status: Label = $"UI/Noise status"
+@onready var ui_noise_status: TextureProgressBar = $"UI/MarginContainer/Noise status"
 @onready var ui_mode_status: Label = $"UI/Mode status"
 
 @onready var drone: Drone = $Drone
 
-var noise_level: int = 0:
+# This is NOT good but I don't want to waste time
+const noise_levels: Array[int] = [0, 9, 16, 23, 30, 37, 44, 50, 57, 64, 70, 77, 84, 90, 100]
+
+var noise_level: float = 0:
 	get: return noise_level
 	set(value): 
 		noise_level = value
-		ui_noise_status.text = "Noise: %d" % value
+		ui_noise_status.value = noise_levels[noise_levels.bsearch(noise_level)]
 
 var boost_status: bool = false:
 	get: return boost_status

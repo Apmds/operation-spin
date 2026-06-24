@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b7rwq7y2g12vp" path="res://src/security_camera/security_camera.tscn" id="5_wtt4b"]
 [ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="6_pdsn1"]
 [ext_resource type="PackedScene" uid="uid://ckows3v5ck50b" path="res://src/noise_sensor/noise_sensor.tscn" id="7_57l5a"]
+[ext_resource type="Texture2D" uid="uid://dr0xky51fo4kr" path="res://assets/ui/audio_meter_off.png" id="7_f627u"]
+[ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="7_lwd14"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -91,9 +93,12 @@ environment = SubResource("Environment_sovdr")
 
 [node name="UI" type="Control" parent="." unique_id=1156965521]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Boost status" type="Label" parent="UI" unique_id=321479665]
 layout_mode = 0
@@ -111,14 +116,6 @@ offset_right = 263.0
 offset_bottom = 139.0
 text = "fans"
 
-[node name="Noise status" type="Label" parent="UI" unique_id=2053788104]
-layout_mode = 0
-offset_left = 378.0
-offset_top = 303.0
-offset_right = 420.0
-offset_bottom = 326.0
-text = "noise"
-
 [node name="Mode status" type="Label" parent="UI" unique_id=453791101]
 layout_mode = 0
 offset_left = 32.0
@@ -126,6 +123,28 @@ offset_top = 143.0
 offset_right = 76.0
 offset_bottom = 166.0
 text = "Mode"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=655724565]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -225.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Noise status" type="TextureProgressBar" parent="UI/MarginContainer" unique_id=293352012]
+texture_filter = 1
+layout_mode = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("7_f627u")
+texture_progress = ExtResource("7_lwd14")
 
 [node name="NoiseSensor" parent="." unique_id=252572761 instance=ExtResource("7_57l5a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2303228, 0, 0)

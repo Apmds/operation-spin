@@ -146,10 +146,11 @@ func _physics_process(delta: float) -> void:
 	velocity.z = lerp(velocity.z, 0.0, decceleration*delta)
 	
 	# Noise things
-	if is_boosted:
-		noise_goal = NOISE_BOOST
-	elif fans_on:
-		noise_goal = NOISE_NORMAL
+	if fans_on:
+		if is_boosted:
+			noise_goal = NOISE_BOOST
+		else:
+			noise_goal = NOISE_NORMAL
 	else:
 		noise_goal = NOISE_BASE
 	print("noise: %s, noise_goal: %s, next_noise: %s" % [noise, noise_goal, lerp(noise, noise_goal, noise_speed*delta)])
