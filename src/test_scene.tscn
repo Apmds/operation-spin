@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtdnybgp37kob" path="res://src/documents/documents.tscn" id="3_pdsn1"]
 [ext_resource type="PackedScene" uid="uid://b7rwq7y2g12vp" path="res://src/security_camera/security_camera.tscn" id="5_wtt4b"]
 [ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="6_pdsn1"]
+[ext_resource type="PackedScene" uid="uid://ckows3v5ck50b" path="res://src/noise_sensor/noise_sensor.tscn" id="7_57l5a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -125,6 +126,12 @@ offset_top = 143.0
 offset_right = 76.0
 offset_bottom = 166.0
 text = "Mode"
+
+[node name="NoiseSensor" parent="." unique_id=252572761 instance=ExtResource("7_57l5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2303228, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1262657275]
+transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0.57357645, 1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
 
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]

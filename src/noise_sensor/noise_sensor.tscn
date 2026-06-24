@@ -1,0 +1,103 @@
+[gd_scene format=4 uid="uid://ckows3v5ck50b"]
+
+[ext_resource type="Script" uid="uid://do2n8wet2sa5a" path="res://src/noise_sensor/noise_sensor.gd" id="1_hockr"]
+[ext_resource type="PackedScene" uid="uid://ciopvjkstrx4w" path="res://assets/models/noise_sensor.glb" id="1_owt3r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nlwiv"]
+size = Vector3(13.645, 6.005, 11.77)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owt3r"]
+resource_name = "Beeper"
+cull_mode = 2
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hockr"]
+_surfaces = [{
+"aabb": AABB(-0.11412679, -0.120000005, -0.11412679, 0.11412679, 0.24000001, 0.22825357),
+"format": 34896613377,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAcAAAAMAAEAAAANAAwAAAAOAA0ABwAOAAAADAANAA8ADQAOAAUADQAFAA8ADgAQAAUADwAFABAABAAOAAcADAAPAAMAAQAMAAMADwAQAAkAAwAPAAkAEAAOAAIAAgAOAAQACQAQAAoAEAACAAoACQAKAAYABgAKAAIAAwAJABEAEQAJAAYAAQADAAgACAADABEABwABAAgABwAIABIABAAHABIAEgAIABMAEgATAAQACAARABMAEQAGABQAEwARABQAFAAGAAIAEwAUAAsABAATAAsACwAUAAIAAgAEABUABAALABUAFQALAAIA"),
+"lods": [0.09292225, PackedByteArray("AAABAAcABwABAAgAAAADAAEAAQADAAgABwAFAAAAAwAAAAkAAAAFAAkAAwAJAAYACQAFAAoACQAKAAYAAwAGAAIABgAKAAIACAADAAIACgAFAAIABAAFAAcABwAIAAQAAgAFAAQABAAIAAsACAACAAsABAALAAIA"), 0.13938336, PackedByteArray("AAABAAQAAAADAAEABAAFAAAAAwAAAAYAAAAFAAYAAgAFAAQABAABAAIABgAFAAIAAQADAAIAAwAGAAIA"), 0.21347113, PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAADAAEA")],
+"name": "Beeper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("//8AAP9/AAAfkHIY77cAAP//////fwAAAABxWP9/AAD//42n//8AAP//cVgAAAAAH5CM5w9IAAD//3IYGs8AAPpKcViB2gAA+kqNp30lAAD//4zn5DAAAB+QjOfvtwAAyGFyGP9/AAAfkHIYD0gAAP//chjkMAAA+kpxWH0lAAD//42nAAAAAAAAjaf/fwAA//9xWP//AAD6So2ngdoAAMhhjOf/fwAA//+M5xrPAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1c4cd"]
+resource_name = "noise_sensor_Sphere"
+_surfaces = [{
+"aabb": AABB(-0.11412679, -0.120000005, -0.11412679, 0.11412679, 0.24000001, 0.22825357),
+"attribute_data": PackedByteArray("/8////8fzMz/LwAA//+Zmf/v//8AAJmZ/w8AAP8P////P2Vm/7+Zmf/fMjP/7wAA/y////8/zMz/H5mZ/x8yM/+/MjP/32Vm/88AAAAAzMwAAGVm/z+Zmf8fZWYAADIz/z8yM/+/zMz/38zM/79lZv/fmZn//8zM//9lZv//MjM="),
+"format": 34896613399,
+"index_count": 120,
+"index_data": PackedByteArray("DAABAA0ABwATAAEAAQATAAUAAQAFAA4ADQABAA4ADgAFABQADQAOABUADgAUABYAFQAOABYAFgAUABcACAANABUAFQAWAAgAFgAXAA8ADwAXAAYACAAWAA8ACAAPABgAGAAPAAIAAgAIABgACAAZAA0AAgAZAAgADQAZAAAAAAAZABoAGwAZAAIAGgAZAAkAGQAbAAkAGwACABAAGgAJABwAHAAJABsAHQAaABwABAAaAB0AHQAcAAMAHAAbABEAAwAcABEAEQAbABAAAwARAB4AEQAQAAoAHgARAAoACgAQABIAHgAKAB8AHwAKAAsA"),
+"lods": [0.09292225, PackedByteArray("DAABAA0ABwAFAAEAAQAFAA4ADQABAA4ADgAFAAYADgAGAA8ACAAOAA8ADQAOAAgACAAPAAIACAAJAA0AAgAJAAgADQAJAAAAEAAJAAIAEQAJABAABAAJABEAAwAEABEAEQAQAAoAAwARAAoACgAQABIAAwAKAAsA"), 0.13938336, PackedByteArray("AAABAAgACAAJAAAACAABAAIAAgAJAAgACgAJAAIABAAJAAoAAwAEAAoAAwAKAAsAAQAFAAYABwAFAAEA"), 0.21347113, PackedByteArray("AAABAAIAAwAEAAIAAQAFAAYABwAFAAEA")],
+"material": SubResource("StandardMaterial3D_owt3r"),
+"name": "Beeper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("//8AAP9/5c0fkHIY77d7r///////f7fJAABxWP9/tMH//wAA/39f7QAAcVj/f03A//////9/idv//wAA/3+J2///jaf//yOY//9xWAAAKuwfkIznD0g44///////f1/t//8AAP9/Tcr//3IYGs9AqfpKcViB2guiH5CM5++3e6///4zn5DD57/pKjad9JVvg//////9/ZvzIYXIY/39FwwAAjaf/f03A//9xWP//JJr6So2ngdoLoshhjOf/f0XD//+M5xrPsw3//3IY5DBo5x+QchgPSDjj//+NpwAA8+v6SnFYfSVb4Mhhchj/fxzNAACNp/9/tMHIYYzn/38czWhnKUDoMBLI+cEKIAVjXPdSIerUoGJg6+W66pPrExnFGqqPMaCMih0Jj6fMFKtSoR0F2lHsNchEHFWr4ey36LBoRnkUeIbk6eEuFRtFP/PUnZSf4qw6sCdSnhvVCqtFv7ojyxM8gywpp0z18AZkOgvlaYX5A0Tn66KIBeMXlAPE")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hockr")
+
+[sub_resource type="Animation" id="Animation_4232h"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("noise_sensor/Beeper:mesh:surface_0/material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ohrp7"]
+resource_name = "beep"
+length = 1.5999999999999999
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("noise_sensor/Beeper:mesh:surface_0/material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.16666667, -0.16666667, 0, 0, 0, -0.07777777, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.8, 1.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e53wq"]
+_data = {
+&"RESET": SubResource("Animation_4232h"),
+&"beep": SubResource("Animation_ohrp7")
+}
+
+[node name="NoiseSensor" type="Node3D" unique_id=252572761]
+script = ExtResource("1_hockr")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=206352518]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=328655661]
+shape = SubResource("BoxShape3D_nlwiv")
+
+[node name="noise_sensor" parent="." unique_id=1670449435 instance=ExtResource("1_owt3r")]
+
+[node name="Beeper" parent="noise_sensor" index="1" unique_id=2004212460]
+mesh = SubResource("ArrayMesh_1c4cd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=730851780]
+libraries/ = SubResource("AnimationLibrary_e53wq")
+
+[editable path="noise_sensor"]
