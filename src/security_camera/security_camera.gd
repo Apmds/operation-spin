@@ -30,7 +30,7 @@ func _on_detection_area_body_entered(body: Node3D) -> void:
 	focused_object = body
 	timer.start()
 
-func _on_detection_area_body_exited(body: Node3D) -> void:
+func _on_detection_area_body_exited(_body: Node3D) -> void:
 	resume_default()
 	timer.stop()
 

@@ -53,3 +53,6 @@ func _ready() -> void:
 	boost_status = false
 	noise_level = 0
 	mode = Drone.FlightMode.NORMAL
+
+func _physics_process(delta: float) -> void:
+	noise_level = drone.noise

@@ -35,6 +35,14 @@ var max_tilt: float = deg_to_rad(15)
 var fans_reversed: bool = false
 var fans_on: bool = true
 
+var noise: float = 0
+var noise_goal: float = 0
+const NOISE_BASE: float = 5
+const NOISE_NORMAL: float = 30
+const NOISE_BOOST: float = 60
+const NOISE_HIT_ADD: float = 20
+var noise_speed: float = 2
+
 signal boost_changed(status: bool)
 signal fans_changed(status: bool)
 signal mode_changed(mode: FlightMode)
@@ -136,5 +144,15 @@ func _physics_process(delta: float) -> void:
 	# Small drag
 	velocity.x = lerp(velocity.x, 0.0, decceleration*delta)
 	velocity.z = lerp(velocity.z, 0.0, decceleration*delta)
+	
+	# Noise things
+	if is_boosted:
+		noise_goal = NOISE_BOOST
+	elif fans_on:
+		noise_goal = NOISE_NORMAL
+	else:
+		noise_goal = NOISE_BASE
+	print("noise: %s, noise_goal: %s, next_noise: %s" % [noise, noise_goal, lerp(noise, noise_goal, noise_speed*delta)])
+	noise = lerp(noise, noise_goal, noise_speed*delta)
 	
 	move_and_slide()
