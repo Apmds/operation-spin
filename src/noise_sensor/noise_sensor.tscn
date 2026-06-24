@@ -185,6 +185,9 @@ collision_layer = 32
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=328655661]
 shape = SubResource("BoxShape3D_nlwiv")
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_detection_area_body_exited"]
+
 [node name="noise_sensor" parent="." unique_id=1670449435 instance=ExtResource("1_owt3r")]
 metadata/_edit_group_ = true
 

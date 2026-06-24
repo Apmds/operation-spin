@@ -8,6 +8,7 @@ enum FlightMode {
 @export var camera: CameraArm
 @onready var mesh: MeshInstance3D = $Mesh
 @onready var collision: CollisionShape3D = $Collision
+@onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 
 var position_rotation_step: float = deg_to_rad(15)
 
@@ -34,6 +35,8 @@ var max_tilt: float = deg_to_rad(15)
 
 var fans_reversed: bool = false
 var fans_on: bool = true
+var last_fans_on_state: bool = true
+var last_boost_state: bool = false
 
 var noise: float = 0
 var noise_goal: float = 0
@@ -48,12 +51,33 @@ signal fans_changed(status: bool)
 signal mode_changed(mode: FlightMode)
 signal died
 
+var starting_sound = preload("res://assets/sound_efects/starting_drone.wav")
+var turn_off_sound = preload("res://assets/sound_efects/turn_off_drone.wav")
+var boost_start_sound = preload("res://assets/sound_efects/boost_drone_start.wav")
+var boost_off_sound = preload("res://assets/sound_efects/boost_drone_off.wav")
+
 func reverse_fans():
 	fans_reversed = !fans_reversed
 
+func _ready() -> void:
+	audio_player.autoplay = false
+	audio_player.unit_size = 10
+	audio_player.max_distance = 20
+	add_child(audio_player)
+
+func play_audio(stream: AudioStream) -> void:
+	audio_player.stream = stream
+	audio_player.play()
+
 func toggle_fans() -> void:
+	var previous_fans_on = fans_on
 	fans_on = !fans_on
 	fans_changed.emit(fans_on)
+	if previous_fans_on != fans_on:
+		if fans_on:
+			play_audio(starting_sound)
+		else:
+			play_audio(turn_off_sound)
 
 func cycle_flight_mode() -> void:
 	if (mode == FlightMode.NORMAL):
@@ -89,6 +113,10 @@ func _physics_process(delta: float) -> void:
 	var new_is_boosted = Input.is_action_pressed("boost")
 	if new_is_boosted != is_boosted:
 		boost_changed.emit(new_is_boosted)
+		if new_is_boosted:
+			play_audio(boost_start_sound)
+		else:
+			play_audio(boost_off_sound)
 	is_boosted = new_is_boosted
 	
 	# Add wind force

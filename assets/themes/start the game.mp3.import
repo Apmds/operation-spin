@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsnawd4dsovrp"
+path="res://.godot/imported/start the game.mp3-84c6bb3deff38c8a8bb7bde7f62361d4.mp3str"
+
+[deps]
+
+source_file="res://assets/themes/start the game.mp3"
+dest_files=["res://.godot/imported/start the game.mp3-84c6bb3deff38c8a8bb7bde7f62361d4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
