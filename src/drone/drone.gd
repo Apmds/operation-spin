@@ -153,7 +153,6 @@ func _physics_process(delta: float) -> void:
 			noise_goal = NOISE_NORMAL
 	else:
 		noise_goal = NOISE_BASE
-	print("noise: %s, noise_goal: %s, next_noise: %s" % [noise, noise_goal, lerp(noise, noise_goal, noise_speed*delta)])
 	noise = lerp(noise, noise_goal, noise_speed*delta)
 	
 	move_and_slide()
