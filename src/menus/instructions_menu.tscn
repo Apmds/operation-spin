@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c8qx6m4y4rad3"]
 
-[ext_resource type="Script" path="res://src/menus/instructions_menu.gd" id="1_2qg4m"]
+[ext_resource type="Script" uid="uid://cka2vlcdffj4o" path="res://src/menus/instructions_menu.gd" id="1_2qg4m"]
 
-[node name="InstructionsMenu" type="Control"]
+[node name="InstructionsMenu" type="Control" unique_id=719646468]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2qg4m")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=766996070]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=40657696]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,7 +33,7 @@ offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Panel" unique_id=2029030204]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -44,7 +44,7 @@ theme_override_font_sizes/font_size = 40
 text = "Instructions"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=794720268]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,10 +56,24 @@ offset_bottom = -90.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center][b]Drone controls[/b]\n- WASD: move the drone\n- E: move up\n- D: move down\n- Shift: boost\n- R: switch flight mode\n- F: collect\n\n[b]Enemies[/b]\n- Security cameras: detect movement\n- Noise sensors: detect sound\n- Guard: detects sound and movement\n\n[b]Objective[/b]\n- Collect the objects."
+text = "[center][b]Drone controls[/b]
+- WASD: move the drone
+- E: move up
+- Q: move down
+- Shift: boost
+- R: switch flight mode
+- F: collect
+
+[b]Enemies[/b]
+- Security cameras: detect movement
+- Noise sensors: detect sound
+- Guard: detects sound and movement
+
+[b]Objective[/b]
+- Collect the objects."
 fit_content = true
 
-[node name="BackButton" type="Button" parent="Panel"]
+[node name="BackButton" type="Button" parent="Panel" unique_id=2110543317]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
