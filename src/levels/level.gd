@@ -90,7 +90,7 @@ var noise_level: float = 0:
 	get: return noise_level
 	set(value): 
 		noise_level = value
-		ui_noise_status.value = noise_levels[noise_levels.bsearch(noise_level)]
+		ui_noise_status.value = noise_levels[noise_levels.bsearch(noise_level)-1]
 
 var boost_status: bool = false:
 	get: return boost_status
