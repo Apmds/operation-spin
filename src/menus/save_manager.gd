@@ -22,9 +22,13 @@ func set_level_complete(level_number: int, completed: bool) -> void:
 	save()
 
 func is_level_complete(level_number: int) -> bool:
+	if not _config.has_section("progress"):
+		return false
 	return _config.get_value("progress", str(level_number), false)
 
 func get_progress_keys() -> Array:
+	if not _config.has_section("progress"):
+		return []
 	return _config.get_section_keys("progress")
 
 func set_selected_level(level_number: int) -> void:
