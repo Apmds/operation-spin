@@ -4,9 +4,9 @@ const BUS_NAMES: Array[String] = ["Master", "Music", "SFX"]
 
 @onready var toggle_button: Button = $ToggleButton
 @onready var panel_container: PanelContainer = $PanelContainer
-@onready var master_slider: HSlider = $PanelContainer/VBoxContainer/MasterRow/MasterSlider
-@onready var music_slider: HSlider = $PanelContainer/VBoxContainer/MusicRow/MusicSlider
-@onready var sfx_slider: HSlider = $PanelContainer/VBoxContainer/SFXRow/SFXSlider
+@onready var master_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/MasterRow/MasterSlider
+@onready var music_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/MusicRow/MusicSlider
+@onready var sfx_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/SFXRow/SFXSlider
 
 func _ready() -> void:
 	AudioSettings._ready()
