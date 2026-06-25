@@ -5,3 +5,5 @@
 # blender backup files
 *.blend1
 *.blend2
+
+exports/
