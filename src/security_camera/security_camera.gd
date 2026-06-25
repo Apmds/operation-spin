@@ -23,7 +23,7 @@ func resume_default() -> void:
 	focused_object = null
 
 func senses_danger() -> bool:
-	return focused_object != null
+	return focused_object != null and looking_at_focused()
 
 func point_to(obj: Node3D, weight: float) -> void:
 	var a = camera_camera_mesh.basis.slerp(basis_looking_at(position, obj.position), weight)
@@ -43,15 +43,16 @@ func _physics_process(delta: float) -> void:
 				timer.start()
 				sense_danger.emit(self)
 	else:
-		timer.stop()
-		danger_stopeed.emit(self)
+		if !timer.is_stopped():
+			timer.stop()
+			danger_stopped.emit(self)
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	focused_object = body
 
 func _on_detection_area_body_exited(_body: Node3D) -> void:
 	if senses_danger():
-		danger_stopeed.emit(self)
+		danger_stopped.emit(self)
 	
 	resume_default()
 	timer.stop()

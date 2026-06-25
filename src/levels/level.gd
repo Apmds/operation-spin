@@ -27,7 +27,7 @@ class DangerIndicator:
 		
 		self.death_timer = Timer.new()
 		self.death_timer.one_shot = true
-		self.death_timer.wait_time = 1
+		self.death_timer.wait_time = 0.3
 		self.death_timer.timeout.connect(self.remove)
 		
 		self.danger_list_control = danger_list_control
@@ -37,18 +37,22 @@ class DangerIndicator:
 		self.danger_list_control.add_child(self.death_timer)
 	
 	func shadow():
-		self.death_timer.start()
+		if self.death_timer.is_inside_tree():
+			self.death_timer.start()
 	
 	func remove():
 		self.danger_list_control.remove_child(indicator_in_scene)
 		self.danger_list_control.remove_child(self.death_timer)
 	
 	func update():
-		var percentage_done = 1- (self.death_timer.time_left / self.death_timer.wait_time)
-		
+		var alpha: float
+		if self.death_timer.is_stopped():
+			alpha = 1
+		else:
+			alpha = (self.death_timer.time_left / self.death_timer.wait_time)
 		# TODO: update angle
 		
-		self.indicator_in_scene.modulate.a = percentage_done
+		self.indicator_in_scene.modulate.a = alpha
 
 var danger_indicators: Array[DangerIndicator] = []
 
@@ -117,6 +121,8 @@ func _on_documents_grabbed() -> void:
 	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
 
 func _on_danger_sensed(obj: DangerObject) -> void:
+	print("DANGER")
+	
 	var indicator: DangerIndicator = DangerIndicator.new(obj, make_danger_indicator_rect(), ui_danger_indicator_control)
 	danger_indicators.append(indicator)
 	
@@ -149,7 +155,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is DangerObject:
 			child.sense_danger.connect(_on_danger_sensed)
-			child.danger_stopeed.connect(_on_danger_stopped)
+			child.danger_stopped.connect(_on_danger_stopped)
 
 func _physics_process(_delta: float) -> void:
 	noise_level = drone.noise
