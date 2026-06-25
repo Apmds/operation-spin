@@ -49,6 +49,8 @@ var noise_speed: float = 2
 signal boost_changed(status: bool)
 signal fans_changed(status: bool)
 signal mode_changed(mode: FlightMode)
+
+@warning_ignore("unused_signal")
 signal died
 
 var starting_sound = preload("res://assets/sound_efects/starting_drone.wav")

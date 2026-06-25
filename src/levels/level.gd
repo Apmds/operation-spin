@@ -34,12 +34,14 @@ class DangerIndicator:
 	
 	func add():
 		self.danger_list_control.add_child(indicator_in_scene)
+		self.danger_list_control.add_child(self.death_timer)
 	
 	func shadow():
 		self.death_timer.start()
 	
 	func remove():
 		self.danger_list_control.remove_child(indicator_in_scene)
+		self.danger_list_control.remove_child(self.death_timer)
 	
 	func update():
 		var percentage_done = 1- (self.death_timer.time_left / self.death_timer.wait_time)
@@ -115,13 +117,18 @@ func _on_documents_grabbed() -> void:
 	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
 
 func _on_danger_sensed(obj: DangerObject) -> void:
-	danger_indicators.append(DangerIndicator.new(obj, make_danger_indicator_rect(), ui_danger_indicator_control))
+	var indicator: DangerIndicator = DangerIndicator.new(obj, make_danger_indicator_rect(), ui_danger_indicator_control)
+	danger_indicators.append(indicator)
+	
+	indicator.add()
 
 func _on_danger_stopped(obj: DangerObject) -> void:
 	var find_func: Callable = func (ind: DangerIndicator) -> bool:
 		return ind.object == obj
 	
 	var rem_pos: int = danger_indicators.find_custom(find_func)
+	if rem_pos == -1: # Ignore edge case (hack but works)
+		return
 	
 	# Start hiding the indicator
 	var indicator: DangerIndicator = danger_indicators[rem_pos]

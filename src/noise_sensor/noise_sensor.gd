@@ -1,4 +1,4 @@
-extends Node3D
+class_name NoiseSensor extends DangerObject
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()

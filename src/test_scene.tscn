@@ -101,6 +101,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+mouse_behavior_recursive = 2
 
 [node name="Mode status" type="Label" parent="UI" unique_id=453791101]
 layout_mode = 0
@@ -166,8 +167,10 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Danger Indicator" type="TextureRect" parent="UI/Danger Indicators" unique_id=1213978080]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = -32.0
