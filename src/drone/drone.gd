@@ -112,14 +112,16 @@ func _input(event: InputEvent) -> void:
 		tilt_basis = tilt_basis.rotated(tilt_basis.z, roll)
 
 func _physics_process(delta: float) -> void:
-	var new_is_boosted = Input.is_action_pressed("boost")
-	if new_is_boosted != is_boosted:
-		boost_changed.emit(new_is_boosted)
-		if new_is_boosted:
-			play_audio(boost_start_sound)
-		else:
-			play_audio(boost_off_sound)
-	is_boosted = new_is_boosted
+	# Boost control
+	if fans_on:
+		var new_is_boosted = Input.is_action_pressed("boost")
+		if new_is_boosted != is_boosted:
+			boost_changed.emit(new_is_boosted)
+			if new_is_boosted:
+				play_audio(boost_start_sound)
+			else:
+				play_audio(boost_off_sound)
+		is_boosted = new_is_boosted
 	
 	# Add wind force
 	if fans_on:
