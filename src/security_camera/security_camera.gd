@@ -29,7 +29,6 @@ func point_to(obj: Node3D, weight: float) -> void:
 	var a = camera_camera_mesh.basis.slerp(basis_looking_at(position, obj.position), weight)
 	
 	camera_camera_mesh.basis = a
-	#detection_area.basis = a
 
 func basis_looking_at(base_pos: Vector3, target_pos: Vector3) -> Basis:
 	return Basis.looking_at(target_pos - base_pos, Vector3.UP)
@@ -43,6 +42,10 @@ func _physics_process(delta: float) -> void:
 			if timer.is_stopped():
 				timer.start()
 				sense_danger.emit(self)
+		else:
+			if !timer.is_stopped():
+				timer.stop()
+				danger_stopped.emit(self)
 	else:
 		if !timer.is_stopped():
 			timer.stop()

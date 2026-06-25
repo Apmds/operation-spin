@@ -147,8 +147,6 @@ func _on_documents_grabbed() -> void:
 	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
 
 func _on_danger_sensed(obj: DangerObject) -> void:
-	print("DANGER")
-	
 	var indicator: DangerIndicator = DangerIndicator.new(obj, make_danger_indicator_rect(), self)
 	danger_indicators.append(indicator)
 	
