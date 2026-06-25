@@ -15,6 +15,11 @@ run/main_scene="uid://ccm2faql2r0lk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveManager="*res://src/menus/save_manager.gd"
+MenuMusic="*res://src/menus/menu_music.gd"
+
 [display]
 
 window/size/viewport_width=1280

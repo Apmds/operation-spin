@@ -58,13 +58,17 @@ func _on_drone_mode_changed(new_mode: Drone.FlightMode) -> void:
 	mode = new_mode
 
 func _on_drone_died() -> void:
+	SaveManager.set_last_result("defeat")
 	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
 
 func _on_documents_grabbed() -> void:
+	SaveManager.set_last_result("victory")
+	SaveManager.set_level_complete(SaveManager.get_selected_level(), true)
 	get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MenuMusic.stop_menu_music()
 	fans_on = true
 	boost_status = false
 	noise_level = 0
