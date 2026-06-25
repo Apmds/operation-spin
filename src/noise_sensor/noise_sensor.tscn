@@ -156,7 +156,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ohrp7"]
 resource_name = "beep"
-length = 1.5999999999999999
+length = 1.6
 loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -185,9 +185,6 @@ collision_layer = 32
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=328655661]
 shape = SubResource("BoxShape3D_nlwiv")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_detection_area_body_exited"]
-
 [node name="noise_sensor" parent="." unique_id=1670449435 instance=ExtResource("1_owt3r")]
 metadata/_edit_group_ = true
 
@@ -200,5 +197,8 @@ mesh = SubResource("ArrayMesh_1c4cd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=730851780]
 libraries/ = SubResource("AnimationLibrary_e53wq")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_detection_area_body_exited"]
 
 [editable path="noise_sensor"]
