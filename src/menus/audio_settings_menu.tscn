@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c7w8m5q4v2p1n"]
+
+[ext_resource type="Script" path="res://src/menus/audio_settings_menu.gd" id="1_9zp2k"]
+
+[node name="AudioSettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 220.0
+script = ExtResource("1_9zp2k")
+
+[node name="ToggleButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+text = "⚙"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 0.0
+offset_right = 260.0
+offset_bottom = 220.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="MasterRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MasterRow"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MasterRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+value = 0.0
+
+[node name="MusicRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MusicRow"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MusicRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+value = 0.0
+
+[node name="SFXRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SFXRow"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFXRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+value = 0.0

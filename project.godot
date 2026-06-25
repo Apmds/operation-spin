@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SaveManager="*res://src/menus/save_manager.gd"
 MenuMusic="*res://src/menus/menu_music.gd"
+AudioSettings="*res://src/autoload/audio_settings.gd"
 
 [display]
 

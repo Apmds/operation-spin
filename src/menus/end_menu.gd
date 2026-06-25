@@ -1,5 +1,7 @@
 extends Control
 
+const AUDIO_SETTINGS_SCENE: PackedScene = preload("res://src/menus/audio_settings_menu.tscn")
+
 @onready var title_label: Label = $Panel/Title
 @onready var retry_button: Button = $Panel/VBoxContainer/RetryButton
 @onready var next_button: Button = $Panel/VBoxContainer/NextButton
@@ -15,11 +17,12 @@ func _ready() -> void:
 	tween.set_loops()
 	tween.tween_property(background, "rotation_degrees", 1.2, 20.0)
 	tween.tween_property(background, "rotation_degrees", -1.2, 20.0)
+	_add_audio_settings_menu()
 
 	var result: String = SaveManager.get_last_result()
-	var sound_path: String = "res://assets/sound_efects/game_over.mp3"
+	var sound_path: String = "res://assets/themes/game_over.mp3"
 	if result == "victory":
-		sound_path = "res://assets/sound_efects/victory_sound.mp3"
+		sound_path = "res://assets/themes/victory_sound.mp3"
 		title_label.text = "Level complete"
 		retry_button.visible = true
 		next_button.visible = true
@@ -35,7 +38,14 @@ func _ready() -> void:
 	audio_player.stream = load(sound_path)
 	audio_player.autoplay = true
 	audio_player.volume_db = -5
+	audio_player.bus = "Music"
 	add_child(audio_player)
+
+func _add_audio_settings_menu() -> void:
+	var settings_menu: Control = AUDIO_SETTINGS_SCENE.instantiate()
+	add_child(settings_menu)
+	settings_menu.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	settings_menu.position = Vector2(16, 16)
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/menus/main_menu.tscn")

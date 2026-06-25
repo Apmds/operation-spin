@@ -105,6 +105,7 @@ func _ready() -> void:
 	audio_player.autoplay = false
 	audio_player.unit_size = 10
 	audio_player.max_distance = 20
+	audio_player.bus = "SFX"
 	add_child(audio_player)
 	
 	alarm_timer.wait_time = 0.1
@@ -120,5 +121,6 @@ func _ready() -> void:
 	whistle_player.unit_size = 10
 	whistle_player.max_distance = 20
 	whistle_player.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+	whistle_player.bus = "SFX"
 	add_child(whistle_player)
 	whistle_player.play()

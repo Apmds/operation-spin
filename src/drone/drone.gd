@@ -65,6 +65,7 @@ func _ready() -> void:
 	audio_player.autoplay = false
 	audio_player.unit_size = 10
 	audio_player.max_distance = 20
+	audio_player.bus = "SFX"
 	add_child(audio_player)
 
 func play_audio(stream: AudioStream) -> void:

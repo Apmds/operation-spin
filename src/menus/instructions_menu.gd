@@ -1,5 +1,7 @@
 extends Control
 
+const AUDIO_SETTINGS_SCENE: PackedScene = preload("res://src/menus/audio_settings_menu.tscn")
+
 @onready var background: TextureRect = $Background
 
 func _ready() -> void:
@@ -11,6 +13,13 @@ func _ready() -> void:
 	tween.set_loops()
 	tween.tween_property(background, "rotation_degrees", 1.2, 20.0)
 	tween.tween_property(background, "rotation_degrees", -1.2, 20.0)
+	_add_audio_settings_menu()
+
+func _add_audio_settings_menu() -> void:
+	var settings_menu: Control = AUDIO_SETTINGS_SCENE.instantiate()
+	add_child(settings_menu)
+	settings_menu.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	settings_menu.position = Vector2(16, 16)
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/menus/main_menu.tscn")

@@ -12,11 +12,13 @@ var _intro_played: bool = false
 func _ready() -> void:
 	intro_player.stream = intro_sound
 	intro_player.volume_db = -80
+	intro_player.bus = "Music"
 	intro_player.finished.connect(_on_intro_finished)
 	add_child(intro_player)
 
 	loop_player.stream = loop_sound
 	loop_player.volume_db = -80
+	loop_player.bus = "Music"
 	loop_player.stream.loop = true
 	add_child(loop_player)
 

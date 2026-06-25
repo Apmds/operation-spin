@@ -1,5 +1,6 @@
 extends Control
 
+const AUDIO_SETTINGS_SCENE: PackedScene = preload("res://src/menus/audio_settings_menu.tscn")
 const LEVEL_SCENES: Dictionary = {
 	1: "res://src/test_scene.tscn",
 	2: "res://src/test_scene.tscn",
@@ -25,7 +26,14 @@ func _ready() -> void:
 	tween.set_loops()
 	tween.tween_property(background, "rotation_degrees", 1.2, 20.0)
 	tween.tween_property(background, "rotation_degrees", -1.2, 20.0)
+	_add_audio_settings_menu()
 	_build_level_buttons()
+
+func _add_audio_settings_menu() -> void:
+	var settings_menu: Control = AUDIO_SETTINGS_SCENE.instantiate()
+	add_child(settings_menu)
+	settings_menu.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	settings_menu.position = Vector2(16, 16)
 
 func _build_level_buttons() -> void:
 	for child in grid.get_children():
