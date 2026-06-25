@@ -38,6 +38,7 @@ class DangerIndicator:
 	func add():
 		self.danger_list_control.add_child(indicator_in_scene)
 		self.danger_list_control.add_child(self.death_timer)
+		self.update()
 	
 	func shadow():
 		if self.death_timer.is_inside_tree():
