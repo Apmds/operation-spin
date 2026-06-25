@@ -36,6 +36,7 @@ func basis_looking_at(base_pos: Vector3, target_pos: Vector3) -> Basis:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	timer.wait_time = 50
 	if focused_object:
 		if looking_at_focused():
 			point_to(focused_object, focus_rotation_speed*delta)

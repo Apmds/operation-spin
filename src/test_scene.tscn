@@ -177,6 +177,7 @@ offset_left = -32.0
 offset_top = -100.0
 offset_right = 32.0
 offset_bottom = -36.0
+rotation = -1.5707964
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(32, 100)
 texture = ExtResource("10_71yum")

@@ -12,17 +12,20 @@ var damage_indicator_tex = preload("res://assets/ui/damage_indicator.png")
 @onready var ui_mode_status: Label = $"UI/Mode status"
 @onready var ui_danger_indicator_control: Control = %"Danger Indicators"
 
+@onready var camera: CameraArm = $Camera
 @onready var drone: Drone = $Drone
 
 class DangerIndicator:
-	var object: Node
+	var parent: Level
+	var dangerous_object: Node3D
 	var indicator_in_scene: TextureRect
 	var death_timer: Timer
 	var danger_list_control: Control
 	
 	@warning_ignore("shadowed_variable")
-	func _init(object: Node, indicator_in_scene: TextureRect, danger_list_control: Control):
-		self.object = object
+	func _init(dangerous_object: Node3D, indicator_in_scene: TextureRect, parent: Level):
+		self.dangerous_object = dangerous_object
+		self.parent = parent
 		self.indicator_in_scene = indicator_in_scene
 		
 		self.death_timer = Timer.new()
@@ -30,7 +33,7 @@ class DangerIndicator:
 		self.death_timer.wait_time = 0.3
 		self.death_timer.timeout.connect(self.remove)
 		
-		self.danger_list_control = danger_list_control
+		self.danger_list_control = parent.ui_danger_indicator_control
 	
 	func add():
 		self.danger_list_control.add_child(indicator_in_scene)
@@ -50,7 +53,30 @@ class DangerIndicator:
 			alpha = 1
 		else:
 			alpha = (self.death_timer.time_left / self.death_timer.wait_time)
-		# TODO: update angle
+		
+		var cam: Node3D = parent.camera.get_camera_object()
+		
+		# Project drone->danger direction onto the XZ plane, as a 2D vector
+		var to_danger: Vector2 = Vector2(
+			dangerous_object.global_position.x - parent.drone.global_position.x,
+			dangerous_object.global_position.z - parent.drone.global_position.z
+		)
+		
+		# More robust: handles any pitch, including straight down/up, without flipping
+		var screen_up_3d: Vector3 = cam.global_basis.y
+		var forward_3d: Vector3 = -cam.global_basis.z
+
+		# Pick whichever projects more strongly onto the horizontal plane —
+		# that's the one that's numerically stable for this pitch.
+		var screen_up: Vector2
+		if Vector2(forward_3d.x, forward_3d.z).length() > 0.05:
+			screen_up = Vector2(forward_3d.x, forward_3d.z).normalized()
+		else:
+			screen_up = Vector2(screen_up_3d.x, screen_up_3d.z).normalized()
+
+		var angle = screen_up.angle_to(to_danger)
+		
+		indicator_in_scene.rotation = angle
 		
 		self.indicator_in_scene.modulate.a = alpha
 
@@ -123,14 +149,14 @@ func _on_documents_grabbed() -> void:
 func _on_danger_sensed(obj: DangerObject) -> void:
 	print("DANGER")
 	
-	var indicator: DangerIndicator = DangerIndicator.new(obj, make_danger_indicator_rect(), ui_danger_indicator_control)
+	var indicator: DangerIndicator = DangerIndicator.new(obj, make_danger_indicator_rect(), self)
 	danger_indicators.append(indicator)
 	
 	indicator.add()
 
 func _on_danger_stopped(obj: DangerObject) -> void:
 	var find_func: Callable = func (ind: DangerIndicator) -> bool:
-		return ind.object == obj
+		return ind.dangerous_object == obj
 	
 	var rem_pos: int = danger_indicators.find_custom(find_func)
 	if rem_pos == -1: # Ignore edge case (hack but works)
