@@ -11,31 +11,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s0mx7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2134822113]
+[node name="Background" type="TextureRect" parent="." unique_id=1868769023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=525314771]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -81.5
-offset_right = 40.5
-offset_bottom = 81.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 260.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 109
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1281201228]
-layout_mode = 2
-theme_override_font_sizes/font_size = 56
-text = "Cool game
-(you either died or completed the level)"
+[node name="Title" type="Label" parent="Panel" unique_id=2040845130]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Outcome"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=245895914]
-layout_mode = 2
-theme_override_font_sizes/font_size = 52
-text = "back to menu"
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=911670259]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -140.0
+offset_right = 120.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_end_button_pressed"]
+[node name="NextButton" type="Button" parent="Panel/VBoxContainer" unique_id=1705612661]
+layout_mode = 2
+text = "Next level"
+
+[node name="RetryButton" type="Button" parent="Panel/VBoxContainer" unique_id=1262943761]
+layout_mode = 2
+text = "Retry"
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer" unique_id=2012522990]
+layout_mode = 2
+text = "Back to menu"
+
+[connection signal="pressed" from="Panel/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

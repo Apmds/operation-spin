@@ -54,6 +54,7 @@ func _on_alarm_timeout() -> void:
 		if accumulated_noise_time >= required_noise_time:
 			game_over_triggered = true
 			set_alarm_active(true)
+			SaveManager.set_last_result("defeat")
 			get_tree().change_scene_to_file("res://src/menus/end_menu.tscn")
 			return
 
