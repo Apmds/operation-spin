@@ -21,13 +21,13 @@ var hard_level_music = preload("res://assets/themes/hard_level.mp3")
 
 class DangerIndicator:
 	var parent: Level
-	var dangerous_object: Node3D
+	var dangerous_object: DangerObject
 	var indicator_in_scene: TextureRect
 	var death_timer: Timer
 	var danger_list_control: Control
 	
 	@warning_ignore("shadowed_variable")
-	func _init(dangerous_object: Node3D, indicator_in_scene: TextureRect, parent: Level):
+	func _init(dangerous_object: DangerObject, indicator_in_scene: TextureRect, parent: Level):
 		self.dangerous_object = dangerous_object
 		self.parent = parent
 		self.indicator_in_scene = indicator_in_scene
@@ -63,8 +63,8 @@ class DangerIndicator:
 		
 		# Project drone->danger direction onto the XZ plane, as a 2D vector
 		var to_danger: Vector2 = Vector2(
-			dangerous_object.global_position.x - parent.drone.global_position.x,
-			dangerous_object.global_position.z - parent.drone.global_position.z
+			dangerous_object.danger_position.x - parent.drone.global_position.x,
+			dangerous_object.danger_position.z - parent.drone.global_position.z
 		)
 		
 		# More robust: handles any pitch, including straight down/up, without flipping
