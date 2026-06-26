@@ -189,6 +189,7 @@ func _ready() -> void:
 	add_child(music_player)
 	var level_number: int = SaveManager.get_selected_level()
 	music_player.stream = soft_level_music if level_number <= 5 else hard_level_music
+	music_player.volume_db = -10
 	music_player.play()
 	
 	for child in get_children():
