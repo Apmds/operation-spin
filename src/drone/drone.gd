@@ -15,13 +15,14 @@ var position_rotation_step: float = deg_to_rad(15)
 
 var tilt_basis: Basis
 var is_boosted: bool = false
-var boost_multiplier = 1.5
+var boost_multiplier = 2.5
 var wind_force = 5
 var vertical_acceleration = 1
 var vertical_decceleration = 1
 var decceleration = 0.2
 var max_vertical_speed = 3
 var max_velocity = 3
+var max_boosted_velocity = 5
 
 var mode: FlightMode = FlightMode.NORMAL
 
@@ -176,8 +177,10 @@ func _physics_process(delta: float) -> void:
 	elif (mode == FlightMode.POSITION):
 		body_direction = body_direction.slerp(tilt_basis, delta * 15)
 	
-	if velocity.length() > max_velocity:
-		velocity = velocity.normalized()*max_velocity;
+	# Max velocity
+	var max_vel: float = max_boosted_velocity if is_boosted else max_velocity 
+	if velocity.length() > max_vel:
+		velocity = velocity.normalized()*max_vel;
 	
 	# Small drag
 	velocity.x = lerp(velocity.x, 0.0, decceleration*delta)
