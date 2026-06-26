@@ -49,7 +49,6 @@ func _update_laser() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	# TODO: play alarm sound
 	audio_player.play()
 	if body is Drone:
 		drone = body

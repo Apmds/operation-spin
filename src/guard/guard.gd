@@ -19,6 +19,8 @@ var tween2: Tween
 var focused_object: Drone
 var chasing_focused: bool = false
 
+const NOISE_THRESHOLD: float = 50.0
+
 func get_next_point() -> Vector3:
 	if current_point_idx >= len(roam_points) - 1:
 		return roam_points[0]
