@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://si5qghqo4sg8" path="res://assets/models/citizen.glb" id="2_0nri2"]
 [ext_resource type="AudioStream" uid="uid://86sc7fxlobmo" path="res://assets/sound_efects/guard_whistle.mp3" id="3_73868"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_adxkb"]
+size = Vector3(3.9823608, 7.3602295, 1.8322754)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_nlwiv"]
 size = Vector3(5.1901855, 2.4181213, 6.3051147)
 
@@ -13,7 +16,15 @@ script = ExtResource("1_4q8ff")
 [node name="citizen" parent="." unique_id=1060757874 instance=ExtResource("2_0nri2")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
+[node name="AttackArea" type="Area3D" parent="citizen" unique_id=47178901]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="citizen/AttackArea" unique_id=844070439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033294633, 3.180115, -0.026977528)
+shape = SubResource("BoxShape3D_adxkb")
+
 [node name="Area3D" type="Area3D" parent="." unique_id=2069441480]
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=547349362]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2402422, 0)
@@ -23,3 +34,7 @@ shape = SubResource("BoxShape3D_nlwiv")
 stream = ExtResource("3_73868")
 bus = &"SFX"
 parameters/looping = true
+
+[connection signal="body_entered" from="citizen/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

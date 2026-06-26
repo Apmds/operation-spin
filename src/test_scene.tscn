@@ -195,7 +195,7 @@ transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5626678, -1.133545, 0)
 
 [node name="Guard" parent="." unique_id=1810564147 instance=ExtResource("13_wxcsg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.09, -3.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.09, -8.99)
 roam_points = Array[Vector3]([Vector3(0, -1.09, -3.01), Vector3(0, -1.09, 2)])
 
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
@@ -204,6 +204,6 @@ roam_points = Array[Vector3]([Vector3(0, -1.09, -3.01), Vector3(0, -1.09, 2)])
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@56720" to="Lasers/@Area3D@56720" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@56722" to="Lasers/@Area3D@56722" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@56724" to="Lasers/@Area3D@56724" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@65499" to="Lasers/@Area3D@65499" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@65501" to="Lasers/@Area3D@65501" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@65503" to="Lasers/@Area3D@65503" method="_on_body_entered"]
