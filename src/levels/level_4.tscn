@@ -47,7 +47,7 @@ followed_node = NodePath("../Drone")
 camera = NodePath("../Camera")
 
 [node name="Documents" parent="." unique_id=1461950653 instance=ExtResource("3_pdsn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.657692, -0.9567346, -43.292812)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.126437, -0.9567346, -41.31314)
 
 [node name="Wall" type="StaticBody3D" parent="." unique_id=830914622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6523285, 0.29859257, 0)

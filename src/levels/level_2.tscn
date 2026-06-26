@@ -338,6 +338,13 @@ stretch_mode = 5
 [node name="NoiseSensor" parent="." unique_id=252572761 instance=ExtResource("7_57l5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.028520584, 0, -9.3900585)
 
+[node name="Label3D" type="Label3D" parent="NoiseSensor" unique_id=575326232]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.5125699, 0)
+pixel_size = 0.01
+text = "this is a noise sensor
+you can't activate your boost around these"
+outline_size = 13
+
 [node name="NoiseSensor2" parent="." unique_id=1769098742 instance=ExtResource("7_57l5a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.7904234, 0, -26.183165)
 
