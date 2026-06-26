@@ -23,20 +23,24 @@ var tween2: Tween
 var focused_object: Drone
 
 const NOISE_THRESHOLD: float = 50.0
+const DETECTION_CONE_ANGLE: float = deg_to_rad(120)
 
 var last_sense_danger: bool = false
+
 
 func get_next_point() -> Vector3:
 	if current_point_idx >= len(roam_points) - 1:
 		return roam_points[0]
-	
+
 	return roam_points[current_point_idx + 1]
+
 
 func get_next_idx() -> int:
 	if current_point_idx >= len(roam_points) - 1:
 		return 0
-	
+
 	return current_point_idx + 1
+
 
 func roam_next_point() -> void:
 	animation_player.play("walk")
@@ -67,61 +71,97 @@ func roam_next_point() -> void:
 
 	tween.tween_callback(callback)
 
+
 func play_whistle() -> void:
 	audio_player.stream = whistle_sound
 	audio_player.set("parameters/looping", true)
 	audio_player.play()
+
 
 func play_hey() -> void:
 	audio_player.stream = hey_sound
 	audio_player.set("parameters/looping", false)
 	audio_player.play()
 
+
 func resume_default() -> void:
 	play_whistle()
 	roam_next_point()
 	danger_stopped.emit(self)
+
 
 func run_to_focused() -> void:
 	if tween:
 		tween.stop()
 	if tween2:
 		tween2.stop()
-	
+
 	sense_danger.emit(self)
 	animation_player.play("fast_run")
 
+
+func get_angle_to_focused() -> float:
+	var to_target = (focused_object.global_position - citizen_model.global_position).normalized()
+	var facing = citizen_model.global_basis.z  # Normally is -Z but I did the model facing +Z
+	return facing.angle_to(to_target)
+
+
+func has_line_of_sight() -> bool:
+	var space_state = get_world_3d().direct_space_state
+	var from = citizen_model.global_position
+	var to = focused_object.global_position
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]  # don't let the guard's own body block itself
+
+	var result = space_state.intersect_ray(query)
+
+	if result.is_empty():
+		return true  # nothing in the way
+
+	var collider = result.collider
+	return collider == focused_object or collider.is_ancestor_of(focused_object) or focused_object.is_ancestor_of(collider)
+
+
+func sees_focused() -> bool:
+	return get_angle_to_focused() < DETECTION_CONE_ANGLE / 2 and has_line_of_sight()
+
+
 func senses_danger() -> bool:
-	return focused_object != null and focused_object.noise >= NOISE_THRESHOLD
+	if focused_object == null:
+		return false
+
+	return focused_object.noise >= NOISE_THRESHOLD or sees_focused()
+
 
 func _ready() -> void:
 	super()
-	
+
 	play_whistle()
 	roam_next_point()
 
+
 func _physics_process(delta: float) -> void:
 	attack_collision.shape.size.y = COLLISION_HEIGHT_NORMAL
-	
+
 	if last_sense_danger != senses_danger():
-		if last_sense_danger: # Stopped sensing 
+		if last_sense_danger:  # Stopped sensing
 			resume_default()
-		else: # Started sensing
+		else:  # Started sensing
 			if audio_player.stream != hey_sound:
 				play_hey()
 			run_to_focused()
 	last_sense_danger = senses_danger()
-	
+
 	if not senses_danger():
 		return
-	
+
 	danger_position = citizen_model.global_position
-	
+
 	attack_collision.shape.size.y = COLLISION_HEIGHT_CHASE
 	# Face the focused_object
 	var direction: Vector3 = focused_object.global_position - citizen_model.global_position
 	direction.y = 0  # ignore vertical difference, only turn around Y axis
-	
+
 	if direction.length_squared() > 0.0001:
 		var target_y_rotation: float = atan2(direction.x, direction.z)
 		citizen_model.rotation.y = target_y_rotation
@@ -130,25 +170,28 @@ func _physics_process(delta: float) -> void:
 		var move_direction: Vector3 = direction.normalized()
 		citizen_model.global_position += move_direction * RUN_SPPED * delta
 
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is not Drone:
 		return
-	
+
 	focused_object = body
+
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body != focused_object:
 		return
-		
+
 	focused_object = null
-	
+
 	if !senses_danger():
 		return
-	
+
 	resume_default()
+
 
 func _on_attack_area_body_entered(body: Node3D) -> void:
 	if body is not Drone:
 		return
-	
+
 	body.died.emit()
