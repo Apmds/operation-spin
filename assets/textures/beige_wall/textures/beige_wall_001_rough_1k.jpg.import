@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvdjfqjbva4og"
-path.s3tc="res://.godot/imported/wall_stripes.png-659d2ea992e6988807413406ffccc695.s3tc.ctex"
+uid="uid://hkrd5w5qxckf"
+path.s3tc="res://.godot/imported/beige_wall_001_rough_1k.jpg-83fdb9990277dcae82970a3e3f39250d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/wall_stripes.png"
-dest_files=["res://.godot/imported/wall_stripes.png-659d2ea992e6988807413406ffccc695.s3tc.ctex"]
+source_file="res://assets/textures/beige_wall/textures/beige_wall_001_rough_1k.jpg"
+dest_files=["res://.godot/imported/beige_wall_001_rough_1k.jpg-83fdb9990277dcae82970a3e3f39250d.s3tc.ctex"]
 
 [params]
 

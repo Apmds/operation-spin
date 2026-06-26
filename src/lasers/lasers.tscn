@@ -4,10 +4,8 @@
 
 [node name="Lasers" type="Node3D" unique_id=1004871161]
 script = ExtResource("1_4fte0")
-number_of_lasers = 5
 
-[connection signal="body_entered" from="@Area3D@26479" to="@Area3D@26479" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area3D@26480" to="@Area3D@26480" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area3D@26481" to="@Area3D@26481" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area3D@26482" to="@Area3D@26482" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area3D@26483" to="@Area3D@26483" method="_on_body_entered"]
+[connection signal="body_entered" from="Laser" to="Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@36788" to="@Area3D@36788" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@36790" to="@Area3D@36790" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@36792" to="@Area3D@36792" method="_on_body_entered"]

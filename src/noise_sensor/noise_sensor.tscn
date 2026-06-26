@@ -104,6 +104,48 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pm68d")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e53wq"]
+resource_name = "Beeper"
+cull_mode = 2
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fu4vd"]
+_surfaces = [{
+"aabb": AABB(-0.11412679, -0.120000005, -0.11412679, 0.11412679, 0.24000001, 0.22825357),
+"format": 34896613377,
+"index_count": 120,
+"index_data": PackedByteArray("AAABAAcAAAAMAAEAAAANAAwAAAAOAA0ABwAOAAAADAANAA8ADQAOAAUADQAFAA8ADgAQAAUADwAFABAABAAOAAcADAAPAAMAAQAMAAMADwAQAAkAAwAPAAkAEAAOAAIAAgAOAAQACQAQAAoAEAACAAoACQAKAAYABgAKAAIAAwAJABEAEQAJAAYAAQADAAgACAADABEABwABAAgABwAIABIABAAHABIAEgAIABMAEgATAAQACAARABMAEQAGABQAEwARABQAFAAGAAIAEwAUAAsABAATAAsACwAUAAIAAgAEABUABAALABUAFQALAAIA"),
+"lods": [0.09292225, PackedByteArray("AAABAAcABwABAAgAAAADAAEAAQADAAgABwAFAAAAAwAAAAkAAAAFAAkAAwAJAAYACQAFAAoACQAKAAYAAwAGAAIABgAKAAIACAADAAIACgAFAAIABAAFAAcABwAIAAQAAgAFAAQABAAIAAsACAACAAsABAALAAIA"), 0.13938336, PackedByteArray("AAABAAQAAAADAAEABAAFAAAAAwAAAAYAAAAFAAYAAgAFAAQABAABAAIABgAFAAIAAQADAAIAAwAGAAIA"), 0.21347113, PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAAADAAEA")],
+"name": "Beeper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("//8AAP9/AAAfkHIY77cAAP//////fwAAAABxWP9/AAD//42n//8AAP//cVgAAAAAH5CM5w9IAAD//3IYGs8AAPpKcViB2gAA+kqNp30lAAD//4zn5DAAAB+QjOfvtwAAyGFyGP9/AAAfkHIYD0gAAP//chjkMAAA+kpxWH0lAAD//42nAAAAAAAAjaf/fwAA//9xWP//AAD6So2ngdoAAMhhjOf/fwAA//+M5xrPAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lmhpq"]
+resource_name = "noise_sensor_Sphere"
+_surfaces = [{
+"aabb": AABB(-0.11412679, -0.120000005, -0.11412679, 0.11412679, 0.24000001, 0.22825357),
+"attribute_data": PackedByteArray("/8////8fzMz/LwAA//+Zmf/v//8AAJmZ/w8AAP8P////P2Vm/7+Zmf/fMjP/7wAA/y////8/zMz/H5mZ/x8yM/+/MjP/32Vm/88AAAAAzMwAAGVm/z+Zmf8fZWYAADIz/z8yM/+/zMz/38zM/79lZv/fmZn//8zM//9lZv//MjM="),
+"format": 34896613399,
+"index_count": 120,
+"index_data": PackedByteArray("DAABAA0ABwATAAEAAQATAAUAAQAFAA4ADQABAA4ADgAFABQADQAOABUADgAUABYAFQAOABYAFgAUABcACAANABUAFQAWAAgAFgAXAA8ADwAXAAYACAAWAA8ACAAPABgAGAAPAAIAAgAIABgACAAZAA0AAgAZAAgADQAZAAAAAAAZABoAGwAZAAIAGgAZAAkAGQAbAAkAGwACABAAGgAJABwAHAAJABsAHQAaABwABAAaAB0AHQAcAAMAHAAbABEAAwAcABEAEQAbABAAAwARAB4AEQAQAAoAHgARAAoACgAQABIAHgAKAB8AHwAKAAsA"),
+"lods": [0.09292225, PackedByteArray("DAABAA0ABwAFAAEAAQAFAA4ADQABAA4ADgAFAAYADgAGAA8ACAAOAA8ADQAOAAgACAAPAAIACAAJAA0AAgAJAAgADQAJAAAAEAAJAAIAEQAJABAABAAJABEAAwAEABEAEQAQAAoAAwARAAoACgAQABIAAwAKAAsA"), 0.13938336, PackedByteArray("AAABAAgACAAJAAAACAABAAIAAgAJAAgACgAJAAIABAAJAAoAAwAEAAoAAwAKAAsAAQAFAAYABwAFAAEA"), 0.21347113, PackedByteArray("AAABAAIAAwAEAAIAAQAFAAYABwAFAAEA")],
+"material": SubResource("StandardMaterial3D_e53wq"),
+"name": "Beeper",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("//8AAP9/5c0fkHIY77d7r///////f7fJAABxWP9/tMH//wAA/39f7QAAcVj/f03A//////9/idv//wAA/3+J2///jaf//yOY//9xWAAAKuwfkIznD0g44///////f1/t//8AAP9/Tcr//3IYGs9AqfpKcViB2guiH5CM5++3e6///4zn5DD57/pKjad9JVvg//////9/ZvzIYXIY/39FwwAAjaf/f03A//9xWP//JJr6So2ngdoLoshhjOf/f0XD//+M5xrPsw3//3IY5DBo5x+QchgPSDjj//+NpwAA8+v6SnFYfSVb4Mhhchj/fxzNAACNp/9/tMHIYYzn/38czWhnKUDoMBLI+cEKIAVjXPdSIerUoGJg6+W66pPrExnFGqqPMaCMih0Jj6fMFKtSoR0F2lHsNchEHFWr4ey36LBoRnkUeIbk6eEuFRtFP/PUnZSf4qw6sCdSnhvVCqtFv7ojyxM8gywpp0z18AZkOgvlaYX5A0Tn66KIBeMXlAPE")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fu4vd")
+
 [sub_resource type="Animation" id="Animation_4232h"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -151,8 +193,11 @@ shape = SubResource("BoxShape3D_nlwiv")
 
 [node name="noise_sensor" parent="." unique_id=954215750 instance=ExtResource("1_owt3r")]
 
-[node name="Sensor" parent="noise_sensor" index="0" unique_id=910345986]
+[node name="Sensor" parent="noise_sensor" index="0" unique_id=1017172731]
 mesh = SubResource("ArrayMesh_6202g")
+
+[node name="Beeper" parent="noise_sensor" index="1" unique_id=378918108]
+mesh = SubResource("ArrayMesh_lmhpq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=730851780]
 libraries/ = SubResource("AnimationLibrary_e53wq")
