@@ -55,6 +55,12 @@ sky = SubResource("Sky_8c4ux")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.55
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0fyod"]
+size = Vector3(4.841631, 6.85375, 4.9158955)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbfxm"]
+size = Vector3(6.014304, 2.5041542, 2.760313)
+
 [node name="Node3D" type="Node3D" unique_id=1421437059]
 script = ExtResource("1_8c4ux")
 
@@ -362,8 +368,25 @@ transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0
 [node name="water_dispenser" parent="." unique_id=256615201 instance=ExtResource("11_1kkqt")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.043423, -0.14693218, -21.031614)
 
-[node name="plant" parent="." unique_id=1533619936 instance=ExtResource("12_l8eot")]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1665065199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.769881, -0.34657198, -25.578108)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1242781062]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_0fyod")
+
+[node name="plant" parent="StaticBody3D2" unique_id=1533619936 instance=ExtResource("12_l8eot")]
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1481505362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.485799, -0.34657198, -25.578108)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1188413728]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_0fyod")
+
+[node name="plant" parent="StaticBody3D3" unique_id=432448316 instance=ExtResource("12_l8eot")]
 
 [node name="pile_of_paper" parent="." unique_id=1724704399 instance=ExtResource("13_0fyod")]
 transform = Transform3D(1.1771646, 0, -0.9296685, 0, 1.5, 0, 0.9296685, 0, 1.1771646, 11.650872, -1.012682, 0.7432351)
@@ -377,8 +400,15 @@ transform = Transform3D(-0.295708, 0, -0.9552784, 0, 1, 0, 0.9552784, 0, -0.2957
 [node name="coffee" parent="." unique_id=1355801851 instance=ExtResource("15_buwj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.163775, -1.0031159, 0.91479665)
 
-[node name="desktop" parent="." unique_id=2103340013 instance=ExtResource("16_mmedq")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=200132235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.754198, -0.5876182, 2.1057715)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=164448906]
+transform = Transform3D(0.42216548, 0, 0, 0, 0.42216548, 0, 0, 0, 0.42216548, 0, 0, 0)
+shape = SubResource("BoxShape3D_jbfxm")
+
+[node name="desktop" parent="StaticBody3D" unique_id=2103340013 instance=ExtResource("16_mmedq")]
 
 [node name="chair" parent="." unique_id=2085173957 instance=ExtResource("17_latuc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8010917, -0.4729057, -13.354459)
@@ -416,9 +446,6 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.20
 [node name="orange_disco_machine" parent="." unique_id=429773707 instance=ExtResource("24_1kgp1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.904983, -0.018809795, -9.991145)
 
-[node name="plant2" parent="." unique_id=1463032359 instance=ExtResource("12_l8eot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3144, -0.34657007, -25.500725)
-
 [node name="exit_sign" parent="." unique_id=555306692 instance=ExtResource("25_y02od")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.0495114, 0.9051266, -1.5633407)
 
@@ -433,3 +460,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.4
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
+
+[editable path="StaticBody3D2/plant"]
+[editable path="StaticBody3D3/plant"]
+[editable path="StaticBody3D/desktop"]

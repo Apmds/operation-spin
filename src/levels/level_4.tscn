@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://0tuy0t1pqsu4" path="res://assets/office/piece_of_paper.glb" id="20_sr5qx"]
 [ext_resource type="PackedScene" uid="uid://tcbd4cgrjoyb" path="res://assets/office/portfolio.glb" id="21_ro753"]
 [ext_resource type="PackedScene" uid="uid://bnnwr4gcxwnls" path="res://assets/office/water_dispenser.glb" id="22_077vk"]
+[ext_resource type="PackedScene" uid="uid://cayiv151bfnju" path="res://assets/office/plant.glb" id="23_sr5qx"]
+[ext_resource type="PackedScene" uid="uid://s11px57pb05x" path="res://assets/office/exit_sign.glb" id="24_ro753"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -204,6 +206,9 @@ size = Vector3(1.8958488, 4.637884, 2.2637024)
 [sub_resource type="BoxShape3D" id="BoxShape3D_iqk3y"]
 size = Vector3(1.707918, 1.1249393, 1.4447525)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv6ei"]
+size = Vector3(4.841631, 6.85375, 4.9158955)
+
 [node name="Node3D2" type="Node3D" unique_id=1421437059]
 script = ExtResource("1_8c4ux")
 
@@ -277,7 +282,7 @@ mesh = SubResource("BoxMesh_sovdr")
 shape = SubResource("ConcavePolygonShape3D_dmphg")
 
 [node name="Label3D" type="Label3D" parent="Wall12" unique_id=921712244]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.5, 0, 1, 0, -4.371139e-08, -0.5920658, 0, 0.019044684)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.5, 0, 1, 0, -4.371139e-08, -0.5920658, 0.57259417, 0.019044684)
 pixel_size = 0.01
 text = "carefull with the guards
 they can hear you and see you"
@@ -765,6 +770,49 @@ transform = Transform3D(-0.8081561, 0, -1.2636786, 0, 1.5000002, 0, 1.2636786, 0
 [node name="piece_of_paper2" parent="." unique_id=6848798 instance=ExtResource("20_sr5qx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.083526, -1.0709443, -41.280777)
 
+[node name="StaticBody3D22" type="StaticBody3D" parent="." unique_id=902689557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.533993, -0.34657055, -4.4406056)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D22" unique_id=1747814478]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv6ei")
+
+[node name="plant" parent="StaticBody3D22" unique_id=1533619936 instance=ExtResource("23_sr5qx")]
+
+[node name="StaticBody3D23" type="StaticBody3D" parent="." unique_id=559783069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3776455, -0.34657055, -4.4406056)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D23" unique_id=1734176505]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv6ei")
+
+[node name="plant" parent="StaticBody3D23" unique_id=1053756822 instance=ExtResource("23_sr5qx")]
+
+[node name="StaticBody3D24" type="StaticBody3D" parent="." unique_id=133083460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.806403, -0.34657055, -37.484528)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D24" unique_id=867253344]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv6ei")
+
+[node name="plant" parent="StaticBody3D24" unique_id=1429567573 instance=ExtResource("23_sr5qx")]
+
+[node name="StaticBody3D25" type="StaticBody3D" parent="." unique_id=214411281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.670389, -0.34657055, -37.484528)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D25" unique_id=1233725297]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv6ei")
+
+[node name="plant" parent="StaticBody3D25" unique_id=714707759 instance=ExtResource("23_sr5qx")]
+
+[node name="exit_sign" parent="." unique_id=555306692 instance=ExtResource("24_ro753")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.088564, 1.2937479, -10.998948)
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
@@ -792,3 +840,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.083526, -1.0709443, -41.2
 [editable path="StaticBody3D20/cabinet8"]
 [editable path="StaticBody3D21/cabinet7"]
 [editable path="StaticBody3D4/typing_machine"]
+[editable path="StaticBody3D22/plant"]
+[editable path="StaticBody3D23/plant"]
+[editable path="StaticBody3D24/plant"]
+[editable path="StaticBody3D25/plant"]
