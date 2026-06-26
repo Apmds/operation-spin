@@ -183,7 +183,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, 0.0, decceleration*delta)
 	velocity.z = lerp(velocity.z, 0.0, decceleration*delta)
 	
-	if is_on_wall():
+	if is_on_wall() or is_on_ceiling() or is_on_floor():
 		velocity *= 0.1
 		velocity = get_last_slide_collision().get_normal() * 1.2
 		noise += NOISE_HIT_ADD
