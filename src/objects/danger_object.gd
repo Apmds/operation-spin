@@ -3,6 +3,12 @@ class_name DangerObject extends Node3D
 signal sense_danger(this: DangerObject)
 signal danger_stopped(this: DangerObject)
 
+var danger_position: Vector3:
+	get():
+		if danger_position:
+			return danger_position
+		return global_position
+
 # Helper for set_outline
 func set_mesh_surface_next_pass_color_alpha(mesh: MeshInstance3D, surface: int, alpha: float) -> void:
 	var mat: ShaderMaterial = mesh.mesh.surface_get_material(surface).next_pass

@@ -6,6 +6,10 @@ var hey_sound: AudioStreamMP3 = preload("res://assets/sound_efects/guard_surpris
 @onready var animation_player: AnimationPlayer = $citizen/AnimationPlayer
 @onready var citizen_model: Node3D = $citizen
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var attack_collision: CollisionShape3D = $citizen/AttackArea/CollisionShape3D
+
+const COLLISION_HEIGHT_NORMAL = 7.36
+const COLLISION_HEIGHT_CHASE = 20
 
 # Roaming vars
 @export var roam_points: Array[Vector3]
@@ -17,9 +21,10 @@ var tween: Tween
 var tween2: Tween
 
 var focused_object: Drone
-var chasing_focused: bool = false
 
 const NOISE_THRESHOLD: float = 50.0
+
+var last_sense_danger: bool = false
 
 func get_next_point() -> Vector3:
 	if current_point_idx >= len(roam_points) - 1:
@@ -73,9 +78,9 @@ func play_hey() -> void:
 	audio_player.play()
 
 func resume_default() -> void:
-	focused_object = null
 	play_whistle()
 	roam_next_point()
+	danger_stopped.emit(self)
 
 func run_to_focused() -> void:
 	if tween:
@@ -83,8 +88,11 @@ func run_to_focused() -> void:
 	if tween2:
 		tween2.stop()
 	
-	chasing_focused = true
+	sense_danger.emit(self)
 	animation_player.play("fast_run")
+
+func senses_danger() -> bool:
+	return focused_object != null and focused_object.noise >= NOISE_THRESHOLD
 
 func _ready() -> void:
 	super()
@@ -93,13 +101,27 @@ func _ready() -> void:
 	roam_next_point()
 
 func _physics_process(delta: float) -> void:
-	if not chasing_focused or focused_object == null:
+	attack_collision.shape.size.y = COLLISION_HEIGHT_NORMAL
+	
+	if last_sense_danger != senses_danger():
+		if last_sense_danger: # Stopped sensing 
+			resume_default()
+		else: # Started sensing
+			if audio_player.stream != hey_sound:
+				play_hey()
+			run_to_focused()
+	last_sense_danger = senses_danger()
+	
+	if not senses_danger():
 		return
-
+	
+	danger_position = citizen_model.global_position
+	
+	attack_collision.shape.size.y = COLLISION_HEIGHT_CHASE
 	# Face the focused_object
 	var direction: Vector3 = focused_object.global_position - citizen_model.global_position
 	direction.y = 0  # ignore vertical difference, only turn around Y axis
-
+	
 	if direction.length_squared() > 0.0001:
 		var target_y_rotation: float = atan2(direction.x, direction.z)
 		citizen_model.rotation.y = target_y_rotation
@@ -113,11 +135,16 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		return
 	
 	focused_object = body
-	play_hey()
-	run_to_focused()
 
-func _on_area_3d_body_exited(_body: Node3D) -> void:
-	danger_stopped.emit(self)
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body != focused_object:
+		return
+		
+	focused_object = null
+	
+	if !senses_danger():
+		return
+	
 	resume_default()
 
 func _on_attack_area_body_entered(body: Node3D) -> void:
