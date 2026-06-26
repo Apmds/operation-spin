@@ -151,7 +151,7 @@ shape = SubResource("BoxShape3D_nlwiv")
 
 [node name="noise_sensor" parent="." unique_id=954215750 instance=ExtResource("1_owt3r")]
 
-[node name="Sensor" parent="noise_sensor" index="0" unique_id=373517730]
+[node name="Sensor" parent="noise_sensor" index="0" unique_id=910345986]
 mesh = SubResource("ArrayMesh_6202g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=730851780]
