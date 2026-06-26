@@ -10,6 +10,14 @@ var focus_rotation_speed = 3
 
 const DETECTION_CONE_ANGLE: float = deg_to_rad(60)
 
+func set_outline(val: bool) -> void:
+	if val:
+		set_mesh_surface_next_pass_color_alpha(camera_stand_mesh, 0, 1)
+		set_mesh_surface_next_pass_color_alpha(camera_camera_mesh, 0, 1)
+	else:
+		set_mesh_surface_next_pass_color_alpha(camera_stand_mesh, 0, 0)
+		set_mesh_surface_next_pass_color_alpha(camera_camera_mesh, 0, 0)
+
 func get_angle_to_focused() -> float:
 	var to_target = (focused_object.global_position - camera_camera_mesh.global_position).normalized()
 	var facing = -camera_camera_mesh.global_basis.z # Godot 3D forward is -Z

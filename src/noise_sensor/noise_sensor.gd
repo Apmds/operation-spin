@@ -4,6 +4,9 @@ class_name NoiseSensor extends DangerObject
 @onready var whistle_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 @onready var alarm_timer: Timer = Timer.new()
 
+@onready var sensor_sensor_mesh: MeshInstance3D = $noise_sensor/Sensor
+@onready var sensor_beeper_mesh: MeshInstance3D = $noise_sensor/Beeper
+
 var focused_object: Drone
 var alarm_active: bool = false
 var game_over_triggered: bool = false
@@ -13,6 +16,14 @@ var required_noise_time: float = 3.0
 
 var sensor_alarm_sound = preload("res://assets/sound_efects/alarm.mp3")
 var whistle_sound: AudioStreamMP3 = preload("res://assets/sound_efects/guard_whistle.mp3")
+
+func set_outline(val: bool) -> void:
+	if val:
+		set_mesh_surface_next_pass_color_alpha(sensor_sensor_mesh, 0, 1)
+		set_mesh_surface_next_pass_color_alpha(sensor_sensor_mesh, 1, 1)
+	else:
+		set_mesh_surface_next_pass_color_alpha(sensor_sensor_mesh, 0, 0)
+		set_mesh_surface_next_pass_color_alpha(sensor_sensor_mesh, 1, 0)
 
 func set_alarm_active(active: bool) -> void:
 	if active == alarm_active:
@@ -98,6 +109,8 @@ func _process(_delta: float) -> void:
 		start_noise_timer()
 
 func _ready() -> void:
+	super()
+	
 	animation_player.play("beep")
 	
 	# Alarm sound
