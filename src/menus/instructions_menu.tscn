@@ -72,7 +72,7 @@ text = "[center][b]Drone controls[/b]
 - Guard: detects sound and movement
 
 [b]Objective[/b]
-- Collect the objects."
+- Collect the top secret files."
 fit_content = true
 
 [node name="BackButton" type="Button" parent="Panel" unique_id=2110543317]
