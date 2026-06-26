@@ -179,6 +179,12 @@ mesh = SubResource("BoxMesh_sovdr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall13" unique_id=1295663378]
 shape = SubResource("ConcavePolygonShape3D_wtt4b")
 
+[node name="Label3D" type="Label3D" parent="Wall13" unique_id=1371680368]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.1362133, 0, -4.4703484e-08)
+pixel_size = 0.01
+text = "cameras can see you
+don't get detected"
+
 [node name="Wall3" type="StaticBody3D" parent="." unique_id=1608606799]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5, 9.092752, 0.28600812, -11.743808)
 collision_layer = 2
