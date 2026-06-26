@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://2wx8sl50jhwk"]
+
+[ext_resource type="Script" uid="uid://cscr26ckcp8yp" path="res://src/lasers/laser.gd" id="1_e2e7g"]
+[ext_resource type="PackedScene" uid="uid://c6tiako1ccehm" path="res://src/lasers/laser_base.tscn" id="1_k433c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adxkb"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.46666667)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nlwiv"]
+material = SubResource("StandardMaterial3D_adxkb")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 4.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nlwiv"]
+size = Vector3(0.25, 4, 0.25)
+
+[node name="Laser" type="Area3D" unique_id=650036369]
+collision_layer = 64
+script = ExtResource("1_e2e7g")
+
+[node name="LaserBase" parent="." unique_id=1534220146 instance=ExtResource("1_k433c")]
+
+[node name="LaserMesh" type="MeshInstance3D" parent="LaserBase" unique_id=1227557606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("CylinderMesh_nlwiv")
+
+[node name="LaserBase" parent="LaserBase/LaserMesh" unique_id=948962899 instance=ExtResource("1_k433c")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 2.07, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1399115455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_nlwiv")
+
+[node name="DeathTimer" type="Timer" parent="." unique_id=371217012]
+wait_time = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
