@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dk1n32sbrro2d" path="res://assets/ui/fan_status_off.png" id="7_ipyvp"]
 [ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="7_lwd14"]
 [ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="10_71yum"]
+[ext_resource type="PackedScene" uid="uid://biqaasry7jmil" path="res://src/lasers/lasers.tscn" id="12_s4e5k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -189,8 +190,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2303228, 0, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1262657275]
 transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0.57357645, 1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
 
+[node name="Lasers" parent="." unique_id=1004871161 instance=ExtResource("12_s4e5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5626678, -1.133545, 0)
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
+[connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@28032" to="Lasers/@Area3D@28032" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@28033" to="Lasers/@Area3D@28033" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@28034" to="Lasers/@Area3D@28034" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@28035" to="Lasers/@Area3D@28035" method="_on_body_entered"]
