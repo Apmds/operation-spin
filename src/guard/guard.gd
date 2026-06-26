@@ -6,6 +6,7 @@ class_name Guard extends DangerObject
 @export var roam_points: Array[Vector3]
 var current_point_idx: int = 0
 const WALK_SPEED: float = 2
+const RUN_SPPED: float = 6
 
 func get_next_point() -> Vector3:
 	if current_point_idx >= len(roam_points) - 1:
@@ -20,6 +21,8 @@ func get_next_idx() -> int:
 	return current_point_idx + 1
 
 func roam_next_point() -> void:
+	animation_player.play("walk")
+	
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT)
 	var callback: Callable = func ():
 		var next_point2: Vector3 = get_next_point()
