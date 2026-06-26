@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gf66q5nuyjs1" path="res://src/guard/guard.gd" id="1_4q8ff"]
 [ext_resource type="PackedScene" uid="uid://si5qghqo4sg8" path="res://assets/models/citizen.glb" id="2_0nri2"]
+[ext_resource type="AudioStream" uid="uid://86sc7fxlobmo" path="res://assets/sound_efects/guard_whistle.mp3" id="3_73868"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nlwiv"]
 size = Vector3(5.1901855, 2.4181213, 6.3051147)
@@ -19,4 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2402422, 0)
 shape = SubResource("BoxShape3D_nlwiv")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1517764653]
+stream = ExtResource("3_73868")
 bus = &"SFX"
+parameters/looping = true

@@ -1,7 +1,10 @@
 class_name Guard extends DangerObject
 
+var whistle_sound: AudioStreamMP3 = preload("res://assets/sound_efects/guard_whistle.mp3")
+
 @onready var animation_player: AnimationPlayer = $citizen/AnimationPlayer
 @onready var citizen_model: Node3D = $citizen
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var roam_points: Array[Vector3]
 var current_point_idx: int = 0
@@ -46,7 +49,13 @@ func roam_next_point() -> void:
 
 	tween.tween_callback(callback)
 
+func play_whistle() -> void:
+	audio_player.stream = whistle_sound
+	audio_player.set("parameters/looping", true)
+	audio_player.play()
+
 func _ready() -> void:
 	super()
 	
+	play_whistle()
 	roam_next_point()
