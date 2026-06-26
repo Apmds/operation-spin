@@ -7,6 +7,7 @@ enum FlightMode {
 
 @export var camera: CameraArm
 @onready var mesh: Node3D = $Mesh
+@onready var animation_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var collision: CollisionShape3D = $Collision
 @onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 
@@ -183,14 +184,17 @@ func _physics_process(delta: float) -> void:
 		velocity = get_last_slide_collision().get_normal() * 1.2
 		noise += NOISE_HIT_ADD
 	
-	# Noise things
+	# Noise/animation things
 	if fans_on:
 		if is_boosted:
 			noise_goal = NOISE_BOOST
+			animation_player.play("spin_fast")
 		else:
 			noise_goal = NOISE_NORMAL
+			animation_player.play("spin_normal")
 	else:
 		noise_goal = NOISE_BASE
+		animation_player.play("default")
 	noise = lerp(noise, noise_goal, noise_speed*delta)
 	
 	move_and_slide()
