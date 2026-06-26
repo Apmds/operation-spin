@@ -24,7 +24,7 @@ func get_angle_to_focused() -> float:
 	return facing.angle_to(to_target)
 
 func looking_at_focused() -> bool:
-	return get_angle_to_focused() < DETECTION_CONE_ANGLE/2
+	return get_angle_to_focused() < DETECTION_CONE_ANGLE/2 and has_line_of_sight()
 
 # To resume the default behavior (rotating back and forth, be stopped or smth)
 func resume_default() -> void:
@@ -40,6 +40,25 @@ func point_to(obj: Node3D, weight: float) -> void:
 
 func basis_looking_at(base_pos: Vector3, target_pos: Vector3) -> Basis:
 	return Basis.looking_at(target_pos - base_pos, Vector3.UP)
+
+func has_line_of_sight() -> bool:
+	var space_state = get_world_3d().direct_space_state
+	var from = camera_camera_mesh.global_position
+	var to = focused_object.global_position
+
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]  # don't let the camera's own body block itself
+	# query.collision_mask = ...  # set this if you only want to hit "wall"-type layers
+
+	var result = space_state.intersect_ray(query)
+
+	if result.is_empty():
+		return true  # nothing in the way
+
+	# If the first thing the ray hits IS the focused object (or a child of it),
+	# then there's nothing blocking the view
+	var collider = result.collider
+	return collider == focused_object or collider.is_ancestor_of(focused_object) or focused_object.is_ancestor_of(collider)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
