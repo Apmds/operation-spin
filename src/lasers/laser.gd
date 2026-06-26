@@ -14,9 +14,20 @@ class_name Laser extends DangerObject
 
 var drone: Drone
 
+# Audio
+@onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
+var alarm_sound = preload("res://assets/sound_efects/alarm.mp3")
+
 func _ready() -> void:
 	super()
 	_update_laser()
+	
+	audio_player.stream = alarm_sound
+	audio_player.autoplay = false
+	audio_player.unit_size = 10
+	audio_player.max_distance = 20
+	audio_player.bus = "SFX"
+	add_child(audio_player)
 
 
 func _update_laser() -> void:
@@ -39,6 +50,7 @@ func _update_laser() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	# TODO: play alarm sound
+	audio_player.play()
 	if body is Drone:
 		drone = body
 		timer.start()
