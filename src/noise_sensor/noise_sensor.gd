@@ -1,7 +1,6 @@
 class_name NoiseSensor extends DangerObject
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
-@onready var whistle_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 @onready var alarm_timer: Timer = Timer.new()
 
 @onready var sensor_sensor_mesh: MeshInstance3D = $noise_sensor/Sensor
@@ -15,7 +14,6 @@ var accumulated_noise_time: float = 0.0
 var required_noise_time: float = 3.0
 
 var sensor_alarm_sound = preload("res://assets/sound_efects/alarm.mp3")
-var whistle_sound: AudioStreamMP3 = preload("res://assets/sound_efects/guard_whistle.mp3")
 
 func set_outline(val: bool) -> void:
 	if val:
@@ -125,15 +123,3 @@ func _ready() -> void:
 	alarm_timer.one_shot = true
 	alarm_timer.timeout.connect(_on_alarm_timeout)
 	add_child(alarm_timer)
-	
-	# Whistle sound
-	whistle_sound.loop = true
-	whistle_player.stream = whistle_sound
-	whistle_player.autoplay = false
-	whistle_player.volume_db = -20
-	whistle_player.unit_size = 10
-	whistle_player.max_distance = 20
-	whistle_player.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
-	whistle_player.bus = "SFX"
-	add_child(whistle_player)
-	whistle_player.play()

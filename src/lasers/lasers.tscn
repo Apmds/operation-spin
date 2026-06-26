@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://biqaasry7jmil"]
+
+[ext_resource type="Script" uid="uid://c4jkqbv1ad533" path="res://src/lasers/lasers.gd" id="1_4fte0"]
+
+[node name="Lasers" type="Node3D" unique_id=1004871161]
+script = ExtResource("1_4fte0")
+number_of_lasers = 5
+
+[connection signal="body_entered" from="@Area3D@26479" to="@Area3D@26479" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@26480" to="@Area3D@26480" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@26481" to="@Area3D@26481" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@26482" to="@Area3D@26482" method="_on_body_entered"]
+[connection signal="body_entered" from="@Area3D@26483" to="@Area3D@26483" method="_on_body_entered"]
