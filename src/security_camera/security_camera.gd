@@ -4,11 +4,20 @@ class_name SecurityCamera extends DangerObject
 @onready var camera_camera_mesh: MeshInstance3D = $CameraMesh/Camera
 @onready var detection_area: Area3D = $DetectionArea
 @onready var timer: Timer = $Timer
+@onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
+
+var camera_turn_sound = preload("res://assets/sound_efects/camera_turn.mp3")
 
 var focused_object: Node3D
 var focus_rotation_speed = 3
+var _was_tracking: bool = false
 
 const DETECTION_CONE_ANGLE: float = deg_to_rad(60)
+
+func _ready() -> void:
+	audio_player.bus = "SFX"
+	add_child(audio_player)
+	set_outline(false)
 
 func set_outline(val: bool) -> void:
 	if val:
@@ -66,14 +75,23 @@ func _physics_process(delta: float) -> void:
 	if focused_object:
 		if looking_at_focused():
 			point_to(focused_object, focus_rotation_speed*delta)
+			set_outline(true)
+			if !_was_tracking:
+				_was_tracking = true
+				audio_player.stream = camera_turn_sound
+				audio_player.play()
 			if timer.is_stopped():
 				timer.start()
 				sense_danger.emit(self)
 		else:
+			set_outline(false)
+			_was_tracking = false
 			if !timer.is_stopped():
 				timer.stop()
 				danger_stopped.emit(self)
 	else:
+		set_outline(false)
+		_was_tracking = false
 		if !timer.is_stopped():
 			timer.stop()
 			danger_stopped.emit(self)
@@ -94,4 +112,3 @@ func _on_timer_timeout() -> void:
 	
 	var drone: Drone = focused_object
 	drone.died.emit()
-	
