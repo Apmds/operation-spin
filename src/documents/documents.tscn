@@ -1,19 +1,59 @@
 [gd_scene format=3 uid="uid://dtdnybgp37kob"]
 
 [ext_resource type="Script" uid="uid://ccso401ic564t" path="res://src/documents/documents.gd" id="1_7inq7"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nfava"]
-size = Vector3(0.68, 0.26, 1.02)
+[ext_resource type="PackedScene" uid="uid://6dy6mddp1re8" path="res://assets/office/pile_of_paper.glb" id="2_dp5mg"]
+[ext_resource type="PackedScene" uid="uid://tin4y7t4ry2d" path="res://assets/office/piece_of_paper_top_secret.glb" id="3_um5nx"]
+[ext_resource type="Texture2D" uid="uid://k78fdqxdkxnf" path="res://assets/office/piece_of_paper_top_secret_top_secret.png" id="4_um5nx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7inq7"]
 size = Vector3(1.3, 1.5, 1.3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogrsq"]
+resource_name = "top_secret"
+cull_mode = 2
+albedo_texture = ExtResource("4_um5nx")
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.88, 0.88, 0.45759997, 1)
+emission_energy_multiplier = 0.35
+texture_repeat = false
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c0rm2"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "top_secret",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vmdrh"]
+resource_name = "piece_of_paper_top_secret_Cube_093"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray(96, 104, 255, 255, 255, 255, 126, 125, 255, 255, 255, 255, 96, 104, 126, 125),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_ogrsq"),
+"name": "top_secret",
+"primitive": 3,
+"uv_scale": Vector4(2.452629, 2.8495042, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c0rm2")
+
 [node name="Documents" type="Area3D" unique_id=1461950653]
 collision_layer = 16
 script = ExtResource("1_7inq7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=944132055]
-mesh = SubResource("BoxMesh_nfava")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=88776590]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -25,5 +65,16 @@ billboard = 1
 no_depth_test = true
 text = "Press F to grab"
 
+[node name="pile_of_paper" parent="." unique_id=1784643086 instance=ExtResource("2_dp5mg")]
+transform = Transform3D(1.555, 0, 0, 0, 1.555, 0, 0, 0, 1.555, 0, 0.105, 0)
+
+[node name="piece_of_paper_top_secret" parent="." unique_id=350634028 instance=ExtResource("3_um5nx")]
+transform = Transform3D(1.2601826, 0, 0.9530687, 0, 1.58, 0, -0.9530687, 0, 1.2601826, 0, 0.21613559, 0)
+
+[node name="piece_of_paper_top_secret_001" parent="piece_of_paper_top_secret" index="0" unique_id=162056938]
+mesh = SubResource("ArrayMesh_vmdrh")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+
+[editable path="piece_of_paper_top_secret"]
