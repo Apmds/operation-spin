@@ -14,6 +14,10 @@ var damage_indicator_tex = preload("res://assets/ui/damage_indicator.png")
 
 @onready var camera: CameraArm = $Camera
 @onready var drone: Drone = $Drone
+@onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
+
+var soft_level_music = preload("res://assets/themes/soft_level.mp3")
+var hard_level_music = preload("res://assets/themes/hard_level.mp3")
 
 class DangerIndicator:
 	var parent: Level
@@ -180,6 +184,12 @@ func _ready() -> void:
 	boost_status = false
 	noise_level = 0
 	mode = Drone.FlightMode.NORMAL
+	
+	music_player.bus = "Music"
+	add_child(music_player)
+	var level_number: int = SaveManager.get_selected_level()
+	music_player.stream = soft_level_music if level_number <= 5 else hard_level_music
+	music_player.play()
 	
 	for child in get_children():
 		if child is DangerObject:
