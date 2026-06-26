@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bnnwr4gcxwnls" path="res://assets/office/water_dispenser.glb" id="22_077vk"]
 [ext_resource type="PackedScene" uid="uid://cayiv151bfnju" path="res://assets/office/plant.glb" id="23_sr5qx"]
 [ext_resource type="PackedScene" uid="uid://s11px57pb05x" path="res://assets/office/exit_sign.glb" id="24_ro753"]
+[ext_resource type="PackedScene" uid="uid://durwbf01ubjku" path="res://src/guard/guard.tscn" id="27_05yyc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmedq"]
 albedo_texture = ExtResource("5_077vk")
@@ -233,6 +234,9 @@ size = Vector3(1.707918, 1.1249393, 1.4447525)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv6ei"]
 size = Vector3(4.841631, 6.85375, 4.9158955)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5ydj"]
+size = Vector3(16.839811, 2.230423, 10.665159)
+
 [node name="Node3D2" type="Node3D" unique_id=1421437059]
 script = ExtResource("1_8c4ux")
 
@@ -361,7 +365,7 @@ mesh = SubResource("BoxMesh_38hlm")
 shape = SubResource("ConcavePolygonShape3D_8c4ux")
 
 [node name="floor2" type="StaticBody3D" parent="." unique_id=37824651]
-transform = Transform3D(4.8, 0, 0, 0, 1, 0, 0, 0, 8, 0.27052546, 1.922288, -20.578484)
+transform = Transform3D(4.8, 0, 0, 0, 1, 0, 0, 0, 8, 0.29309464, 1.9562445, -20.578484)
 collision_layer = 2
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -849,6 +853,17 @@ shape = SubResource("BoxShape3D_yv6ei")
 [node name="exit_sign" parent="." unique_id=555306692 instance=ExtResource("24_ro753")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.088564, 1.2937479, -10.998948)
 
+[node name="Guard" parent="." unique_id=1810564147 instance=ExtResource("27_05yyc")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.5638156, -1.0641444, -28.252884)
+roam_points = Array[Vector3]([Vector3(3.5, -1.06, -25), Vector3(-5, -1.06, -30), Vector3(5, -1.06, -30)])
+
+[node name="CollisionShape3D" parent="Guard/Area3D" parent_id_path=PackedInt32Array(1810564147, 2069441480) index="0" unique_id=547349362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1272154, 1.1463931, 1.9367237)
+shape = SubResource("BoxShape3D_y5ydj")
+
+[node name="AudioStreamPlayer3D" parent="Guard" index="2" unique_id=1517764653]
+bus = &"Master"
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
@@ -880,3 +895,4 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0
 [editable path="StaticBody3D23/plant"]
 [editable path="StaticBody3D24/plant"]
 [editable path="StaticBody3D25/plant"]
+[editable path="Guard"]
