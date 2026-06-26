@@ -339,7 +339,7 @@ stretch_mode = 5
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.028520584, 0, -9.3900585)
 
 [node name="Label3D" type="Label3D" parent="NoiseSensor" unique_id=575326232]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.5125699, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.3765388, 0)
 pixel_size = 0.01
 text = "this is a noise sensor
 you can't activate your boost around these"

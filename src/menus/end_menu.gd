@@ -52,7 +52,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_retry_button_pressed() -> void:
 	var level_number: int = SaveManager.get_selected_level()
-	var scene_path: String = "res://src/test_scene.tscn"
+	var scene_path: String = "res://src/levels/level_%d.tscn" % level_number
 	get_tree().change_scene_to_file(scene_path)
 
 func _on_next_button_pressed() -> void:
@@ -60,4 +60,5 @@ func _on_next_button_pressed() -> void:
 	if next_level > 10:
 		return
 	SaveManager.set_selected_level(next_level)
-	get_tree().change_scene_to_file("res://src/test_scene.tscn")
+	var scene_path: String = "res://src/levels/level_%d.tscn" % next_level
+	get_tree().change_scene_to_file(scene_path)
