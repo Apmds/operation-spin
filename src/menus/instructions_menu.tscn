@@ -63,10 +63,12 @@ text = "[center][b]Drone controls[/b]
 - Shift: boost
 - R: switch flight mode
 - F: collect
+- Space: turn off engine
 
 [b]Enemies[/b]
 - Security cameras: detect movement
 - Noise sensors: detect sound
+- lasers: detect colision
 - Guard: detects sound and movement
 
 [b]Objective[/b]
