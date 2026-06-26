@@ -2,16 +2,16 @@ extends Control
 
 const AUDIO_SETTINGS_SCENE: PackedScene = preload("res://src/menus/audio_settings_menu.tscn")
 const LEVEL_SCENES: Dictionary = {
-	1: "res://src/test_scene.tscn",
-	2: "res://src/test_scene.tscn",
-	3: "res://src/test_scene.tscn",
-	4: "res://src/test_scene.tscn",
-	5: "res://src/test_scene.tscn",
-	6: "res://src/test_scene.tscn",
-	7: "res://src/test_scene.tscn",
-	8: "res://src/test_scene.tscn",
-	9: "res://src/test_scene.tscn",
-	10: "res://src/test_scene.tscn",
+    1: "res://src/levels/level_1.tscn",
+    2: "res://src/levels/level_2.tscn",
+    3: "res://src/levels/level_3.tscn",
+    4: "res://src/levels/level_4.tscn",
+    5: "res://src/levels/level_5.tscn",
+    6: "res://src/levels/level_6.tscn",
+    7: "res://src/levels/level_7.tscn",
+    8: "res://src/levels/level_8.tscn",
+    9: "res://src/levels/level_9.tscn",
+    10: "res://src/levels/level_10.tscn",
 }
 
 @onready var grid: GridContainer = $GridContainer

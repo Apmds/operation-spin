@@ -58,6 +58,10 @@ var starting_sound = preload("res://assets/sound_efects/starting_drone.wav")
 var turn_off_sound = preload("res://assets/sound_efects/turn_off_drone.wav")
 var boost_start_sound = preload("res://assets/sound_efects/boost_drone_start.wav")
 var boost_off_sound = preload("res://assets/sound_efects/boost_drone_off.wav")
+var slam_wall_sound = preload("res://assets/sound_efects/slam_wall.mp3")
+
+const SLAM_COOLDOWN: float = 0.4
+var _slam_cooldown_remaining: float = 0.0
 
 func reverse_fans():
 	fans_reversed = !fans_reversed
@@ -183,6 +187,11 @@ func _physics_process(delta: float) -> void:
 		velocity *= 0.1
 		velocity = get_last_slide_collision().get_normal() * 1.2
 		noise += NOISE_HIT_ADD
+		if _slam_cooldown_remaining <= 0.0:
+			play_audio(slam_wall_sound)
+			_slam_cooldown_remaining = SLAM_COOLDOWN
+	
+	_slam_cooldown_remaining = max(0.0, _slam_cooldown_remaining - delta)
 	
 	# Noise/animation things
 	if fans_on:
