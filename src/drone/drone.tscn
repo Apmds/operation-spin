@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hrvlsw7wb3cj"]
 
 [ext_resource type="Script" uid="uid://b2jammmvtq3cc" path="res://src/drone/drone.gd" id="1_1akv4"]
-[ext_resource type="ArrayMesh" uid="uid://ben5pv5bagbaf" path="res://assets/models/drone_Mesh.res" id="2_1akv4"]
+[ext_resource type="PackedScene" uid="uid://cf4ivfu5my1ts" path="res://assets/models/drone.glb" id="2_1akv4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1akv4"]
 size = Vector3(510.636, 57.418686, 412.72437)
@@ -10,9 +10,8 @@ size = Vector3(510.636, 57.418686, 412.72437)
 collision_mask = 62
 script = ExtResource("1_1akv4")
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=649001359]
-transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0)
-mesh = ExtResource("2_1akv4")
+[node name="Mesh" parent="." unique_id=2040026083 instance=ExtResource("2_1akv4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1560172385]
 transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0)

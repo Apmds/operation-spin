@@ -6,7 +6,7 @@ enum FlightMode {
 }
 
 @export var camera: CameraArm
-@onready var mesh: MeshInstance3D = $Mesh
+@onready var mesh: Node3D = $Mesh
 @onready var collision: CollisionShape3D = $Collision
 @onready var audio_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 
