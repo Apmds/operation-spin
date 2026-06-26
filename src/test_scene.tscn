@@ -47,7 +47,7 @@ script = ExtResource("1_8c4ux")
 followed_node = NodePath("../Drone")
 
 [node name="Security Camera" parent="." unique_id=1689932002 instance=ExtResource("5_wtt4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.079929546, 2.1155818, 0.41375878)
+transform = Transform3D(-0.046113864, 0, -0.9989362, 0, 1, 0, 0.9989362, 0, -0.046113864, 0.079929546, 2.1155818, 0.41375878)
 
 [node name="Drone" parent="." unique_id=652134360 node_paths=PackedStringArray("camera") instance=ExtResource("1_sovdr")]
 camera = NodePath("../Camera")
@@ -199,7 +199,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5626678, -1.133545, 0)
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@28032" to="Lasers/@Area3D@28032" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@28033" to="Lasers/@Area3D@28033" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@28034" to="Lasers/@Area3D@28034" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@28035" to="Lasers/@Area3D@28035" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@48432" to="Lasers/@Area3D@48432" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@48434" to="Lasers/@Area3D@48434" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@48436" to="Lasers/@Area3D@48436" method="_on_body_entered"]

@@ -12,7 +12,7 @@ var focused_object: Node3D
 var focus_rotation_speed = 3
 var _was_tracking: bool = false
 
-const DETECTION_CONE_ANGLE: float = deg_to_rad(60)
+const DETECTION_CONE_ANGLE: float = deg_to_rad(120)
 
 func _ready() -> void:
 	audio_player.bus = "SFX"
@@ -43,9 +43,8 @@ func senses_danger() -> bool:
 	return focused_object != null and looking_at_focused()
 
 func point_to(obj: Node3D, weight: float) -> void:
-	var a = camera_camera_mesh.basis.slerp(basis_looking_at(position, obj.position), weight)
-	
-	camera_camera_mesh.basis = a
+	var target_basis: Basis = basis_looking_at(camera_camera_mesh.global_position, obj.global_position)
+	camera_camera_mesh.global_basis = camera_camera_mesh.global_basis.slerp(target_basis, weight)
 
 func basis_looking_at(base_pos: Vector3, target_pos: Vector3) -> Basis:
 	return Basis.looking_at(target_pos - base_pos, Vector3.UP)
