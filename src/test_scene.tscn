@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="7_lwd14"]
 [ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="10_71yum"]
 [ext_resource type="PackedScene" uid="uid://biqaasry7jmil" path="res://src/lasers/lasers.tscn" id="12_s4e5k"]
+[ext_resource type="PackedScene" uid="uid://durwbf01ubjku" path="res://src/guard/guard.tscn" id="13_wxcsg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_sovdr"]
 size = Vector3(0.17, 3.165, 5.895)
@@ -193,12 +194,16 @@ transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0
 [node name="Lasers" parent="." unique_id=1004871161 instance=ExtResource("12_s4e5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5626678, -1.133545, 0)
 
+[node name="Guard" parent="." unique_id=1810564147 instance=ExtResource("13_wxcsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.09, 14.065)
+roam_points = Array[Vector3]([Vector3(0, -1.09, -3.01), Vector3(0, -1.09, 2)])
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@48432" to="Lasers/@Area3D@48432" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@48434" to="Lasers/@Area3D@48434" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@48436" to="Lasers/@Area3D@48436" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@70220" to="Lasers/@Area3D@70220" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@70222" to="Lasers/@Area3D@70222" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@70224" to="Lasers/@Area3D@70224" method="_on_body_entered"]
