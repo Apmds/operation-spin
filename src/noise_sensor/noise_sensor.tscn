@@ -4,21 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://ciopvjkstrx4w" path="res://assets/models/noise_sensor.glb" id="1_owt3r"]
 [ext_resource type="Texture2D" uid="uid://bmmiqjg3jwi63" path="res://assets/models/noise_sensor_mic-mesh_diffuse.jpg" id="3_e53wq"]
 [ext_resource type="Texture2D" uid="uid://clwnxlfrnrm82" path="res://assets/models/noise_sensor_mic-mesh_smooth.png" id="4_lmhpq"]
-[ext_resource type="Shader" uid="uid://bpbxjoa63mgce" path="res://src/shaders/outline.gdshader" id="5_6202g"]
+[ext_resource type="Shader" uid="uid://bpbxjoa63mgce" path="res://src/shaders/outline.gdshader" id="5_e53wq"]
 [ext_resource type="Texture2D" uid="uid://cque62nxmfq1h" path="res://assets/models/noise_sensor_mic-mesh_bump.jpg" id="6_m6hcc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nlwiv"]
 size = Vector3(13.645, 6.005, 11.77)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e53wq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmhpq"]
 render_priority = 0
-shader = ExtResource("5_6202g")
+shader = ExtResource("5_e53wq")
 shader_parameter/color = Color(0.9647059, 0.22745098, 0.03137255, 1)
 shader_parameter/size = 1.0499999988824
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gf8j"]
 resource_name = "Metal Mic Mesh"
-next_pass = SubResource("ShaderMaterial_e53wq")
+next_pass = SubResource("ShaderMaterial_lmhpq")
 cull_mode = 2
 albedo_texture = ExtResource("3_e53wq")
 metallic = 1.0
@@ -33,9 +33,15 @@ uv1_scale = Vector3(0.2, 0.2, 1)
 uv1_offset = Vector3(0, 0.8, 0)
 metadata/_gltf_primary_texture_coord = 1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6202g"]
+render_priority = 0
+shader = ExtResource("5_e53wq")
+shader_parameter/color = Color(0.9647059, 0.22745098, 0.03137255, 1)
+shader_parameter/size = 1.0499999988824
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3iw0"]
 resource_name = "Material"
-next_pass = SubResource("ShaderMaterial_e53wq")
+next_pass = SubResource("ShaderMaterial_6202g")
 cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
