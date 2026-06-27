@@ -91,7 +91,7 @@ size = Vector3(0.15, 3, 2.416)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nv4as"]
 size = Vector3(0.15, 3, 2.416)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svo37"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dccqd"]
 resource_name = "beige_wall_001"
 transparency = 1
 cull_mode = 2
@@ -105,7 +105,7 @@ normal_texture = ExtResource("9_077sa")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_nv4as"]
-material = SubResource("StandardMaterial3D_svo37")
+material = SubResource("StandardMaterial3D_dccqd")
 size = Vector3(0.15, 3, 5.991867)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dq8q"]
@@ -185,7 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 followed_node = NodePath("../Drone")
 
 [node name="Door" parent="." unique_id=95672198 instance=ExtResource("4_vo5gq")]
-transform = Transform3D(-1.7, 0, -2.5669289e-07, 0, 1.7, 0, 2.5669289e-07, 0, -1.7, 0, 0, -1.847)
+transform = Transform3D(-1.7, 0, -2.5669289e-07, 0, 1.7, 0, 2.5669289e-07, 0, -1.7, 0, 0, -1.8623171)
 
 [node name="Door2" parent="." unique_id=1993515085 instance=ExtResource("4_vo5gq")]
 transform = Transform3D(-1.2830064, 0, -1.1153003, 0, 1.7, 0, 1.1153003, 0, -1.2830064, -23.265118, 0, 4.61494)
