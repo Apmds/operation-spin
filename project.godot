@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="JuniperJam"
+config/name="Operation Spin"
 run/main_scene="uid://ccm2faql2r0lk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
