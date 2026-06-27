@@ -8,16 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cf6k4vkhf6nl6" path="res://assets/textures/beige_wall/textures/beige_wall_001_diff_1k.jpg" id="6_jbvka"]
 [ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="6_pdsn1"]
 [ext_resource type="Texture2D" uid="uid://ciis31tmjevfk" path="res://assets/textures/floor_carpet.jpg" id="7_bdlaa"]
-[ext_resource type="Texture2D" uid="uid://dr0xky51fo4kr" path="res://assets/ui/audio_meter_off.png" id="7_f627u"]
-[ext_resource type="Texture2D" uid="uid://dk1n32sbrro2d" path="res://assets/ui/fan_status_off.png" id="7_ipyvp"]
-[ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="7_lwd14"]
 [ext_resource type="Texture2D" uid="uid://dgvr4gmqh6o0i" path="res://assets/textures/ceiling.png" id="8_bdlaa"]
-[ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="10_71yum"]
 [ext_resource type="PackedScene" uid="uid://ftlpqny8ugh1" path="res://assets/office/cabinet.glb" id="14_g6367"]
 [ext_resource type="PackedScene" uid="uid://l0tg543lu328" path="res://assets/office/blue_disco_machine.glb" id="15_f4emq"]
 [ext_resource type="PackedScene" uid="uid://6dy6mddp1re8" path="res://assets/office/pile_of_paper.glb" id="16_210su"]
 [ext_resource type="PackedScene" uid="uid://0tuy0t1pqsu4" path="res://assets/office/piece_of_paper.glb" id="17_d2m82"]
 [ext_resource type="PackedScene" uid="uid://s11px57pb05x" path="res://assets/office/exit_sign.glb" id="18_iuhd6"]
+[ext_resource type="PackedScene" uid="uid://60fmbl4svtql" path="res://src/menus/ui.tscn" id="18_opi8r"]
 [ext_resource type="PackedScene" uid="uid://cayiv151bfnju" path="res://assets/office/plant.glb" id="19_p0eqc"]
 [ext_resource type="PackedScene" uid="uid://bnnwr4gcxwnls" path="res://assets/office/water_dispenser.glb" id="20_d2m82"]
 [ext_resource type="PackedScene" uid="uid://b4tskyhu1gqq5" path="res://assets/office/disco.glb" id="21_iuhd6"]
@@ -78,7 +75,7 @@ size = Vector3(1.8958488, 4.637884, 2.2637024)
 size = Vector3(2.0678785, 5.42642, 1.6665196)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1b36e"]
-size = Vector3(4.841631, 6.85375, 4.9158955)
+size = Vector3(2.4605298, 2.2856128, 2.2631536)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iuhd6"]
 size = Vector3(3.6287036, 8.344497, 2.8141994)
@@ -337,96 +334,6 @@ shape = SubResource("ConcavePolygonShape3D_wtt4b")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1130838937]
 environment = SubResource("Environment_sovdr")
 
-[node name="UI" type="Control" parent="." unique_id=1156965521]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_behavior_recursive = 2
-
-[node name="Mode status" type="Label" parent="UI" unique_id=453791101]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 143.0
-offset_right = 76.0
-offset_bottom = 166.0
-text = "Mode"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=17228339]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -318.0
-offset_top = -225.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 16
-alignment = 2
-
-[node name="FansMargin" type="MarginContainer" parent="UI/HBoxContainer" unique_id=2059834854]
-layout_mode = 2
-theme_override_constants/margin_top = 129
-
-[node name="Fans status" type="TextureRect" parent="UI/HBoxContainer/FansMargin" unique_id=400965169]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(143.745, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("7_ipyvp")
-stretch_mode = 4
-
-[node name="NoiseMargin" type="MarginContainer" parent="UI/HBoxContainer" unique_id=655724565]
-custom_minimum_size = Vector2(78, 225)
-layout_mode = 2
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Noise status" type="TextureProgressBar" parent="UI/HBoxContainer/NoiseMargin" unique_id=293352012]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("7_f627u")
-texture_progress = ExtResource("7_lwd14")
-
-[node name="Danger Indicators" type="Control" parent="UI" unique_id=769689469]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Danger Indicator" type="TextureRect" parent="UI/Danger Indicators" unique_id=1213978080]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = -32.0
-offset_top = -100.0
-offset_right = 32.0
-offset_bottom = -36.0
-rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
-pivot_offset = Vector2(32, 100)
-texture = ExtResource("10_71yum")
-stretch_mode = 5
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1262657275]
 transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0.57357645, 1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
 
@@ -551,7 +458,7 @@ shape = SubResource("BoxShape3D_t31p4")
 [node name="blue_disco_machine" parent="StaticBody3D5" unique_id=119278977 instance=ExtResource("15_f4emq")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0684366, 0.59149796, -3.5769892)
 
-[node name="blue_disco_machine_001" parent="StaticBody3D5/blue_disco_machine" index="0" unique_id=1439641916]
+[node name="blue_disco_machine_001" parent="StaticBody3D5/blue_disco_machine" index="0" unique_id=733924384]
 transform = Transform3D(0.4044621, 0, 0, 0, 0.4044621, 0, 0, 0, 0.4044621, -5.5168552, 0, -9.536743e-07)
 
 [node name="pile_of_paper" parent="." unique_id=1724704399 instance=ExtResource("16_210su")]
@@ -589,7 +496,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.946398, -0.34657055, -4.143
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D22" unique_id=1091148599]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, -0.053121567, -0.5129713, 0.07857561)
 shape = SubResource("BoxShape3D_1b36e")
 
 [node name="plant" parent="StaticBody3D22" unique_id=1533619936 instance=ExtResource("19_p0eqc")]
@@ -599,7 +506,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.728426, -0.34657055, -25.5
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D23" unique_id=362183435]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5349246, 0)
 shape = SubResource("BoxShape3D_1b36e")
 
 [node name="plant" parent="StaticBody3D23" unique_id=1884520965 instance=ExtResource("19_p0eqc")]

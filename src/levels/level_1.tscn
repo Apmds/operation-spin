@@ -7,15 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dm8gm58xm2ah2" path="res://src/props/door.tscn" id="4_vo5gq"]
 [ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="6_pdsn1"]
 [ext_resource type="Material" uid="uid://bpenohnj6fqur" path="res://assets/textures/beige_wall/beige_wall_001.tres" id="6_vo5gq"]
-[ext_resource type="Texture2D" uid="uid://dr0xky51fo4kr" path="res://assets/ui/audio_meter_off.png" id="7_f627u"]
-[ext_resource type="Texture2D" uid="uid://dk1n32sbrro2d" path="res://assets/ui/fan_status_off.png" id="7_ipyvp"]
-[ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="7_lwd14"]
 [ext_resource type="Texture2D" uid="uid://ciis31tmjevfk" path="res://assets/textures/floor_carpet.jpg" id="7_vo5gq"]
 [ext_resource type="Texture2D" uid="uid://dgvr4gmqh6o0i" path="res://assets/textures/ceiling.png" id="8_q2tyl"]
 [ext_resource type="Texture2D" uid="uid://hkrd5w5qxckf" path="res://assets/textures/beige_wall/textures/beige_wall_001_rough_1k.jpg" id="8_r7usx"]
 [ext_resource type="PackedScene" uid="uid://dsp5c4yr3v52o" path="res://assets/office/table.glb" id="8_vo5gq"]
 [ext_resource type="Texture2D" uid="uid://bbc4nvcdcpwpk" path="res://assets/textures/beige_wall/textures/beige_wall_001_nor_gl_1k.jpg" id="9_077sa"]
-[ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="10_71yum"]
+[ext_resource type="PackedScene" uid="uid://60fmbl4svtql" path="res://src/menus/ui.tscn" id="13_q2tyl"]
 [ext_resource type="PackedScene" uid="uid://biqaasry7jmil" path="res://src/lasers/lasers.tscn" id="17_f1p2y"]
 [ext_resource type="PackedScene" uid="uid://b4tskyhu1gqq5" path="res://assets/office/disco.glb" id="18_sblag"]
 [ext_resource type="PackedScene" uid="uid://3bohpv032xpq" path="res://assets/office/coffee.glb" id="19_bevbp"]
@@ -175,7 +172,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.55
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv6ei"]
-size = Vector3(4.841631, 6.85375, 4.9158955)
+size = Vector3(2.339253, 2.3707569, 2.5690618)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0n5w"]
 size = Vector3(3.6287036, 8.344497, 2.8141994)
@@ -486,95 +483,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25.
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1130838937]
 environment = SubResource("Environment_sovdr")
 
-[node name="UI" type="Control" parent="." unique_id=1156965521]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_behavior_recursive = 2
-
-[node name="Mode status" type="Label" parent="UI" unique_id=453791101]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 143.0
-offset_right = 76.0
-offset_bottom = 166.0
-text = "Mode"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=17228339]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -318.0
-offset_top = -225.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 16
-alignment = 2
-
-[node name="FansMargin" type="MarginContainer" parent="UI/HBoxContainer" unique_id=2059834854]
-layout_mode = 2
-theme_override_constants/margin_top = 129
-
-[node name="Fans status" type="TextureRect" parent="UI/HBoxContainer/FansMargin" unique_id=400965169]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(143.745, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("7_ipyvp")
-stretch_mode = 4
-
-[node name="NoiseMargin" type="MarginContainer" parent="UI/HBoxContainer" unique_id=655724565]
-custom_minimum_size = Vector2(78, 225)
-layout_mode = 2
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Noise status" type="TextureProgressBar" parent="UI/HBoxContainer/NoiseMargin" unique_id=293352012]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("7_f627u")
-texture_progress = ExtResource("7_lwd14")
-
-[node name="Danger Indicators" type="Control" parent="UI" unique_id=769689469]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Danger Indicator" type="TextureRect" parent="UI/Danger Indicators" unique_id=1213978080]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = -32.0
-offset_top = -100.0
-offset_right = 32.0
-offset_bottom = -36.0
-rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
-pivot_offset = Vector2(32, 100)
-texture = ExtResource("10_71yum")
-stretch_mode = 5
+[node name="UI" parent="." unique_id=1414782937 instance=ExtResource("13_q2tyl")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1262657275]
 transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0.57357645, 1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
@@ -630,7 +539,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5304477, 0.83293515, 7.723
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D99" unique_id=1451534642]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, -0.039219856, -0.5034102, 0.06993294)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D99" unique_id=1533619936 instance=ExtResource("23_cp87p")]
@@ -640,7 +549,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.360385, 0.83293515, 7.72327
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D100" unique_id=133623445]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5392464, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D100" unique_id=1518242606 instance=ExtResource("23_cp87p")]
@@ -661,7 +570,7 @@ shape = SubResource("BoxShape3D_j0n5w")
 
 [node name="water_dispenser" parent="StaticBody3D4" unique_id=256615201 instance=ExtResource("25_dccqd")]
 
-[node name="water_dispenser_001" parent="StaticBody3D4/water_dispenser" index="0" unique_id=1390135807]
+[node name="water_dispenser_001" parent="StaticBody3D4/water_dispenser" index="0" unique_id=1103610495]
 transform = Transform3D(-0.23231317, 0, -2.0309463e-08, 0, 0.23231317, 0, 2.0309463e-08, 0, -0.23231317, 0, 0, 0)
 
 [node name="pile_of_paper" parent="." unique_id=1724704399 instance=ExtResource("26_nqqvn")]
@@ -676,8 +585,8 @@ transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.69465
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@21780" to="Lasers/@Area3D@21780" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@21782" to="Lasers/@Area3D@21782" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@170241" to="Lasers/@Area3D@170241" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@170243" to="Lasers/@Area3D@170243" method="_on_body_entered"]
 
 [editable path="StaticBody3D99/plant"]
 [editable path="StaticBody3D100/plant"]
