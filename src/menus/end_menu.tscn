@@ -69,6 +69,14 @@ text = "Retry"
 layout_mode = 2
 text = "Back to menu"
 
+[node name="LastLevelThing" type="Label" parent="Panel/VBoxContainer2" unique_id=1195634299]
+unique_name_in_owner = true
+layout_mode = 2
+text = "You successfully obtained all intel.
+Well done on your mission."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=958882068]
 layout_mode = 0
 offset_right = 40.0

@@ -4,6 +4,9 @@ extends Control
 @onready var retry_button: Button = %RetryButton
 @onready var next_button: Button = %NextButton
 @onready var background: TextureRect = $Background
+@onready var last_level_thing: Label = %LastLevelThing
+
+const NUMBER_OF_LEVELS: int = 6
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -18,16 +21,20 @@ func _ready() -> void:
 	var sound_path: String = "res://assets/themes/game_over.mp3"
 	if result == "victory":
 		sound_path = "res://assets/themes/victory_sound.mp3"
-		title_label.text = "Level complete"
 		retry_button.visible = true
-		next_button.visible = true
+		
 		var next_level: int = SaveManager.get_selected_level() + 1
-		next_button.disabled = next_level > 10
-		next_button.text = "Next level" if next_level <= 10 else "Last level"
+		
+		var is_last_level = next_level > NUMBER_OF_LEVELS
+		next_button.visible = not is_last_level
+		last_level_thing.visible = is_last_level
+		
+		title_label.text = "Last level complete!" if is_last_level else "Level complete"
 	else:
 		title_label.text = "Mission failed"
 		retry_button.visible = true
 		next_button.visible = false
+		last_level_thing.visible = false
 
 	var audio_player := AudioStreamPlayer.new()
 	audio_player.stream = load(sound_path)
