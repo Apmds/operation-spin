@@ -17,6 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://bbc4nvcdcpwpk" path="res://assets/textures/beige_wall/textures/beige_wall_001_nor_gl_1k.jpg" id="9_077sa"]
 [ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="10_71yum"]
 [ext_resource type="PackedScene" uid="uid://biqaasry7jmil" path="res://src/lasers/lasers.tscn" id="17_f1p2y"]
+[ext_resource type="PackedScene" uid="uid://b4tskyhu1gqq5" path="res://assets/office/disco.glb" id="18_sblag"]
+[ext_resource type="PackedScene" uid="uid://3bohpv032xpq" path="res://assets/office/coffee.glb" id="19_bevbp"]
+[ext_resource type="PackedScene" uid="uid://biq3m8ia5q36b" path="res://assets/office/board.glb" id="20_cp87p"]
+[ext_resource type="PackedScene" uid="uid://b38h1wknssmnb" path="res://assets/office/archiver.glb" id="21_nv4as"]
+[ext_resource type="PackedScene" uid="uid://s11px57pb05x" path="res://assets/office/exit_sign.glb" id="22_6dq8q"]
+[ext_resource type="PackedScene" uid="uid://cayiv151bfnju" path="res://assets/office/plant.glb" id="23_cp87p"]
+[ext_resource type="PackedScene" uid="uid://tcbd4cgrjoyb" path="res://assets/office/portfolio.glb" id="24_nv4as"]
+[ext_resource type="PackedScene" uid="uid://bnnwr4gcxwnls" path="res://assets/office/water_dispenser.glb" id="25_dccqd"]
+[ext_resource type="PackedScene" uid="uid://6dy6mddp1re8" path="res://assets/office/pile_of_paper.glb" id="26_nqqvn"]
+[ext_resource type="PackedScene" uid="uid://c4tnrjoa8ca63" path="res://assets/office/storage_box.glb" id="27_mrfvu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_riplu"]
 material = ExtResource("6_vo5gq")
@@ -163,6 +173,12 @@ background_mode = 2
 sky = SubResource("Sky_8c4ux")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.55
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv6ei"]
+size = Vector3(4.841631, 6.85375, 4.9158955)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0n5w"]
+size = Vector3(3.6287036, 8.344497, 2.8141994)
 
 [node name="Node3D" type="Node3D" unique_id=1421437059]
 script = ExtResource("1_8c4ux")
@@ -316,6 +332,18 @@ mesh = SubResource("BoxMesh_nv4as")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall15" unique_id=827543129]
 shape = SubResource("BoxShape3D_6dq8q")
 
+[node name="Wall16" type="StaticBody3D" parent="." unique_id=55539952]
+transform = Transform3D(-4.371139e-08, -1.3, 0, 1, -5.6824803e-08, 0, 0, 0, 1, -25.556019, 2.9941807, 4.409)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall16" unique_id=194552701]
+mesh = SubResource("BoxMesh_nv4as")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall16" unique_id=1790911030]
+shape = SubResource("BoxShape3D_6dq8q")
+
 [node name="Wall11" type="StaticBody3D" parent="." unique_id=1945455813]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.668129, 1.5, 6.168018)
 collision_layer = 2
@@ -364,6 +392,66 @@ mesh = SubResource("BoxMesh_q2tyl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=520090188]
 shape = SubResource("BoxShape3D_5gh05")
 
+[node name="Wall17" type="StaticBody3D" parent="." unique_id=1664190633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.245176, 1.5, -3.6509624)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall17" unique_id=1593648770]
+mesh = SubResource("BoxMesh_q2tyl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall17" unique_id=1969951220]
+shape = SubResource("BoxShape3D_5gh05")
+
+[node name="Wall19" type="StaticBody3D" parent="." unique_id=1866872381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.245176, 1.5, 12.421505)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall19" unique_id=771159989]
+mesh = SubResource("BoxMesh_q2tyl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall19" unique_id=2008613316]
+shape = SubResource("BoxShape3D_5gh05")
+
+[node name="Wall21" type="StaticBody3D" parent="." unique_id=154740164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, -23.561243, 4.44694, 4.52584)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall21" unique_id=1884085568]
+mesh = SubResource("BoxMesh_q2tyl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall21" unique_id=1690855092]
+shape = SubResource("BoxShape3D_5gh05")
+
+[node name="Wall18" type="StaticBody3D" parent="." unique_id=592004379]
+transform = Transform3D(-4.371139e-08, -1.3, 0, 1, -5.6824803e-08, 0, 0, 0, 1, -25.347319, 2.9400904, -3.6509624)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall18" unique_id=2065846995]
+mesh = SubResource("BoxMesh_q2tyl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall18" unique_id=2049125915]
+shape = SubResource("BoxShape3D_5gh05")
+
+[node name="Wall20" type="StaticBody3D" parent="." unique_id=778859438]
+transform = Transform3D(-4.371139e-08, -1.3, 0, 1, -5.6824803e-08, 0, 0, 0, 1, -25.347319, 2.9400904, 12.436489)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall20" unique_id=977433182]
+mesh = SubResource("BoxMesh_q2tyl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall20" unique_id=1146268624]
+shape = SubResource("BoxShape3D_5gh05")
+
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1713407030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8151773, -0.03144908, 0)
 collision_layer = 2
@@ -379,7 +467,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.754288, 0, 5.5881424)
 shape = SubResource("BoxShape3D_gu6wu")
 
 [node name="Ceiling" type="StaticBody3D" parent="." unique_id=1000818156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8151773, 3.0319877, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8931212, 3.0319877, 0)
 collision_layer = 2
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -519,11 +607,78 @@ billboard = 1
 text = "Congrats, but there's still
 important info in these buildings..."
 
+[node name="disco" parent="." unique_id=2136327181 instance=ExtResource("18_sblag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7114758, 0.09567386, -0.18324625)
+
+[node name="disco2" parent="." unique_id=1479083078 instance=ExtResource("18_sblag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6423311, 0.09567362, 0.149328)
+
+[node name="coffee" parent="." unique_id=1355801851 instance=ExtResource("19_bevbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6519231, 0.15747161, 9.803955)
+
+[node name="board" parent="." unique_id=1659162356 instance=ExtResource("20_cp87p")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.33024323, 1.6461878, 10.747375)
+
+[node name="archiver" parent="." unique_id=1432079309 instance=ExtResource("21_nv4as")]
+transform = Transform3D(-0.8925858, 0, -0.45087755, 0, 1, 0, 0.45087755, 0, -0.8925858, 1.3886244, 0.17931877, 10.3175745)
+
+[node name="exit_sign" parent="." unique_id=555306692 instance=ExtResource("22_6dq8q")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.8500228, 1.8317746, 1.2085528)
+
+[node name="StaticBody3D99" type="StaticBody3D" parent="." unique_id=171339090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5304477, 0.83293515, 7.723276)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D99" unique_id=1451534642]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv6ei")
+
+[node name="plant" parent="StaticBody3D99" unique_id=1533619936 instance=ExtResource("23_cp87p")]
+
+[node name="StaticBody3D100" type="StaticBody3D" parent="." unique_id=534294012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.360385, 0.83293515, 7.723276)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D100" unique_id=133623445]
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+shape = SubResource("BoxShape3D_yv6ei")
+
+[node name="plant" parent="StaticBody3D100" unique_id=1518242606 instance=ExtResource("23_cp87p")]
+
+[node name="disco3" parent="." unique_id=1259955156 instance=ExtResource("18_sblag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.267428, 0.09567386, 8.02286)
+
+[node name="portfolio" parent="." unique_id=791141306 instance=ExtResource("24_nv4as")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.227385, 0.30394262, 3.2130675)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=101155715]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.556807, 1.0445235, 3.8397846)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=816567929]
+transform = Transform3D(0.23231317, 0, 0, 0, 0.23231317, 0, 0, 0, 0.23231317, 0, 0, 0)
+shape = SubResource("BoxShape3D_j0n5w")
+
+[node name="water_dispenser" parent="StaticBody3D4" unique_id=256615201 instance=ExtResource("25_dccqd")]
+
+[node name="water_dispenser_001" parent="StaticBody3D4/water_dispenser" index="0" unique_id=1390135807]
+transform = Transform3D(-0.23231317, 0, -2.0309463e-08, 0, 0.23231317, 0, 2.0309463e-08, 0, -0.23231317, 0, 0, 0)
+
+[node name="pile_of_paper" parent="." unique_id=1724704399 instance=ExtResource("26_nqqvn")]
+transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.6946584, -22.538553, 0.12542766, 5.6661735)
+
+[node name="storage_box" parent="." unique_id=710270012 instance=ExtResource("27_mrfvu")]
+transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.6946584, -22.525444, 0.11540912, 5.649493)
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@26581" to="Lasers/@Area3D@26581" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@26583" to="Lasers/@Area3D@26583" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@21780" to="Lasers/@Area3D@21780" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@21782" to="Lasers/@Area3D@21782" method="_on_body_entered"]
+
+[editable path="StaticBody3D99/plant"]
+[editable path="StaticBody3D100/plant"]
+[editable path="StaticBody3D4/water_dispenser"]
