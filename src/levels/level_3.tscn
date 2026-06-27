@@ -900,6 +900,8 @@ mesh = SubResource("BoxMesh_hfgta")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall45" unique_id=1920720318]
 shape = SubResource("BoxShape3D_d27vx")
 
+[node name="UI" parent="." unique_id=1414782937 instance=ExtResource("18_opi8r")]
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]

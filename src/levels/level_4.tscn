@@ -775,6 +775,8 @@ bus = &"Master"
 [node name="Door" parent="." unique_id=95672198 instance=ExtResource("28_38hlm")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0.92415166, -1.1164236, 2.8381276)
 
+[node name="UI" parent="." unique_id=1414782937 instance=ExtResource("24_sr5qx")]
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
