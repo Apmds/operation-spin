@@ -502,7 +502,7 @@ laser_height = 4.675
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.4353348, 4.2887387)
 billboard = 1
 text = "Welcome.
-Your misssion is to find and get some
+Your mission is to find and get some
 VERY serious documents from this building.
 Good luck."
 
@@ -525,5 +525,5 @@ important info in these buildings..."
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@213918" to="Lasers/@Area3D@213918" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@213920" to="Lasers/@Area3D@213920" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@26581" to="Lasers/@Area3D@26581" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@26583" to="Lasers/@Area3D@26583" method="_on_body_entered"]
