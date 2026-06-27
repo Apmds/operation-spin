@@ -89,7 +89,7 @@ size = Vector3(1.8958488, 4.637884, 2.2637024)
 size = Vector3(6.014304, 2.5041542, 2.760313)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv6ei"]
-size = Vector3(4.841631, 6.85375, 4.9158955)
+size = Vector3(2.294392, 2.2935743, 1.5873723)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y5ydj"]
 size = Vector3(17.499083, 2.230423, 3.5489883)
@@ -1324,7 +1324,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.114319, -0.34657055, -31.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D27" unique_id=529069892]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, -0.0512619, -0.5120773, 0.12956238)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D27" unique_id=1352789064 instance=ExtResource("23_sr5qx")]
@@ -1334,7 +1334,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.954403, -0.34657055, -20.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D98" unique_id=713774511]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.50086534, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D98" unique_id=1533619936 instance=ExtResource("23_sr5qx")]
@@ -1344,7 +1344,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.954403, -0.34657055, -11.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D99" unique_id=127837492]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.52531815, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D99" unique_id=1608177999 instance=ExtResource("23_sr5qx")]
@@ -1354,7 +1354,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9507551, -0.34657055, -13.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D101" unique_id=202473898]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.56352675, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D101" unique_id=856520450 instance=ExtResource("23_sr5qx")]
@@ -1364,7 +1364,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9507551, -0.34657055, 1.20
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D102" unique_id=1602082443]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5268841, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D102" unique_id=1396079248 instance=ExtResource("23_sr5qx")]
@@ -1374,7 +1374,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.212633, -0.34657055, -9.1
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D100" unique_id=382234011]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.55700386, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D100" unique_id=252035541 instance=ExtResource("23_sr5qx")]
@@ -1384,7 +1384,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.440697, -0.34657055, -42.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D103" unique_id=463366867]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5647736, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D103" unique_id=1960388566 instance=ExtResource("23_sr5qx")]
@@ -1394,7 +1394,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.533993, -0.34657055, -26.6
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D28" unique_id=873305001]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.58972526, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D28" unique_id=981868362 instance=ExtResource("23_sr5qx")]
@@ -1404,7 +1404,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.071915, -0.34657055, -26.45
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D45" unique_id=661605234]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5780227, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D45" unique_id=1700423119 instance=ExtResource("23_sr5qx")]
@@ -1414,7 +1414,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.071915, -0.34657055, -21.87
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D46" unique_id=1168796639]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.4560306, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D46" unique_id=175956758 instance=ExtResource("23_sr5qx")]
@@ -1424,7 +1424,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0954943, -0.34657055, -27.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D47" unique_id=1578973561]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.45772368, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D47" unique_id=708450248 instance=ExtResource("23_sr5qx")]
@@ -1434,7 +1434,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.4275, -0.34657055, -42.893
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D104" unique_id=989929212]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5215166, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D104" unique_id=471148723 instance=ExtResource("23_sr5qx")]
@@ -1444,7 +1444,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.068446, -0.34657055, -22.7
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D48" unique_id=1050670036]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.6215211, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D48" unique_id=1091260959 instance=ExtResource("23_sr5qx")]
@@ -1454,7 +1454,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.557571, -0.34657055, -22.
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D49" unique_id=2136001606]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.48676848, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D49" unique_id=934105012 instance=ExtResource("23_sr5qx")]
@@ -2044,99 +2044,99 @@ shape = SubResource("BoxShape3D_orliu")
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers2/Laser" to="Lasers2/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@67952" to="Lasers2/@Area3D@67952" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@67954" to="Lasers2/@Area3D@67954" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@67956" to="Lasers2/@Area3D@67956" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@67958" to="Lasers2/@Area3D@67958" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@191182" to="Lasers2/@Area3D@191182" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@191184" to="Lasers2/@Area3D@191184" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@191186" to="Lasers2/@Area3D@191186" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@191188" to="Lasers2/@Area3D@191188" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers9/Laser" to="Lasers9/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@67961" to="Lasers9/@Area3D@67961" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@67963" to="Lasers9/@Area3D@67963" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@67965" to="Lasers9/@Area3D@67965" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@67967" to="Lasers9/@Area3D@67967" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@191191" to="Lasers9/@Area3D@191191" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@191193" to="Lasers9/@Area3D@191193" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@191195" to="Lasers9/@Area3D@191195" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@191197" to="Lasers9/@Area3D@191197" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers21/Laser" to="Lasers21/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@67970" to="Lasers21/@Area3D@67970" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@67972" to="Lasers21/@Area3D@67972" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@67974" to="Lasers21/@Area3D@67974" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@67976" to="Lasers21/@Area3D@67976" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@191200" to="Lasers21/@Area3D@191200" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@191202" to="Lasers21/@Area3D@191202" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@191204" to="Lasers21/@Area3D@191204" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@191206" to="Lasers21/@Area3D@191206" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers22/Laser" to="Lasers22/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@67979" to="Lasers22/@Area3D@67979" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@67981" to="Lasers22/@Area3D@67981" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@67983" to="Lasers22/@Area3D@67983" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@67985" to="Lasers22/@Area3D@67985" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@191209" to="Lasers22/@Area3D@191209" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@191211" to="Lasers22/@Area3D@191211" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@191213" to="Lasers22/@Area3D@191213" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@191215" to="Lasers22/@Area3D@191215" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers13/Laser" to="Lasers13/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@67988" to="Lasers13/@Area3D@67988" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@67990" to="Lasers13/@Area3D@67990" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@67992" to="Lasers13/@Area3D@67992" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@67994" to="Lasers13/@Area3D@67994" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@67996" to="Lasers13/@Area3D@67996" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@67998" to="Lasers13/@Area3D@67998" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@191218" to="Lasers13/@Area3D@191218" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@191220" to="Lasers13/@Area3D@191220" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@191222" to="Lasers13/@Area3D@191222" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@191224" to="Lasers13/@Area3D@191224" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@191226" to="Lasers13/@Area3D@191226" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@191228" to="Lasers13/@Area3D@191228" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers12/Laser" to="Lasers12/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@68001" to="Lasers12/@Area3D@68001" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@68003" to="Lasers12/@Area3D@68003" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@68005" to="Lasers12/@Area3D@68005" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@68007" to="Lasers12/@Area3D@68007" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@191231" to="Lasers12/@Area3D@191231" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@191233" to="Lasers12/@Area3D@191233" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@191235" to="Lasers12/@Area3D@191235" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@191237" to="Lasers12/@Area3D@191237" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers14/Laser" to="Lasers14/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@68010" to="Lasers14/@Area3D@68010" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@68012" to="Lasers14/@Area3D@68012" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@68014" to="Lasers14/@Area3D@68014" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@68016" to="Lasers14/@Area3D@68016" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@191240" to="Lasers14/@Area3D@191240" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@191242" to="Lasers14/@Area3D@191242" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@191244" to="Lasers14/@Area3D@191244" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@191246" to="Lasers14/@Area3D@191246" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers15/Laser" to="Lasers15/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@68019" to="Lasers15/@Area3D@68019" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@68021" to="Lasers15/@Area3D@68021" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@68023" to="Lasers15/@Area3D@68023" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@68025" to="Lasers15/@Area3D@68025" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@191249" to="Lasers15/@Area3D@191249" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@191251" to="Lasers15/@Area3D@191251" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@191253" to="Lasers15/@Area3D@191253" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@191255" to="Lasers15/@Area3D@191255" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers4/Laser" to="Lasers4/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers4/@Area3D@68028" to="Lasers4/@Area3D@68028" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers4/@Area3D@68030" to="Lasers4/@Area3D@68030" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers4/@Area3D@68032" to="Lasers4/@Area3D@68032" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers4/@Area3D@191258" to="Lasers4/@Area3D@191258" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers4/@Area3D@191260" to="Lasers4/@Area3D@191260" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers4/@Area3D@191262" to="Lasers4/@Area3D@191262" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers10/Laser" to="Lasers10/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@68035" to="Lasers10/@Area3D@68035" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@68037" to="Lasers10/@Area3D@68037" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@68039" to="Lasers10/@Area3D@68039" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/@Area3D@191265" to="Lasers10/@Area3D@191265" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/@Area3D@191267" to="Lasers10/@Area3D@191267" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/@Area3D@191269" to="Lasers10/@Area3D@191269" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers5/Laser" to="Lasers5/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers5/@Area3D@68042" to="Lasers5/@Area3D@68042" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers5/@Area3D@68044" to="Lasers5/@Area3D@68044" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers5/@Area3D@68046" to="Lasers5/@Area3D@68046" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers5/@Area3D@191272" to="Lasers5/@Area3D@191272" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers5/@Area3D@191274" to="Lasers5/@Area3D@191274" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers5/@Area3D@191276" to="Lasers5/@Area3D@191276" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers6/Laser" to="Lasers6/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers6/@Area3D@68049" to="Lasers6/@Area3D@68049" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers6/@Area3D@68051" to="Lasers6/@Area3D@68051" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers6/@Area3D@68053" to="Lasers6/@Area3D@68053" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers6/@Area3D@191279" to="Lasers6/@Area3D@191279" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers6/@Area3D@191281" to="Lasers6/@Area3D@191281" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers6/@Area3D@191283" to="Lasers6/@Area3D@191283" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers7/Laser" to="Lasers7/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers7/@Area3D@68056" to="Lasers7/@Area3D@68056" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers7/@Area3D@68058" to="Lasers7/@Area3D@68058" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers7/@Area3D@68060" to="Lasers7/@Area3D@68060" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers7/@Area3D@191286" to="Lasers7/@Area3D@191286" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers7/@Area3D@191288" to="Lasers7/@Area3D@191288" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers7/@Area3D@191290" to="Lasers7/@Area3D@191290" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers11/Laser" to="Lasers11/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@68063" to="Lasers11/@Area3D@68063" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@68065" to="Lasers11/@Area3D@68065" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@68067" to="Lasers11/@Area3D@68067" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/@Area3D@191293" to="Lasers11/@Area3D@191293" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/@Area3D@191295" to="Lasers11/@Area3D@191295" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/@Area3D@191297" to="Lasers11/@Area3D@191297" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers16/Laser" to="Lasers16/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@68070" to="Lasers16/@Area3D@68070" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@68072" to="Lasers16/@Area3D@68072" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@68074" to="Lasers16/@Area3D@68074" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/@Area3D@191300" to="Lasers16/@Area3D@191300" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/@Area3D@191302" to="Lasers16/@Area3D@191302" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/@Area3D@191304" to="Lasers16/@Area3D@191304" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers17/Laser" to="Lasers17/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@68077" to="Lasers17/@Area3D@68077" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@68079" to="Lasers17/@Area3D@68079" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@68081" to="Lasers17/@Area3D@68081" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/@Area3D@191307" to="Lasers17/@Area3D@191307" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/@Area3D@191309" to="Lasers17/@Area3D@191309" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/@Area3D@191311" to="Lasers17/@Area3D@191311" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers18/Laser" to="Lasers18/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@68084" to="Lasers18/@Area3D@68084" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@68086" to="Lasers18/@Area3D@68086" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@68088" to="Lasers18/@Area3D@68088" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/@Area3D@191314" to="Lasers18/@Area3D@191314" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/@Area3D@191316" to="Lasers18/@Area3D@191316" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/@Area3D@191318" to="Lasers18/@Area3D@191318" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers19/Laser" to="Lasers19/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@68091" to="Lasers19/@Area3D@68091" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@68093" to="Lasers19/@Area3D@68093" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@68095" to="Lasers19/@Area3D@68095" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/@Area3D@191321" to="Lasers19/@Area3D@191321" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/@Area3D@191323" to="Lasers19/@Area3D@191323" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/@Area3D@191325" to="Lasers19/@Area3D@191325" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers23/Laser" to="Lasers23/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@68098" to="Lasers23/@Area3D@68098" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@68100" to="Lasers23/@Area3D@68100" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@68102" to="Lasers23/@Area3D@68102" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/@Area3D@191328" to="Lasers23/@Area3D@191328" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/@Area3D@191330" to="Lasers23/@Area3D@191330" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/@Area3D@191332" to="Lasers23/@Area3D@191332" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers20/Laser" to="Lasers20/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@68105" to="Lasers20/@Area3D@68105" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@68107" to="Lasers20/@Area3D@68107" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@68109" to="Lasers20/@Area3D@68109" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/@Area3D@191335" to="Lasers20/@Area3D@191335" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/@Area3D@191337" to="Lasers20/@Area3D@191337" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/@Area3D@191339" to="Lasers20/@Area3D@191339" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers8/Laser" to="Lasers8/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers8/@Area3D@68112" to="Lasers8/@Area3D@68112" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers8/@Area3D@68114" to="Lasers8/@Area3D@68114" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers8/@Area3D@68116" to="Lasers8/@Area3D@68116" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers8/@Area3D@191342" to="Lasers8/@Area3D@191342" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers8/@Area3D@191344" to="Lasers8/@Area3D@191344" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers8/@Area3D@191346" to="Lasers8/@Area3D@191346" method="_on_body_entered"]
 
 [editable path="StaticBody3D11/cabinet8"]
 [editable path="StaticBody3D22/cabinet8"]
