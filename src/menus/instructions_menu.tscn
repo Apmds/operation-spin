@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://c8qx6m4y4rad3"]
 
 [ext_resource type="Script" uid="uid://cka2vlcdffj4o" path="res://src/menus/instructions_menu.gd" id="1_2qg4m"]
+[ext_resource type="Theme" uid="uid://blpp5nd6x17up" path="res://src/menus/menu_theme.tres" id="1_tfymr"]
+[ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="3_b2ko7"]
+[ext_resource type="PackedScene" uid="uid://c7w8m5q4v2p1n" path="res://src/menus/audio_settings_menu.tscn" id="4_udqux"]
 
 [node name="InstructionsMenu" type="Control" unique_id=719646468]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_tfymr")
 script = ExtResource("1_2qg4m")
 
 [node name="Background" type="TextureRect" parent="." unique_id=766996070]
@@ -18,8 +23,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_b2ko7")
+stretch_mode = 6
+
+[node name="AudioSettingsMenu" parent="." unique_id=2022320159 instance=ExtResource("4_udqux")]
+layout_mode = 0
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=1369860800]
+custom_minimum_size = Vector2(880, 560)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,16 +44,20 @@ offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=381740530]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=60147995]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=2029030204]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=381740530]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2029030204]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Instructions"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=794720268]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer" unique_id=794720268]
 layout_mode = 2
 bbcode_enabled = true
 text = "[center][b]Drone controls[/b]
@@ -64,8 +79,11 @@ text = "[center][b]Drone controls[/b]
 - Collect the top secret files."
 fit_content = true
 
-[node name="BackButton" type="Button" parent="Panel/VBoxContainer" unique_id=2110543317]
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=2110543317]
+custom_minimum_size = Vector2(165.44, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 31
 text = "Back"
 
-[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

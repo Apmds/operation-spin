@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c6hk4moot4cc" path="res://assets/ui/menus/button.png" id="1_ogkq6"]
 [ext_resource type="FontFile" uid="uid://bogpqwadkb6xv" path="res://assets/fonts/CourierPrime-Regular.ttf" id="1_xebm5"]
+[ext_resource type="FontFile" uid="uid://bewfo1vk3ly3a" path="res://assets/fonts/CourierPrime-Bold.ttf" id="3_jqn3y"]
+[ext_resource type="FontFile" uid="uid://dvf2pbgipi7gt" path="res://assets/fonts/CourierPrime-BoldItalic.ttf" id="4_g6uxu"]
+[ext_resource type="FontFile" uid="uid://beqinycgcv5y7" path="res://assets/fonts/CourierPrime-Italic.ttf" id="5_t3i4h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogkq6"]
 texture = ExtResource("1_ogkq6")
@@ -65,3 +68,8 @@ Button/styles/pressed = null
 Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_xebm5")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ox402")
+RichTextLabel/fonts/bold_font = ExtResource("3_jqn3y")
+RichTextLabel/fonts/bold_italics_font = ExtResource("4_g6uxu")
+RichTextLabel/fonts/italics_font = ExtResource("5_t3i4h")
+RichTextLabel/fonts/mono_font = ExtResource("1_xebm5")
+RichTextLabel/fonts/normal_font = ExtResource("1_xebm5")
