@@ -7,10 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cf6k4vkhf6nl6" path="res://assets/textures/beige_wall/textures/beige_wall_001_diff_1k.jpg" id="5_077vk"]
 [ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="6_pdsn1"]
 [ext_resource type="Texture2D" uid="uid://dgvr4gmqh6o0i" path="res://assets/textures/ceiling.png" id="6_w41xi"]
-[ext_resource type="Texture2D" uid="uid://dr0xky51fo4kr" path="res://assets/ui/audio_meter_off.png" id="7_f627u"]
-[ext_resource type="Texture2D" uid="uid://dk1n32sbrro2d" path="res://assets/ui/fan_status_off.png" id="7_ipyvp"]
-[ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="7_lwd14"]
-[ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="10_71yum"]
 [ext_resource type="PackedScene" uid="uid://bisdalsga6xhv" path="res://assets/office/clock.glb" id="10_86ewp"]
 [ext_resource type="PackedScene" uid="uid://ftlpqny8ugh1" path="res://assets/office/cabinet.glb" id="11_0y8cl"]
 [ext_resource type="PackedScene" uid="uid://b38h1wknssmnb" path="res://assets/office/archiver.glb" id="12_6b4ow"]
@@ -29,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://durwbf01ubjku" path="res://src/guard/guard.tscn" id="27_05yyc"]
 [ext_resource type="PackedScene" uid="uid://b7rwq7y2g12vp" path="res://src/security_camera/security_camera.tscn" id="27_sfpsw"]
 [ext_resource type="PackedScene" uid="uid://biqaasry7jmil" path="res://src/lasers/lasers.tscn" id="28_6ixvl"]
+[ext_resource type="PackedScene" uid="uid://60fmbl4svtql" path="res://src/menus/ui.tscn" id="29_fhs27"]
 [ext_resource type="PackedScene" uid="uid://t5qeub6sk4rt" path="res://assets/office/chair.glb" id="29_mafqr"]
 [ext_resource type="PackedScene" uid="uid://dm8gm58xm2ah2" path="res://src/props/door.tscn" id="30_foj27"]
 [ext_resource type="Material" uid="uid://bpenohnj6fqur" path="res://assets/textures/beige_wall/beige_wall_001.tres" id="31_w41xi"]
@@ -473,96 +470,6 @@ shape = SubResource("ConcavePolygonShape3D_wtt4b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1130838937]
 environment = SubResource("Environment_sovdr")
-
-[node name="UI" type="Control" parent="." unique_id=1156965521]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_behavior_recursive = 2
-
-[node name="Mode status" type="Label" parent="UI" unique_id=453791101]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 143.0
-offset_right = 76.0
-offset_bottom = 166.0
-text = "Mode"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=17228339]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -318.0
-offset_top = -225.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 16
-alignment = 2
-
-[node name="FansMargin" type="MarginContainer" parent="UI/HBoxContainer" unique_id=2059834854]
-layout_mode = 2
-theme_override_constants/margin_top = 129
-
-[node name="Fans status" type="TextureRect" parent="UI/HBoxContainer/FansMargin" unique_id=400965169]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(143.745, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("7_ipyvp")
-stretch_mode = 4
-
-[node name="NoiseMargin" type="MarginContainer" parent="UI/HBoxContainer" unique_id=655724565]
-custom_minimum_size = Vector2(78, 225)
-layout_mode = 2
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Noise status" type="TextureProgressBar" parent="UI/HBoxContainer/NoiseMargin" unique_id=293352012]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = ExtResource("7_f627u")
-texture_progress = ExtResource("7_lwd14")
-
-[node name="Danger Indicators" type="Control" parent="UI" unique_id=769689469]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Danger Indicator" type="TextureRect" parent="UI/Danger Indicators" unique_id=1213978080]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = -32.0
-offset_top = -100.0
-offset_right = 32.0
-offset_bottom = -36.0
-rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
-pivot_offset = Vector2(32, 100)
-texture = ExtResource("10_71yum")
-stretch_mode = 5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1262657275]
 transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0.57357645, 1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
@@ -1636,7 +1543,7 @@ shape = SubResource("BoxShape3D_6ixvl")
 [node name="chair2" parent="StaticBody3D50" unique_id=1520280950 instance=ExtResource("24_sdggo")]
 transform = Transform3D(-0.19252199, 0, -0.9812926, 0, 1, 0, 0.9812926, 0, -0.19252199, -10.331669, 0.22772294, -1.8816204)
 
-[node name="chair2_001" parent="StaticBody3D50/chair2" index="0" unique_id=1023630655]
+[node name="chair2_001" parent="StaticBody3D50/chair2" index="0" unique_id=299057152]
 transform = Transform3D(-0.36916152, 0, -0.09547163, 0, 0.38130704, 0, 0.09547163, 0, -0.36916152, 0, 0, 0)
 
 [node name="StaticBody3D73" type="StaticBody3D" parent="." unique_id=803600565]
@@ -1650,7 +1557,7 @@ shape = SubResource("BoxShape3D_6ixvl")
 [node name="chair2" parent="StaticBody3D73" unique_id=1299285418 instance=ExtResource("24_sdggo")]
 transform = Transform3D(-0.19252199, 0, -0.9812926, 0, 1, 0, 0.9812926, 0, -0.19252199, -10.331669, 0.22772294, -1.8816204)
 
-[node name="chair2_001" parent="StaticBody3D73/chair2" index="0" unique_id=1023630655]
+[node name="chair2_001" parent="StaticBody3D73/chair2" index="0" unique_id=299057152]
 transform = Transform3D(-0.36916152, 0, -0.09547163, 0, 0.38130704, 0, 0.09547163, 0, -0.36916152, 0, 0, 0)
 
 [node name="StaticBody3D74" type="StaticBody3D" parent="." unique_id=2088157391]
@@ -1664,7 +1571,7 @@ shape = SubResource("BoxShape3D_6ixvl")
 [node name="chair2" parent="StaticBody3D74" unique_id=148534513 instance=ExtResource("24_sdggo")]
 transform = Transform3D(-0.19252199, 0, -0.9812926, 0, 1, 0, 0.9812926, 0, -0.19252199, -10.331669, 0.22772294, -1.8816204)
 
-[node name="chair2_001" parent="StaticBody3D74/chair2" index="0" unique_id=1023630655]
+[node name="chair2_001" parent="StaticBody3D74/chair2" index="0" unique_id=299057152]
 transform = Transform3D(-0.36916152, 0, -0.09547163, 0, 0.38130704, 0, 0.09547163, 0, -0.36916152, 0, 0, 0)
 
 [node name="StaticBody3D75" type="StaticBody3D" parent="." unique_id=386136099]
@@ -1678,7 +1585,7 @@ shape = SubResource("BoxShape3D_6ixvl")
 [node name="chair2" parent="StaticBody3D75" unique_id=403482076 instance=ExtResource("24_sdggo")]
 transform = Transform3D(-0.19252199, 0, -0.9812926, 0, 1, 0, 0.9812926, 0, -0.19252199, -10.331669, 0.22772294, -1.8816204)
 
-[node name="chair2_001" parent="StaticBody3D75/chair2" index="0" unique_id=1023630655]
+[node name="chair2_001" parent="StaticBody3D75/chair2" index="0" unique_id=299057152]
 transform = Transform3D(-0.36916152, 0, -0.09547163, 0, 0.38130704, 0, 0.09547163, 0, -0.36916152, 0, 0, 0)
 
 [node name="StaticBody3D76" type="StaticBody3D" parent="." unique_id=56059479]
@@ -1692,7 +1599,7 @@ shape = SubResource("BoxShape3D_6ixvl")
 [node name="chair2" parent="StaticBody3D76" unique_id=917360033 instance=ExtResource("24_sdggo")]
 transform = Transform3D(-0.19252199, 0, -0.9812926, 0, 1, 0, 0.9812926, 0, -0.19252199, -10.331669, 0.22772294, -1.8816204)
 
-[node name="chair2_001" parent="StaticBody3D76/chair2" index="0" unique_id=1023630655]
+[node name="chair2_001" parent="StaticBody3D76/chair2" index="0" unique_id=299057152]
 transform = Transform3D(-0.36916152, 0, -0.09547163, 0, 0.38130704, 0, 0.09547163, 0, -0.36916152, 0, 0, 0)
 
 [node name="StaticBody3D77" type="StaticBody3D" parent="." unique_id=1912674480]
@@ -1706,7 +1613,7 @@ shape = SubResource("BoxShape3D_6ixvl")
 [node name="chair2" parent="StaticBody3D77" unique_id=822514288 instance=ExtResource("24_sdggo")]
 transform = Transform3D(-0.19252199, 0, -0.9812926, 0, 1, 0, 0.9812926, 0, -0.19252199, -10.331669, 0.22772294, -1.8816204)
 
-[node name="chair2_001" parent="StaticBody3D77/chair2" index="0" unique_id=1023630655]
+[node name="chair2_001" parent="StaticBody3D77/chair2" index="0" unique_id=299057152]
 transform = Transform3D(-0.36916152, 0, -0.09547163, 0, 0.38130704, 0, 0.09547163, 0, -0.36916152, 0, 0, 0)
 
 [node name="archiver2" parent="." unique_id=848741431 instance=ExtResource("12_6b4ow")]
@@ -2129,105 +2036,107 @@ mesh = SubResource("BoxMesh_17oap")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall22" unique_id=936212890]
 shape = SubResource("BoxShape3D_orliu")
 
+[node name="UI" parent="." unique_id=1414782937 instance=ExtResource("29_fhs27")]
+
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
 [connection signal="fans_changed" from="Drone" to="." method="_on_drone_fans_changed"]
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers2/Laser" to="Lasers2/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@23136" to="Lasers2/@Area3D@23136" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@23138" to="Lasers2/@Area3D@23138" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@23140" to="Lasers2/@Area3D@23140" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers2/@Area3D@23142" to="Lasers2/@Area3D@23142" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@38434" to="Lasers9/@Area3D@38434" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@38436" to="Lasers9/@Area3D@38436" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@38438" to="Lasers9/@Area3D@38438" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@38440" to="Lasers9/@Area3D@38440" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers9/@Area3D@38442" to="Lasers9/@Area3D@38442" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@194181" to="Lasers21/@Area3D@194181" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@194183" to="Lasers21/@Area3D@194183" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@194185" to="Lasers21/@Area3D@194185" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@194187" to="Lasers21/@Area3D@194187" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers21/@Area3D@194189" to="Lasers21/@Area3D@194189" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@211737" to="Lasers22/@Area3D@211737" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@211739" to="Lasers22/@Area3D@211739" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@211741" to="Lasers22/@Area3D@211741" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@211743" to="Lasers22/@Area3D@211743" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers22/@Area3D@211745" to="Lasers22/@Area3D@211745" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164406" to="Lasers13/@Area3D@164406" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164408" to="Lasers13/@Area3D@164408" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164410" to="Lasers13/@Area3D@164410" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164412" to="Lasers13/@Area3D@164412" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164414" to="Lasers13/@Area3D@164414" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164416" to="Lasers13/@Area3D@164416" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers13/@Area3D@164418" to="Lasers13/@Area3D@164418" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@158004" to="Lasers12/@Area3D@158004" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@158006" to="Lasers12/@Area3D@158006" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@158008" to="Lasers12/@Area3D@158008" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@158010" to="Lasers12/@Area3D@158010" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers12/@Area3D@158012" to="Lasers12/@Area3D@158012" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@168280" to="Lasers14/@Area3D@168280" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@168282" to="Lasers14/@Area3D@168282" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@168284" to="Lasers14/@Area3D@168284" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@168286" to="Lasers14/@Area3D@168286" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers14/@Area3D@168288" to="Lasers14/@Area3D@168288" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@168756" to="Lasers15/@Area3D@168756" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@168758" to="Lasers15/@Area3D@168758" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@168760" to="Lasers15/@Area3D@168760" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@168762" to="Lasers15/@Area3D@168762" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers15/@Area3D@168764" to="Lasers15/@Area3D@168764" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@67952" to="Lasers2/@Area3D@67952" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@67954" to="Lasers2/@Area3D@67954" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@67956" to="Lasers2/@Area3D@67956" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers2/@Area3D@67958" to="Lasers2/@Area3D@67958" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/Laser" to="Lasers9/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@67961" to="Lasers9/@Area3D@67961" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@67963" to="Lasers9/@Area3D@67963" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@67965" to="Lasers9/@Area3D@67965" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers9/@Area3D@67967" to="Lasers9/@Area3D@67967" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/Laser" to="Lasers21/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@67970" to="Lasers21/@Area3D@67970" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@67972" to="Lasers21/@Area3D@67972" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@67974" to="Lasers21/@Area3D@67974" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers21/@Area3D@67976" to="Lasers21/@Area3D@67976" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/Laser" to="Lasers22/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@67979" to="Lasers22/@Area3D@67979" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@67981" to="Lasers22/@Area3D@67981" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@67983" to="Lasers22/@Area3D@67983" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers22/@Area3D@67985" to="Lasers22/@Area3D@67985" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/Laser" to="Lasers13/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@67988" to="Lasers13/@Area3D@67988" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@67990" to="Lasers13/@Area3D@67990" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@67992" to="Lasers13/@Area3D@67992" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@67994" to="Lasers13/@Area3D@67994" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@67996" to="Lasers13/@Area3D@67996" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers13/@Area3D@67998" to="Lasers13/@Area3D@67998" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/Laser" to="Lasers12/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@68001" to="Lasers12/@Area3D@68001" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@68003" to="Lasers12/@Area3D@68003" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@68005" to="Lasers12/@Area3D@68005" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers12/@Area3D@68007" to="Lasers12/@Area3D@68007" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/Laser" to="Lasers14/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@68010" to="Lasers14/@Area3D@68010" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@68012" to="Lasers14/@Area3D@68012" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@68014" to="Lasers14/@Area3D@68014" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers14/@Area3D@68016" to="Lasers14/@Area3D@68016" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/Laser" to="Lasers15/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@68019" to="Lasers15/@Area3D@68019" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@68021" to="Lasers15/@Area3D@68021" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@68023" to="Lasers15/@Area3D@68023" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers15/@Area3D@68025" to="Lasers15/@Area3D@68025" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers4/Laser" to="Lasers4/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers4/@Area3D@23152" to="Lasers4/@Area3D@23152" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers4/@Area3D@23154" to="Lasers4/@Area3D@23154" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers4/@Area3D@23156" to="Lasers4/@Area3D@23156" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@40112" to="Lasers10/@Area3D@40112" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@40114" to="Lasers10/@Area3D@40114" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@40116" to="Lasers10/@Area3D@40116" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers10/@Area3D@40118" to="Lasers10/@Area3D@40118" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers4/@Area3D@68028" to="Lasers4/@Area3D@68028" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers4/@Area3D@68030" to="Lasers4/@Area3D@68030" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers4/@Area3D@68032" to="Lasers4/@Area3D@68032" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/Laser" to="Lasers10/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/@Area3D@68035" to="Lasers10/@Area3D@68035" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/@Area3D@68037" to="Lasers10/@Area3D@68037" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers10/@Area3D@68039" to="Lasers10/@Area3D@68039" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers5/Laser" to="Lasers5/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers5/@Area3D@23159" to="Lasers5/@Area3D@23159" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers5/@Area3D@23161" to="Lasers5/@Area3D@23161" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers5/@Area3D@23163" to="Lasers5/@Area3D@23163" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers5/@Area3D@68042" to="Lasers5/@Area3D@68042" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers5/@Area3D@68044" to="Lasers5/@Area3D@68044" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers5/@Area3D@68046" to="Lasers5/@Area3D@68046" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers6/Laser" to="Lasers6/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers6/@Area3D@23166" to="Lasers6/@Area3D@23166" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers6/@Area3D@23168" to="Lasers6/@Area3D@23168" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers6/@Area3D@23170" to="Lasers6/@Area3D@23170" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers6/@Area3D@68049" to="Lasers6/@Area3D@68049" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers6/@Area3D@68051" to="Lasers6/@Area3D@68051" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers6/@Area3D@68053" to="Lasers6/@Area3D@68053" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers7/Laser" to="Lasers7/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers7/@Area3D@23173" to="Lasers7/@Area3D@23173" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers7/@Area3D@23175" to="Lasers7/@Area3D@23175" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers7/@Area3D@23177" to="Lasers7/@Area3D@23177" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@157376" to="Lasers11/@Area3D@157376" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@157378" to="Lasers11/@Area3D@157378" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@157380" to="Lasers11/@Area3D@157380" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers11/@Area3D@157382" to="Lasers11/@Area3D@157382" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@169826" to="Lasers16/@Area3D@169826" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@169828" to="Lasers16/@Area3D@169828" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@169830" to="Lasers16/@Area3D@169830" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers16/@Area3D@169832" to="Lasers16/@Area3D@169832" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@170069" to="Lasers17/@Area3D@170069" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@170071" to="Lasers17/@Area3D@170071" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@170073" to="Lasers17/@Area3D@170073" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers17/@Area3D@170075" to="Lasers17/@Area3D@170075" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@170539" to="Lasers18/@Area3D@170539" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@170541" to="Lasers18/@Area3D@170541" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@170543" to="Lasers18/@Area3D@170543" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers18/@Area3D@170545" to="Lasers18/@Area3D@170545" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@188754" to="Lasers19/@Area3D@188754" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@188756" to="Lasers19/@Area3D@188756" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@188758" to="Lasers19/@Area3D@188758" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers19/@Area3D@188760" to="Lasers19/@Area3D@188760" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@225930" to="Lasers23/@Area3D@225930" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@225932" to="Lasers23/@Area3D@225932" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@225934" to="Lasers23/@Area3D@225934" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers23/@Area3D@225936" to="Lasers23/@Area3D@225936" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@188782" to="Lasers20/@Area3D@188782" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@188784" to="Lasers20/@Area3D@188784" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@188786" to="Lasers20/@Area3D@188786" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers20/@Area3D@188788" to="Lasers20/@Area3D@188788" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers7/@Area3D@68056" to="Lasers7/@Area3D@68056" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers7/@Area3D@68058" to="Lasers7/@Area3D@68058" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers7/@Area3D@68060" to="Lasers7/@Area3D@68060" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/Laser" to="Lasers11/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/@Area3D@68063" to="Lasers11/@Area3D@68063" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/@Area3D@68065" to="Lasers11/@Area3D@68065" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers11/@Area3D@68067" to="Lasers11/@Area3D@68067" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/Laser" to="Lasers16/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/@Area3D@68070" to="Lasers16/@Area3D@68070" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/@Area3D@68072" to="Lasers16/@Area3D@68072" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers16/@Area3D@68074" to="Lasers16/@Area3D@68074" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/Laser" to="Lasers17/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/@Area3D@68077" to="Lasers17/@Area3D@68077" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/@Area3D@68079" to="Lasers17/@Area3D@68079" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers17/@Area3D@68081" to="Lasers17/@Area3D@68081" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/Laser" to="Lasers18/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/@Area3D@68084" to="Lasers18/@Area3D@68084" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/@Area3D@68086" to="Lasers18/@Area3D@68086" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers18/@Area3D@68088" to="Lasers18/@Area3D@68088" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/Laser" to="Lasers19/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/@Area3D@68091" to="Lasers19/@Area3D@68091" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/@Area3D@68093" to="Lasers19/@Area3D@68093" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers19/@Area3D@68095" to="Lasers19/@Area3D@68095" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/Laser" to="Lasers23/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/@Area3D@68098" to="Lasers23/@Area3D@68098" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/@Area3D@68100" to="Lasers23/@Area3D@68100" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers23/@Area3D@68102" to="Lasers23/@Area3D@68102" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/Laser" to="Lasers20/Laser" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/@Area3D@68105" to="Lasers20/@Area3D@68105" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/@Area3D@68107" to="Lasers20/@Area3D@68107" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers20/@Area3D@68109" to="Lasers20/@Area3D@68109" method="_on_body_entered"]
 [connection signal="body_entered" from="Lasers8/Laser" to="Lasers8/Laser" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers8/@Area3D@23180" to="Lasers8/@Area3D@23180" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers8/@Area3D@23182" to="Lasers8/@Area3D@23182" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers8/@Area3D@23184" to="Lasers8/@Area3D@23184" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers8/@Area3D@68112" to="Lasers8/@Area3D@68112" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers8/@Area3D@68114" to="Lasers8/@Area3D@68114" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers8/@Area3D@68116" to="Lasers8/@Area3D@68116" method="_on_body_entered"]
 
 [editable path="StaticBody3D11/cabinet8"]
 [editable path="StaticBody3D22/cabinet8"]

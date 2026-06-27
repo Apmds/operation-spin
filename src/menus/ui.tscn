@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://60fmbl4svtql"]
+
+[ext_resource type="Theme" uid="uid://blpp5nd6x17up" path="res://src/menus/menu_theme.tres" id="1_clkkk"]
+[ext_resource type="Texture2D" uid="uid://dk1n32sbrro2d" path="res://assets/ui/fan_status_off.png" id="1_tfy6p"]
+[ext_resource type="Script" uid="uid://bwur20k88m8uq" path="res://src/menus/ui.gd" id="2_82dad"]
+[ext_resource type="Texture2D" uid="uid://dr0xky51fo4kr" path="res://assets/ui/audio_meter_off.png" id="2_clkkk"]
+[ext_resource type="Texture2D" uid="uid://ddsbbwvfghsib" path="res://assets/ui/audio_meter.png" id="3_82dad"]
+[ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="4_fiqfb"]
+
+[node name="UI" type="Control" unique_id=1414782937]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme = ExtResource("1_clkkk")
+script = ExtResource("2_82dad")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=426333554]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 48.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Mode status" type="Label" parent="MarginContainer" unique_id=1415878064]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mode:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2040992338]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -318.0
+offset_top = -225.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="FansMargin" type="MarginContainer" parent="HBoxContainer" unique_id=890336482]
+layout_mode = 2
+theme_override_constants/margin_top = 129
+
+[node name="Fans status" type="TextureRect" parent="HBoxContainer/FansMargin" unique_id=403854703]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(143.745, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_tfy6p")
+stretch_mode = 4
+
+[node name="NoiseMargin" type="MarginContainer" parent="HBoxContainer" unique_id=115077696]
+custom_minimum_size = Vector2(78, 225)
+layout_mode = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Noise status" type="TextureProgressBar" parent="HBoxContainer/NoiseMargin" unique_id=120404007]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_clkkk")
+texture_progress = ExtResource("3_82dad")
+
+[node name="Danger Indicators" type="Control" parent="." unique_id=439086124]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Danger Indicator" type="TextureRect" parent="Danger Indicators" unique_id=1632491798]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -32.0
+offset_top = -100.0
+offset_right = 32.0
+offset_bottom = -36.0
+rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(32, 100)
+texture = ExtResource("4_fiqfb")
+stretch_mode = 5

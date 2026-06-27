@@ -6,11 +6,7 @@ var fans_boost_tex = preload("res://assets/ui/fan_status_boost.png")
 
 var damage_indicator_tex = preload("res://assets/ui/damage_indicator.png")
 
-@onready var UI: Control = $UI
-@onready var ui_fans_status: TextureRect = %"Fans status"
-@onready var ui_noise_status: TextureProgressBar = %"Noise status"
-@onready var ui_mode_status: Label = $"UI/Mode status"
-@onready var ui_danger_indicator_control: Control = %"Danger Indicators"
+@onready var ui: UI = $UI
 
 @onready var camera: CameraArm = $Camera
 @onready var drone: Drone = $Drone
@@ -37,7 +33,7 @@ class DangerIndicator:
 		self.death_timer.wait_time = 0.3
 		self.death_timer.timeout.connect(self.remove)
 		
-		self.danger_list_control = parent.ui_danger_indicator_control
+		self.danger_list_control = parent.ui.danger_indicators
 	
 	func add():
 		self.danger_list_control.add_child(indicator_in_scene)
@@ -94,7 +90,7 @@ var noise_level: float = 0:
 	get: return noise_level
 	set(value): 
 		noise_level = value
-		ui_noise_status.value = noise_levels[noise_levels.bsearch(noise_level)-1]
+		ui.noise_status.value = noise_levels[noise_levels.bsearch(noise_level)-1]
 
 var boost_status: bool = false:
 	get: return boost_status
@@ -112,17 +108,17 @@ var mode: Drone.FlightMode = Drone.FlightMode.NORMAL:
 	get: return mode
 	set(value): 
 		mode = value
-		ui_mode_status.text = "Mode: %s" % Drone.FlightMode.find_key(value)
+		ui.mode_status.text = "Mode: %s" % Drone.FlightMode.find_key(value)
 
 func update_fans_status() -> void:
 	if not fans_on:
-		ui_fans_status.texture = fans_off_tex
+		ui.fans_status.texture = fans_off_tex
 		return
 	
 	if boost_status:
-		ui_fans_status.texture = fans_boost_tex
+		ui.fans_status.texture = fans_boost_tex
 	else:
-		ui_fans_status.texture = fans_on_tex
+		ui.fans_status.texture = fans_on_tex
 
 func make_danger_indicator_rect() -> TextureRect:
 	var rect: TextureRect = TextureRect.new()
