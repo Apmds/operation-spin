@@ -419,7 +419,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.02
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.3765388, 0)
 pixel_size = 0.01
 text = "this is a noise sensor
-you can't activate your boost around these"
+don't make too much sound around these"
 outline_size = 13
 
 [node name="NoiseSensor2" parent="." unique_id=1769098742 instance=ExtResource("7_57l5a")]
