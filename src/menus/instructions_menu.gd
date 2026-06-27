@@ -9,8 +9,17 @@ extends Control
 @onready var last_panel_button: Button = %LastPanelButton
 @onready var next_panel_button: Button = %NextPanelButton
 
+@onready var rotate_drone_timer: Timer = %RotateTimer
+
 var current_menu: int = 0
 const NUMBER_OF_MENUS: int = 3
+
+func start_rotating_drone():
+	rotate_drone_timer.start()
+
+func stop_rotating_drone():
+	rotate_drone_timer.stop()
+	drone.rotation = Vector3.ZERO
 
 func previous_menu() -> void:
 	if current_menu > 0:
@@ -75,6 +84,8 @@ func update_menu() -> void:
 	last_panel_button.disabled = false
 	next_panel_button.disabled = false
 	
+	stop_rotating_drone()
+	
 	match current_menu:
 		0: # Basics
 			last_panel_button.disabled = true
@@ -118,8 +129,8 @@ func update_menu() -> void:
 				#"- Guard: detects sound and movement"
 			)
 			
-			drone_animation_player.play("spin_normal")
-			# TODO: fazer rodar
+			play_normal()
+			start_rotating_drone()
 
 func _ready() -> void:
 	drone_animation_player = drone.get_node("AnimationPlayer")
@@ -141,3 +152,13 @@ func _on_last_panel_button_pressed() -> void:
 
 func _on_next_panel_button_pressed() -> void:
 	next_menu()
+
+func _on_rotate_timer_timeout():
+	# Rotate drone 15 deg in a random axis
+	var axes := [Vector3.RIGHT, Vector3.UP, Vector3.FORWARD]
+	var axis: Vector3 = axes[randi() % axes.size()]
+	
+	var current_basis := Basis.from_euler(drone.rotation)
+	var rotated_basis := current_basis.rotated(axis, deg_to_rad(15))
+	
+	drone.rotation = rotated_basis.get_euler()
