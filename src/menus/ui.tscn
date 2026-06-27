@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://vufmnhf7gqwe" path="res://assets/ui/damage_indicator.png" id="4_fiqfb"]
 
 [node name="UI" type="Control" unique_id=1414782937]
+process_mode = 3
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-mouse_behavior_recursive = 2
 theme = ExtResource("1_clkkk")
 script = ExtResource("2_82dad")
 
@@ -107,3 +107,77 @@ scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(32, 100)
 texture = ExtResource("4_fiqfb")
 stretch_mode = 5
+
+[node name="PauseMenu" type="Control" parent="." unique_id=1050646690]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="PauseMenu" unique_id=1075039082]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.11764706)
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu" unique_id=1839284286]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/CenterContainer" unique_id=1625381986]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer/PanelContainer" unique_id=1313775217]
+layout_mode = 2
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="Title" type="Label" parent="PauseMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=1032115562]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer/PanelContainer/VBoxContainer" unique_id=2039402092]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1196523879]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="ResetButton" type="Button" parent="PauseMenu/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=2029421122]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset level"
+
+[node name="BackButton" type="Button" parent="PauseMenu/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1516796716]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to menu"
+
+[connection signal="pressed" from="PauseMenu/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
