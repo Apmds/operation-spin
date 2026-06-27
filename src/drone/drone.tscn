@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4ivfu5my1ts" path="res://assets/models/drone.glb" id="2_1akv4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1akv4"]
-size = Vector3(510.636, 57.418686, 412.72437)
+size = Vector3(471.411, 57.419, 332.459)
 
 [sub_resource type="Animation" id="Animation_4nai4"]
 length = 0.001
@@ -556,36 +556,36 @@ script = ExtResource("1_1akv4")
 [node name="Mesh" parent="." unique_id=2040026083 instance=ExtResource("2_1akv4")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="blur1" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="0" unique_id=1765831275]
+[node name="blur1" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="0" unique_id=630529518]
 transform = Transform3D(99.99999, 0, -1.7452608, 1.7455266, -4.3711484e-06, 99.98477, -7.6299386e-08, -100.00022, -4.370473e-06, -167.237, -99.93418, -8.672603)
 rotation_order = 4
 visible = false
 
-[node name="blur2" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="1" unique_id=2059162891]
+[node name="blur2" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="1" unique_id=140566780]
 transform = Transform3D(99.98477, 0, -1.7452608, 1.7452608, -4.371139e-06, 99.98477, -7.6287776e-08, -100, -4.370473e-06, -163.98486, 126.94137, -8.6725855)
 rotation_order = 4
 
-[node name="blur3" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="2" unique_id=212775367]
+[node name="blur3" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="2" unique_id=1692784638]
 transform = Transform3D(99.98477, 0, -1.7452608, 1.7452608, -4.371139e-06, 99.98477, -7.6287776e-08, -100, -4.370473e-06, 171.2954, -99.93418, -8.672603)
 rotation_order = 4
 visible = false
 
-[node name="blur4" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="3" unique_id=1786722529]
+[node name="blur4" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="3" unique_id=1706743717]
 transform = Transform3D(99.98477, 0, -1.7452608, 1.7452608, -4.371139e-06, 99.98477, -7.6287776e-08, -100, -4.370473e-06, 171.2954, 126.94137, -8.6725855)
 rotation_order = 4
 
-[node name="helice1" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="4" unique_id=387667479]
+[node name="helice1" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="4" unique_id=1208062541]
 transform = Transform3D(0.9998477, 0.017452609, 0, -0.017452609, 0.9998477, 0, 0, 0, 1, -167.237, -108.013, -2.3490796)
 visible = false
 
-[node name="helice2" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="5" unique_id=271136523]
+[node name="helice2" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="5" unique_id=1108288742]
 transform = Transform3D(0.9998477, 0.017452609, 0, -0.017452609, 0.9998477, 0, 0, 0, 1, -166.98615, 117.7958, -2.3337822)
 
-[node name="helice3" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="6" unique_id=941661771]
+[node name="helice3" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="6" unique_id=1875154098]
 transform = Transform3D(0.9998477, 0.017452609, 0, -0.017452609, 0.9998477, 0, 0, 0, 1, 171.98605, -108.204285, -2.3568144)
 visible = false
 
-[node name="helice4" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1492410176) index="7" unique_id=779855601]
+[node name="helice4" parent="Mesh/Model" parent_id_path=PackedInt32Array(2040026083, 1970490515) index="7" unique_id=476559018]
 transform = Transform3D(0.9998477, 0.017452609, 0, -0.017452609, 0.9998477, 0, 0, 0, 1, 171.95071, 117.79578, -2.3337822)
 visible = false
 
