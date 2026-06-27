@@ -26,9 +26,6 @@ grow_vertical = 2
 texture = ExtResource("3_b2ko7")
 stretch_mode = 6
 
-[node name="AudioSettingsMenu" parent="." unique_id=2022320159 instance=ExtResource("4_udqux")]
-layout_mode = 0
-
 [node name="Panel" type="PanelContainer" parent="." unique_id=1369860800]
 custom_minimum_size = Vector2(880, 560)
 layout_mode = 1
@@ -85,5 +82,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 31
 text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=806923294]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="AudioSettingsMenu" parent="MarginContainer" unique_id=2022320159 instance=ExtResource("4_udqux")]
+layout_mode = 2
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://db0w5vap8k4s7"]
 
+[ext_resource type="Theme" uid="uid://blpp5nd6x17up" path="res://src/menus/menu_theme.tres" id="1_1p6ey"]
 [ext_resource type="Script" uid="uid://cq3sp0r3i5tjq" path="res://src/menus/level_select_menu.gd" id="1_8m7d2"]
+[ext_resource type="PackedScene" uid="uid://c7w8m5q4v2p1n" path="res://src/menus/audio_settings_menu.tscn" id="3_a0gtr"]
+[ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="3_npd03"]
 
 [node name="LevelSelectMenu" type="Control" unique_id=351501074]
 layout_mode = 3
@@ -9,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1p6ey")
 script = ExtResource("1_8m7d2")
 
 [node name="Background" type="TextureRect" parent="." unique_id=72373622]
@@ -18,6 +22,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_npd03")
+stretch_mode = 6
 
 [node name="Title" type="Label" parent="." unique_id=621941983]
 layout_mode = 1
@@ -26,11 +32,11 @@ anchor_right = 1.0
 offset_top = 36.0
 offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 50
 text = "Select a level"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=2086173936]
+[node name="LevelGrid" type="GridContainer" parent="." unique_id=2086173936]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,7 +49,9 @@ offset_right = 440.0
 offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 5
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 40
+columns = 3
 
 [node name="BackButton" type="Button" parent="." unique_id=2084508030]
 layout_mode = 1
@@ -58,6 +66,17 @@ offset_right = 80.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 25
 text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1626015806]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="AudioSettingsMenu" parent="MarginContainer" unique_id=2022320159 instance=ExtResource("3_a0gtr")]
+layout_mode = 2
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
