@@ -3,7 +3,13 @@
 [ext_resource type="Script" uid="uid://cka2vlcdffj4o" path="res://src/menus/instructions_menu.gd" id="1_2qg4m"]
 [ext_resource type="Theme" uid="uid://blpp5nd6x17up" path="res://src/menus/menu_theme.tres" id="1_tfymr"]
 [ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="3_b2ko7"]
+[ext_resource type="Texture2D" uid="uid://cxvrj8pojvpgh" path="res://assets/ui/menus/arrow_right.png" id="4_62rn4"]
+[ext_resource type="Texture2D" uid="uid://bjrnlylnd6kw0" path="res://assets/ui/menus/arrow_left.png" id="4_gc1vl"]
 [ext_resource type="PackedScene" uid="uid://c7w8m5q4v2p1n" path="res://src/menus/audio_settings_menu.tscn" id="4_udqux"]
+[ext_resource type="PackedScene" uid="uid://cf4ivfu5my1ts" path="res://assets/models/drone.glb" id="5_84xff"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gc1vl"]
+viewport_path = NodePath("SubViewport")
 
 [node name="InstructionsMenu" type="Control" unique_id=719646468]
 texture_filter = 1
@@ -46,7 +52,8 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=381740530]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 31
+alignment = 1
 
 [node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2029030204]
 layout_mode = 2
@@ -54,8 +61,15 @@ theme_override_font_sizes/font_size = 40
 text = "Instructions"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer" unique_id=794720268]
+[node name="Content" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1755960582]
 layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="ContentText" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/Content" unique_id=794720268]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 bbcode_enabled = true
 text = "[center][b]Drone controls[/b]
 - WASD: move the drone
@@ -76,12 +90,33 @@ text = "[center][b]Drone controls[/b]
 - Collect the top secret files."
 fit_content = true
 
-[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=2110543317]
+[node name="ContentImage" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/Content" unique_id=919107658]
+custom_minimum_size = Vector2(354.36, 0)
+layout_mode = 2
+texture = SubResource("ViewportTexture_gc1vl")
+expand_mode = 4
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=2038125904]
+layout_mode = 2
+theme_override_constants/separation = 228
+alignment = 1
+
+[node name="LastPanelButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Buttons" unique_id=2132730629]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("4_gc1vl")
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Buttons" unique_id=2110543317]
 custom_minimum_size = Vector2(165.44, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 31
 text = "Back"
+
+[node name="NextPanelButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/Buttons" unique_id=468011965]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("4_62rn4")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=806923294]
 layout_mode = 0
@@ -93,4 +128,51 @@ theme_override_constants/margin_top = 20
 [node name="AudioSettingsMenu" parent="MarginContainer" unique_id=2022320159 instance=ExtResource("4_udqux")]
 layout_mode = 2
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=202701276]
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="SubViewport" unique_id=584998923]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D" unique_id=502957739]
+transform = Transform3D(-1, 4.104251e-08, -7.718973e-08, 0, 0.8829476, 0.4694716, 8.742278e-08, 0.4694716, -0.8829476, 0, 0.72159016, -1.3773822)
+
+[node name="Drone" parent="SubViewport/Node3D" unique_id=2135039450 instance=ExtResource("5_84xff")]
+unique_name_in_owner = true
+transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0, 0, 0)
+
+[node name="blur1" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="0" unique_id=630529518]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -167.237, -99.93418, -8.672603)
+visible = false
+
+[node name="blur2" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="1" unique_id=140566780]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, -163.98486, 126.94137, -8.6725855)
+visible = false
+
+[node name="blur3" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="2" unique_id=1692784638]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 171.2954, -99.93418, -8.672603)
+visible = false
+
+[node name="blur4" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="3" unique_id=1706743717]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 171.2954, 126.94137, -8.6725855)
+visible = false
+
+[node name="helice1" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="4" unique_id=1208062541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.237, -108.013, -2.3490796)
+
+[node name="helice2" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="5" unique_id=1108288742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.98615, 117.7958, -2.3337822)
+
+[node name="helice3" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="6" unique_id=1875154098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.98605, -108.204285, -2.3568144)
+
+[node name="helice4" parent="SubViewport/Node3D/Drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="7" unique_id=476559018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.95071, 117.79578, -2.3337822)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport/Node3D" unique_id=1973087588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84844744, -0.019706726)
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Buttons/LastPanelButton" to="." method="_on_last_panel_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Buttons/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Buttons/NextPanelButton" to="." method="_on_next_panel_button_pressed"]
+
+[editable path="SubViewport/Node3D/Drone"]
