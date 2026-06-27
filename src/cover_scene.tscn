@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://vayvecjqiji1"]
+
+[ext_resource type="Texture2D" uid="uid://dgvr4gmqh6o0i" path="res://assets/textures/ceiling.png" id="1_g8t4v"]
+[ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="2_qwnly"]
+[ext_resource type="PackedScene" uid="uid://s11px57pb05x" path="res://assets/office/exit_sign.glb" id="3_gty8u"]
+[ext_resource type="Texture2D" uid="uid://cf6k4vkhf6nl6" path="res://assets/textures/beige_wall/textures/beige_wall_001_diff_1k.jpg" id="3_qwnly"]
+[ext_resource type="PackedScene" uid="uid://cf4ivfu5my1ts" path="res://assets/models/drone.glb" id="4_2vygw"]
+[ext_resource type="PackedScene" uid="uid://biq3m8ia5q36b" path="res://assets/office/board.glb" id="4_m32d6"]
+[ext_resource type="PackedScene" uid="uid://bisdalsga6xhv" path="res://assets/office/clock.glb" id="5_7ikkt"]
+[ext_resource type="PackedScene" uid="uid://si5qghqo4sg8" path="res://assets/models/citizen.glb" id="5_qgqt4"]
+[ext_resource type="PackedScene" uid="uid://bnnwr4gcxwnls" path="res://assets/office/water_dispenser.glb" id="6_b6s0b"]
+[ext_resource type="PackedScene" uid="uid://t71k7roxukci" path="res://assets/models/securityCamera.glb" id="6_qb1oi"]
+[ext_resource type="FontFile" uid="uid://bogpqwadkb6xv" path="res://assets/fonts/CourierPrime-Regular.ttf" id="7_yps68"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ro753"]
+load_path = "res://.godot/imported/floor_carpet.jpg-3f0fdf874a4f1767f03dc70e061f28c2.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05yyc"]
+albedo_texture = SubResource("CompressedTexture2D_ro753")
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_38hlm"]
+material = SubResource("StandardMaterial3D_05yyc")
+size = Vector3(6, 0.17, 5.895)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8c4ux"]
+data = PackedVector3Array(-3, 0.085, 2.9475, 3, 0.085, 2.9475, -3, -0.085, 2.9475, 3, 0.085, 2.9475, 3, -0.085, 2.9475, -3, -0.085, 2.9475, 3, 0.085, -2.9475, -3, 0.085, -2.9475, 3, -0.085, -2.9475, -3, 0.085, -2.9475, -3, -0.085, -2.9475, 3, -0.085, -2.9475, 3, 0.085, 2.9475, 3, 0.085, -2.9475, 3, -0.085, 2.9475, 3, 0.085, -2.9475, 3, -0.085, -2.9475, 3, -0.085, 2.9475, -3, 0.085, -2.9475, -3, 0.085, 2.9475, -3, -0.085, -2.9475, -3, 0.085, 2.9475, -3, -0.085, 2.9475, -3, -0.085, -2.9475, 3, 0.085, 2.9475, -3, 0.085, 2.9475, 3, 0.085, -2.9475, -3, 0.085, 2.9475, -3, 0.085, -2.9475, 3, 0.085, -2.9475, -3, -0.085, 2.9475, 3, -0.085, 2.9475, -3, -0.085, -2.9475, 3, -0.085, 2.9475, 3, -0.085, -2.9475, -3, -0.085, -2.9475)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buwj1"]
+albedo_texture = ExtResource("1_g8t4v")
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_2vygw"]
+material = SubResource("StandardMaterial3D_buwj1")
+size = Vector3(6, 0.17, 5.895)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qgqt4"]
+data = PackedVector3Array(-3, 0.085, 2.9475, 3, 0.085, 2.9475, -3, -0.085, 2.9475, 3, 0.085, 2.9475, 3, -0.085, 2.9475, -3, -0.085, 2.9475, 3, 0.085, -2.9475, -3, 0.085, -2.9475, 3, -0.085, -2.9475, -3, 0.085, -2.9475, -3, -0.085, -2.9475, 3, -0.085, -2.9475, 3, 0.085, 2.9475, 3, 0.085, -2.9475, 3, -0.085, 2.9475, 3, 0.085, -2.9475, 3, -0.085, -2.9475, 3, -0.085, 2.9475, -3, 0.085, -2.9475, -3, 0.085, 2.9475, -3, -0.085, -2.9475, -3, 0.085, 2.9475, -3, -0.085, 2.9475, -3, -0.085, -2.9475, 3, 0.085, 2.9475, -3, 0.085, 2.9475, 3, 0.085, -2.9475, -3, 0.085, 2.9475, -3, 0.085, -2.9475, 3, 0.085, -2.9475, -3, -0.085, 2.9475, 3, -0.085, 2.9475, -3, -0.085, -2.9475, 3, -0.085, 2.9475, 3, -0.085, -2.9475, -3, -0.085, -2.9475)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b1km"]
+albedo_texture = ExtResource("3_qwnly")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgqt4"]
+material = SubResource("StandardMaterial3D_3b1km")
+size = Vector3(0.17, 3.165, 36.018913)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qb1oi"]
+data = PackedVector3Array(-0.085, 1.5825, 2.9475, 0.085, 1.5825, 2.9475, -0.085, -1.5825, 2.9475, 0.085, 1.5825, 2.9475, 0.085, -1.5825, 2.9475, -0.085, -1.5825, 2.9475, 0.085, 1.5825, -2.9475, -0.085, 1.5825, -2.9475, 0.085, -1.5825, -2.9475, -0.085, 1.5825, -2.9475, -0.085, -1.5825, -2.9475, 0.085, -1.5825, -2.9475, 0.085, 1.5825, 2.9475, 0.085, 1.5825, -2.9475, 0.085, -1.5825, 2.9475, 0.085, 1.5825, -2.9475, 0.085, -1.5825, -2.9475, 0.085, -1.5825, 2.9475, -0.085, 1.5825, -2.9475, -0.085, 1.5825, 2.9475, -0.085, -1.5825, -2.9475, -0.085, 1.5825, 2.9475, -0.085, -1.5825, 2.9475, -0.085, -1.5825, -2.9475, 0.085, 1.5825, 2.9475, -0.085, 1.5825, 2.9475, 0.085, 1.5825, -2.9475, -0.085, 1.5825, 2.9475, -0.085, 1.5825, -2.9475, 0.085, 1.5825, -2.9475, -0.085, -1.5825, 2.9475, 0.085, -1.5825, 2.9475, -0.085, -1.5825, -2.9475, 0.085, -1.5825, 2.9475, 0.085, -1.5825, -2.9475, -0.085, -1.5825, -2.9475)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qb1oi"]
+panorama = ExtResource("2_qwnly")
+
+[sub_resource type="Sky" id="Sky_8c4ux"]
+sky_material = SubResource("PanoramaSkyMaterial_qb1oi")
+
+[sub_resource type="Environment" id="Environment_yps68"]
+background_mode = 2
+sky = SubResource("Sky_8c4ux")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.55
+
+[node name="Node3D" type="Node3D" unique_id=669890693]
+
+[node name="Walls and things" type="Node3D" parent="." unique_id=736913298]
+
+[node name="floor" type="StaticBody3D" parent="Walls and things" unique_id=754236752]
+transform = Transform3D(4.8, 0, 0, 0, 1, 0, 0, 0, 8, 0.27052546, -1.2012014, -20.578484)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls and things/floor" unique_id=1782849486]
+mesh = SubResource("BoxMesh_38hlm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls and things/floor" unique_id=726433983]
+shape = SubResource("ConcavePolygonShape3D_8c4ux")
+
+[node name="floor2" type="StaticBody3D" parent="Walls and things" unique_id=258406813]
+transform = Transform3D(23.04, 0, 0, 0, 1, 0, 0, 0, 64, 1.6773797, 0.755043, -185.20636)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls and things/floor2" unique_id=1937284565]
+mesh = SubResource("BoxMesh_2vygw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls and things/floor2" unique_id=1195597720]
+shape = SubResource("ConcavePolygonShape3D_qgqt4")
+
+[node name="Wall8" type="StaticBody3D" parent="Walls and things" unique_id=2060659477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, -2.357235, 0, -8.751436)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls and things/Wall8" unique_id=91303997]
+mesh = SubResource("BoxMesh_qgqt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls and things/Wall8" unique_id=1708455260]
+shape = SubResource("ConcavePolygonShape3D_qb1oi")
+
+[node name="Wall8" type="StaticBody3D" parent="Walls and things/Wall8" unique_id=2033451608]
+transform = Transform3D(-4.371139e-08, 0, 1.5, 0, 1, 0, -1, 0, -6.556708e-08, -2.357235, 0, -23.38599)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls and things/Wall8/Wall8" unique_id=2100587376]
+mesh = SubResource("BoxMesh_qgqt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls and things/Wall8/Wall8" unique_id=997036142]
+shape = SubResource("ConcavePolygonShape3D_qb1oi")
+
+[node name="Wall9" type="StaticBody3D" parent="Walls and things" unique_id=161583853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 1.377593, 0, -1.0827055)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls and things/Wall9" unique_id=1848963216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.061959)
+mesh = SubResource("BoxMesh_qgqt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls and things/Wall9" unique_id=908982924]
+shape = SubResource("ConcavePolygonShape3D_qb1oi")
+
+[node name="Props" type="Node3D" parent="." unique_id=370923802]
+
+[node name="exit_sign" parent="Props" unique_id=625955586 instance=ExtResource("3_gty8u")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 1.2299733, 0.34808993, 0.8456979)
+
+[node name="board" parent="Props" unique_id=265247447 instance=ExtResource("4_m32d6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2845267, 0, 2.4000244)
+
+[node name="water_dispenser" parent="Props" unique_id=1921425097 instance=ExtResource("6_b6s0b")]
+transform = Transform3D(8.526289e-09, 0, -0.715, 0, 0.715, 0, 0.715, 0, 8.526289e-09, 1.082, -0.42, -10.016)
+
+[node name="clock" parent="Props" unique_id=1592740168 instance=ExtResource("5_7ikkt")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0644815, 0.07399684, -43.669872)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1794180060]
+environment = SubResource("Environment_yps68")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1621183238]
+transform = Transform3D(-4.371139e-08, 0.57357645, -0.81915206, 0, 0.81915206, 0.57357645, 1, 2.5071824e-08, -3.5806274e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=3225475]
+transform = Transform3D(0.815611, -0.13607414, -0.5623722, 0, 0.9719523, -0.235178, 0.57860065, 0.19181377, 0.79273504, -1.5343008, -0.80444896, 2.4211519)
+
+[node name="drone" parent="." unique_id=2135039450 instance=ExtResource("4_2vygw")]
+transform = Transform3D(-0.19, -7.6697955e-09, 1.473354e-08, 0, 0.16853206, 0.08773223, -1.6610327e-08, 0.08773223, -0.16853206, -0.5232712, -0.6274668, 1.2110165)
+
+[node name="blur1" parent="drone/Model" parent_id_path=PackedInt32Array(2135039450, 1970490515) index="0" unique_id=630529518]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, -100, 0, 100, -4.371139e-06, -167.237, -99.93418, -8.672603)
+
+[node name="citizen" parent="." unique_id=1363833822 instance=ExtResource("5_qgqt4")]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, -0.8348006, -1.0820794, 0.6514543)
+
+[node name="Armature" parent="citizen" index="0" unique_id=1083784708]
+transform = Transform3D(0.08176757, 0.0104928985, 0.99659616, 0.087615445, 0.99599755, -0.017675163, -0.99279284, 0.08876247, 0.08052094, -0.011658337, -0.17193599, -0.33787465)
+
+[node name="Skeleton3D" parent="citizen/Armature" index="0" unique_id=1783451799]
+bones/1/rotation = Quaternion(-0.018199125, 0.14120938, 0.030186133, 0.98935217)
+bones/2/rotation = Quaternion(0.025716048, 0.01201967, 0.06985581, 0.99715316)
+bones/3/rotation = Quaternion(0.8377815, 0.5044125, 0.064819016, 0.19871826)
+bones/4/rotation = Quaternion(0.025776759, 0.0075119305, 0.5896704, 0.80719763)
+bones/5/rotation = Quaternion(-0.068729155, -0.21545418, 0.024212172, 0.9737914)
+bones/6/rotation = Quaternion(0.05879037, -2.7372153e-07, -0.009154944, 0.99822843)
+bones/7/rotation = Quaternion(0.9302926, -0.20414962, -0.10653934, -0.28553113)
+bones/8/rotation = Quaternion(-0.0428886, -0.012502, 0.76466006, 0.64288354)
+bones/9/rotation = Quaternion(0.12814315, 0.023815695, -0.05827027, 0.98975587)
+bones/10/rotation = Quaternion(-0.0510131, 1.7799903e-07, -0.008120291, 0.998665)
+bones/11/rotation = Quaternion(0.8002348, -0.58960843, 0.0036930894, 0.10941967)
+bones/12/rotation = Quaternion(0.105785675, -0.061181806, -0.45540985, 0.8818549)
+bones/13/rotation = Quaternion(-0.042103224, 0.016391277, 0.46754616, 0.8828133)
+bones/14/rotation = Quaternion(0.9621675, 0.265851, 0.025412966, -0.05395462)
+bones/15/rotation = Quaternion(-0.06789907, -0.045922786, -0.41716206, 0.90512806)
+bones/16/rotation = Quaternion(-0.5514608, 0.78901666, -0.15418416, -0.22264509)
+
+[node name="Bone_002" parent="citizen/Armature/Skeleton3D" index="0" unique_id=772503521]
+transform = Transform3D(0.9339191, -0.18232119, 0.30749643, 0.19271791, 0.98124796, -0.003514398, -0.30108953, 0.06254223, 0.9515425, -0.09230259, 4.9020896, -0.039109297)
+
+[node name="securityCamera" parent="." unique_id=615957019 instance=ExtResource("6_qb1oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.892, 0.431, -0.407)
+
+[node name="Camera" parent="securityCamera" index="1" unique_id=979252641]
+transform = Transform3D(-0.8625136, -0.22973457, 0.45087945, 0, 0.8910065, 0.45399052, -0.50603384, 0.391573, -0.7685053, 0.00090011954, 0.075001046, -0.08235248)
+
+[node name="OPERATION" type="Label3D" parent="." unique_id=1937489249]
+transform = Transform3D(0.70537245, 0, -0.7436899, -0.25785625, 0.9614158, -0.24457058, 0.6975563, 0.3553936, 0.66161585, -1.004, -0.38, 2.019)
+text = "OPERATION"
+font = ExtResource("7_yps68")
+
+[node name="SPIN" type="Label3D" parent="." unique_id=345781508]
+transform = Transform3D(0.70284694, -0.08795095, -0.09744624, 0.047067642, 0.664339, -0.26012176, 0.12253888, 0.24928567, 0.6588367, -1.39, -0.876, 2.007)
+text = "SPIN"
+font = ExtResource("7_yps68")
+
+[editable path="drone"]
+[editable path="citizen"]
+[editable path="securityCamera"]
