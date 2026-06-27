@@ -72,7 +72,7 @@ size = Vector3(1.8958488, 4.637884, 2.2637024)
 size = Vector3(2.0678785, 5.42642, 1.6665196)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1b36e"]
-size = Vector3(4.841631, 6.85375, 4.9158955)
+size = Vector3(2.4605298, 2.2856128, 2.2631536)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iuhd6"]
 size = Vector3(3.6287036, 8.344497, 2.8141994)
@@ -449,7 +449,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.946398, -0.34657055, -4.143
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D22" unique_id=1091148599]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, -0.053121567, -0.5129713, 0.07857561)
 shape = SubResource("BoxShape3D_1b36e")
 
 [node name="plant" parent="StaticBody3D22" unique_id=1533619936 instance=ExtResource("19_p0eqc")]
@@ -459,7 +459,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.728426, -0.34657055, -25.5
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D23" unique_id=362183435]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5349246, 0)
 shape = SubResource("BoxShape3D_1b36e")
 
 [node name="plant" parent="StaticBody3D23" unique_id=1884520965 instance=ExtResource("19_p0eqc")]

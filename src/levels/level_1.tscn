@@ -172,7 +172,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.55
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv6ei"]
-size = Vector3(4.841631, 6.85375, 4.9158955)
+size = Vector3(2.339253, 2.3707569, 2.5690618)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0n5w"]
 size = Vector3(3.6287036, 8.344497, 2.8141994)
@@ -539,7 +539,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5304477, 0.83293515, 7.723
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D99" unique_id=1451534642]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, -0.039219856, -0.5034102, 0.06993294)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D99" unique_id=1533619936 instance=ExtResource("23_cp87p")]
@@ -549,7 +549,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.360385, 0.83293515, 7.72327
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D100" unique_id=133623445]
-transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0)
+transform = Transform3D(0.22458664, 0, 0, 0, 0.22458664, 0, 0, 0, 0.22458664, 0, -0.5392464, 0)
 shape = SubResource("BoxShape3D_yv6ei")
 
 [node name="plant" parent="StaticBody3D100" unique_id=1518242606 instance=ExtResource("23_cp87p")]
@@ -570,7 +570,7 @@ shape = SubResource("BoxShape3D_j0n5w")
 
 [node name="water_dispenser" parent="StaticBody3D4" unique_id=256615201 instance=ExtResource("25_dccqd")]
 
-[node name="water_dispenser_001" parent="StaticBody3D4/water_dispenser" index="0" unique_id=1390135807]
+[node name="water_dispenser_001" parent="StaticBody3D4/water_dispenser" index="0" unique_id=1103610495]
 transform = Transform3D(-0.23231317, 0, -2.0309463e-08, 0, 0.23231317, 0, 2.0309463e-08, 0, -0.23231317, 0, 0, 0)
 
 [node name="pile_of_paper" parent="." unique_id=1724704399 instance=ExtResource("26_nqqvn")]
@@ -585,11 +585,9 @@ transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.69465
 [connection signal="mode_changed" from="Drone" to="." method="_on_drone_mode_changed"]
 [connection signal="documents_grabbed" from="Documents" to="." method="_on_documents_grabbed"]
 [connection signal="body_entered" from="Lasers/Laser" to="Lasers/Laser" method="_on_body_entered"]
-
-[connection signal="body_entered" from="Lasers/@Area3D@21780" to="Lasers/@Area3D@21780" method="_on_body_entered"]
-[connection signal="body_entered" from="Lasers/@Area3D@21782" to="Lasers/@Area3D@21782" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@170241" to="Lasers/@Area3D@170241" method="_on_body_entered"]
+[connection signal="body_entered" from="Lasers/@Area3D@170243" to="Lasers/@Area3D@170243" method="_on_body_entered"]
 
 [editable path="StaticBody3D99/plant"]
 [editable path="StaticBody3D100/plant"]
 [editable path="StaticBody3D4/water_dispenser"]
-
