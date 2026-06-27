@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://db0w5vap8k4s7"]
 
-[ext_resource type="Script" path="res://src/menus/level_select_menu.gd" id="1_8m7d2"]
+[ext_resource type="Script" uid="uid://cq3sp0r3i5tjq" path="res://src/menus/level_select_menu.gd" id="1_8m7d2"]
 
-[node name="LevelSelectMenu" type="Control"]
+[node name="LevelSelectMenu" type="Control" unique_id=351501074]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8m7d2")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=72373622]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=621941983]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -30,7 +30,7 @@ theme_override_font_sizes/font_size = 44
 text = "Select a level"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=2086173936]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 5
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=2084508030]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

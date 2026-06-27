@@ -2,11 +2,11 @@ extends Control
 
 const BUS_NAMES: Array[String] = ["Master", "Music", "SFX"]
 
-@onready var toggle_button: Button = $ToggleButton
-@onready var panel_container: PanelContainer = $PanelContainer
-@onready var master_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/MasterRow/MasterSlider
-@onready var music_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/MusicRow/MusicSlider
-@onready var sfx_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/SFXRow/SFXSlider
+@onready var toggle_button: Button = %ToggleButton
+@onready var panel_container: PanelContainer = %SettingsPanel
+@onready var master_slider: HSlider = %MasterSlider
+@onready var music_slider: HSlider = %MusicSlider
+@onready var sfx_slider: HSlider = %SFXSlider
 
 func _ready() -> void:
 	AudioSettings._ready()

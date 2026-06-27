@@ -1,100 +1,107 @@
 [gd_scene format=3 uid="uid://c7w8m5q4v2p1n"]
 
-[ext_resource type="Script" path="res://src/menus/audio_settings_menu.gd" id="1_9zp2k"]
+[ext_resource type="Script" uid="uid://cpu78nsf6ylsm" path="res://src/menus/audio_settings_menu.gd" id="1_9zp2k"]
+[ext_resource type="Theme" uid="uid://blpp5nd6x17up" path="res://src/menus/menu_theme.tres" id="1_fcw6x"]
+[ext_resource type="Texture2D" uid="uid://kl63nvs07gtm" path="res://assets/ui/menus/settings_icon.png" id="2_ecg1x"]
 
-[node name="AudioSettingsMenu" type="Control"]
+[node name="AudioSettingsMenu" type="Control" unique_id=2022320159]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 150.0
+theme = ExtResource("1_fcw6x")
 script = ExtResource("1_9zp2k")
 
-[node name="ToggleButton" type="Button" parent="."]
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 48.0
-text = "⚙"
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2035946182]
+layout_mode = 1
+offset_right = 259.0
+offset_bottom = 121.0
+theme_override_constants/separation = 30
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 0.0
-offset_right = 380.0
-offset_bottom = 150.0
+[node name="ToggleButton" type="Button" parent="HBoxContainer" unique_id=118049516]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+icon = ExtResource("2_ecg1x")
+icon_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="SettingsPanel" type="PanelContainer" parent="HBoxContainer" unique_id=1515018350]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SettingsPanel" unique_id=640510866]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/SettingsPanel/MarginContainer" unique_id=61649880]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 8
 
-[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1886759684]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Audio Settings"
 horizontal_alignment = 1
 
-[node name="MasterRow" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MasterRow" type="HBoxContainer" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1243413083]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MasterRow"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_stretch_ratio = 0.8
+[node name="Label" type="Label" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer/MasterRow" unique_id=979831223]
 custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
 text = "Master"
 
-[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MasterRow"]
+[node name="MasterSlider" type="HSlider" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer/MasterRow" unique_id=1107171382]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 min_value = -80.0
 max_value = 0.0
-value = 0.0
 
-[node name="MusicRow" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MusicRow" type="HBoxContainer" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=925226920]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MusicRow"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_stretch_ratio = 0.8
+[node name="Label" type="Label" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer/MusicRow" unique_id=1405179750]
 custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MusicRow"]
+[node name="MusicSlider" type="HSlider" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer/MusicRow" unique_id=608569949]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 min_value = -80.0
 max_value = 0.0
-value = 0.0
 
-[node name="SFXRow" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SFXRow" type="HBoxContainer" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer" unique_id=1040296388]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SFXRow"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_stretch_ratio = 0.8
+[node name="Label" type="Label" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer/SFXRow" unique_id=1979657686]
 custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/SFXRow"]
+[node name="SFXSlider" type="HSlider" parent="HBoxContainer/SettingsPanel/MarginContainer/VBoxContainer/SFXRow" unique_id=1647123569]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 min_value = -80.0
 max_value = 0.0
-value = 0.0

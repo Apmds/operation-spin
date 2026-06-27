@@ -1,29 +1,52 @@
 [gd_scene format=3 uid="uid://ccm2faql2r0lk"]
 
+[ext_resource type="Theme" uid="uid://blpp5nd6x17up" path="res://src/menus/menu_theme.tres" id="1_afn1j"]
 [ext_resource type="Script" uid="uid://dqv3dlv4qk15i" path="res://src/menus/main_menu.gd" id="1_jn3jh"]
+[ext_resource type="PackedScene" uid="uid://c7w8m5q4v2p1n" path="res://src/menus/audio_settings_menu.tscn" id="3_whvqk"]
+[ext_resource type="Texture2D" uid="uid://dmsr6mg5ieg3j" path="res://assets/models/city_rooftop_night_skybox_0.png" id="4_afn1j"]
 
 [node name="MainMenu" type="Control" unique_id=1293673213]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_afn1j")
 script = ExtResource("1_jn3jh")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=979876434]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("4_afn1j")
+stretch_mode = 6
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=531335315]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 406.0
+offset_bottom = 20.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="AudioSettingsMenu" parent="MarginContainer" unique_id=1112802404 instance=ExtResource("3_whvqk")]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=819446241]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -144.5
+offset_right = 203.0
+offset_bottom = 144.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,12 +62,12 @@ horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=491096154]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 45
 text = "Play"
 
-[node name="InstructionsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="InstructionsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=680350375]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 45
 text = "Instructions"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
