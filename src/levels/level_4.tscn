@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cayiv151bfnju" path="res://assets/office/plant.glb" id="23_sr5qx"]
 [ext_resource type="PackedScene" uid="uid://s11px57pb05x" path="res://assets/office/exit_sign.glb" id="24_ro753"]
 [ext_resource type="PackedScene" uid="uid://durwbf01ubjku" path="res://src/guard/guard.tscn" id="27_05yyc"]
+[ext_resource type="PackedScene" uid="uid://dm8gm58xm2ah2" path="res://src/props/door.tscn" id="28_38hlm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmedq"]
 albedo_texture = ExtResource("5_077vk")
@@ -863,6 +864,9 @@ shape = SubResource("BoxShape3D_y5ydj")
 
 [node name="AudioStreamPlayer3D" parent="Guard" index="2" unique_id=1517764653]
 bus = &"Master"
+
+[node name="Door" parent="." unique_id=95672198 instance=ExtResource("28_38hlm")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0.92415166, -1.1164236, 2.8381276)
 
 [connection signal="boost_changed" from="Drone" to="." method="_on_drone_boost_changed"]
 [connection signal="died" from="Drone" to="." method="_on_drone_died"]
