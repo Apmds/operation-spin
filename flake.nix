@@ -16,13 +16,9 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.steam-run
+          packages = with pkgs; [
+            godotPackages_4_7.godot
           ];
-
-          shellHook = ''
-            alias godot="steam-run ./Godot_v4.7-stable_linux.x86_64"
-          '';
         };
       }
     );
